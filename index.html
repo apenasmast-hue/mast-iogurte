@@ -6,133 +6,203 @@
     <title>MAST IOGURTE | Brasília</title>
     <style>
         :root {
-            --bordo: #5a0000;
-            --gold: #d4af37;
+            --primary: #1a2a3a;
+            --accent: #d4af37;
             --bg: #fdfdfd;
+            --card: #ffffff;
         }
+
         body {
             background-color: var(--bg);
-            color: #333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            text-align: center;
+            padding: 0;
         }
+
         header {
-            padding: 40px 20px;
+            padding: 50px 20px;
+            text-align: center;
             background: white;
-            border-bottom: 4px solid var(--bordo);
+            border-bottom: 1px solid #eee;
         }
+
         header h1 {
             font-size: 2.5rem;
             margin: 0;
-            color: var(--bordo);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-weight: 700;
         }
-        /* O Meşhur Üç İkonlu Bölüm */
+
+        /* O Meşhur Üç İkon */
         .features {
             display: flex;
-            justify-content: space-around;
-            padding: 20px 10px;
+            justify-content: center;
+            gap: 20px;
+            padding: 25px;
             background: #f9f9f9;
-            border-bottom: 1px solid #eee;
         }
-        .feat-card {
-            flex: 1;
-        }
-        .feat-card span {
-            font-size: 2rem;
-            display: block;
-        }
-        .feat-card strong {
+
+        .feat-item {
+            text-align: center;
             font-size: 0.8rem;
-            color: var(--bordo);
-            text-transform: uppercase;
+            font-weight: bold;
+            color: #777;
+        }
+
+        .feat-item span {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
         }
 
         .container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 0 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        .product {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            margin-bottom: 12px;
-            background: white;
-            border-radius: 10px;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .product strong { font-size: 1.2rem; }
-        .price { font-size: 1.4rem; font-weight: bold; color: var(--bordo); }
 
-        .address-box {
-            background: var(--bordo);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 30px;
-            text-align: left;
+        /* 2 Sütunlu Ürün Sergileme */
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
-        .btn {
+
+        .product-card {
+            background: var(--card);
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 1px solid #efefef;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .product-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .product-card .ml {
+            color: #aaa;
+            font-size: 0.9rem;
             display: block;
-            padding: 20px;
-            margin: 15px 0;
+            margin-bottom: 15px;
+        }
+
+        .product-card .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Adres Bölümü */
+        .address-section {
+            margin-top: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 25px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .address-section strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Butonlar */
+        .actions {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            margin: 10px;
+            min-width: 200px;
         }
-        .btn-wa { background: #25d366; color: white; }
-        .btn-ifood { background: #ea1d2c; color: white; }
+
+        .btn-wa { background: #25d366; color: white; box-shadow: 0 10px 20px rgba(37,211,102,0.2); }
+        .btn-ifood { background: #ea1d2c; color: white; box-shadow: 0 10px 20px rgba(234,29,44,0.2); }
+
+        footer { padding: 50px; color: #ccc; font-size: 0.8rem; text-align: center; }
+
+        @media (max-width: 600px) {
+            .product-grid { grid-template-columns: 1fr; }
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
     <h1>MAST IOGURTE</h1>
-    <p style="margin:5px 0 0; font-weight:bold; color:var(--gold);">BRASÍLIA • DESDE 1860</p>
+    <p style="color: var(--accent); font-weight: bold; margin: 0;">PREMIUM QUALITY • BRASÍLIA</p>
 </header>
 
 <div class="features">
-    <div class="feat-card"><span>✨</span><strong>Temiz Üretim</strong></div>
-    <div class="feat-card"><span>🛡️</span><strong>Güvenli</strong></div>
-    <div class="feat-card"><span>🏍️</span><strong>Kapınızda</strong></div>
+    <div class="feat-item"><span>✨</span>TEMIZ ÜRETİM</div>
+    <div class="feat-item"><span>🛡️</span>GÜVENLİ</div>
+    <div class="feat-item"><span>🏍️</span>KAPINIZDA</div>
 </div>
 
 <div class="container">
-    <div class="product" style="border-left: 5px solid var(--gold);">
-        <div><strong>1000ml</strong><br><small>Tamanho Família</small></div>
-        <div class="price">R$ 20,00</div>
-    </div>
-    <div class="product">
-        <div><strong>500ml</strong><br><small>Tamanho Médio</small></div>
-        <div class="price">R$ 10,00</div>
-    </div>
-    <div class="product" style="background: #fffdf0; border-color: var(--gold);">
-        <div><strong>250ml</strong><br><small>Individual</small></div>
-        <div class="price">R$ 7,00</div>
-    </div>
-    <div class="product">
-        <div><strong>140ml</strong><br><small>Degustação</small></div>
-        <div class="price">R$ 5,00</div>
+    <div class="product-grid">
+        <div class="product-card" style="border-top: 5px solid var(--accent);">
+            <h3>Familiar</h3>
+            <span class="ml">1000ml (1 Litro)</span>
+            <div class="price">R$ 20,00</div>
+        </div>
+
+        <div class="product-card">
+            <h3>Médio</h3>
+            <span class="ml">500ml</span>
+            <div class="price">R$ 10,00</div>
+        </div>
+
+        <div class="product-card">
+            <h3>Individual</h3>
+            <span class="ml">250ml</span>
+            <div class="price" style="color: var(--accent);">R$ 7,00</div>
+        </div>
+
+        <div class="product-card">
+            <h3>Degustação</h3>
+            <span class="ml">140ml</span>
+            <div class="price">R$ 5,00</div>
+        </div>
     </div>
 
-    <div class="address-box">
-        <div style="font-weight:bold; color:var(--gold); margin-bottom:5px;">📍 ENDEREÇO:</div>
-        Setor de Mansões Dom Bosco, Conjunto 26, Lago Sul, Brasília - DF<br><br>
-        <div style="font-weight:bold; color:var(--gold); margin-bottom:5px;">⏰ HORÁRIO:</div>
-        08:00 - 20:00
+    <div class="address-section">
+        <strong>📍 LOCALIZAÇÃO</strong>
+        Setor de Mansões Dom Bosco, Conjunto 26<br>
+        Lago Sul, Brasília - DF<br><br>
+        <strong>⏰ HORÁRIO</strong>
+        Todos os dias: 08:00 - 20:00
     </div>
 
-    <a href="https://wa.me/5561999851365" class="btn btn-wa">PEDIR NO WHATSAPP</a>
-    <a href="https://wa.me/5561999851365" class="btn btn-ifood">PEDIR NO iFOOD (YAKINDA)</a>
+    <div class="actions">
+        <a href="https://wa.me/5561999851365" class="btn btn-wa">WHATSAPP</a>
+        <a href="https://wa.me/5561999851365" class="btn btn-ifood">iFOOD (EM BREVE)</a>
+    </div>
 </div>
 
-<footer style="margin: 40px 0; color: #ccc; font-size: 0.8rem;">
-    Mast Iogurte & Arroz Doce
+<footer>
+    &copy; 2026 Mast Iogurte & Arroz Doce - Qualidade Superior
 </footer>
 
 </body>
