@@ -2,90 +2,22 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>MAST IOGURTE | Brasília</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAST IOGURTE - Brasília</title>
     <style>
-        :root { --bordo: #5a0000; --silver: #bdc3c7; --ifood: #ea1d2c; --krem: #fcfcfc; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: var(--krem); padding-bottom: 160px; overflow-x: hidden; }
-        
-        header { background: var(--bordo); padding: 40px 20px; text-align: center; border-bottom: 3px solid var(--silver); }
-        header h1 { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 5px; text-transform: uppercase; }
-
-        .promo-banner {
-            background: linear-gradient(90deg, var(--bordo), #900);
-            color: #fff; padding: 15px; text-align: center; margin: 10px; border-radius: 15px;
-            border: 2px solid var(--silver); animation: pulse 2s infinite;
-        }
-
-        .container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; max-width: 800px; margin: 0 auto; }
-        .card { background: #fff; border-radius: 15px; border: 1px solid var(--silver); overflow: hidden; }
-        .img-box { height: 110px; background: #eee; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .info { padding: 8px; }
-        .info h2 { font-size: 15px; color: var(--bordo); text-align: center; margin-bottom: 8px; font-family: 'Playfair Display', serif; }
-
-        .opt { 
-            background: #f8f9fa; border: 1px solid #eee; border-radius: 8px; 
-            padding: 8px; margin-bottom: 4px; display: block; font-size: 10px; 
-            font-weight: 700; color: #333; text-decoration: none;
-        }
-        .opt b { color: var(--bordo); float: right; }
-        .best { border: 1.5px solid #d32f2f !important; background: #fff5f5 !important; }
-
-        .actions { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 450px; display: flex; flex-direction: column; gap: 8px; }
-        .btn { padding: 16px; border-radius: 50px; text-align: center; font-weight: 900; text-decoration: none; color: #fff; font-size: 14px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .btn-wa { background: var(--bordo); border: 1px solid var(--silver); }
-        .btn-if { background: var(--ifood); }
-
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+        body { background: #5a0000; color: white; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .container { border: 5px solid #bdc3c7; display: inline-block; padding: 30px; border-radius: 20px; }
+        .btn { display: block; background: white; color: #5a0000; padding: 15px; margin: 10px; text-decoration: none; font-weight: bold; border-radius: 10px; }
+        .promo { background: #ffd700; color: black; padding: 10px; margin-bottom: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
-
-    <header><h1>MAST IOGURTE</h1></header>
-
-    <div class="promo-banner">
-        <h4>🎁 COMPROU 1L, GANHOU DOCE!</h4>
-        <p style="font-size: 11px;">1 Litro de Iogurte = 140ml Arroz Doce <b>GRÁTIS</b></p>
+    <div class="container">
+        <h1>MAST IOGURTE</h1>
+        <p>Brasília - Desde 1860</p>
+        <div class="promo">🎁 PROMOÇÃO: COMPROU 1L, GANHA 140ml DE ARROZ DOCE!</div>
+        <a href="https://wa.me/5561999851365" class="btn">PEDIR PELO WHATSAPP</a>
+        <a href="https://www.ifood.com.br" class="btn" style="background:#ea1d2c; color:white;">PEDIR PELO iFOOD</a>
     </div>
-
-    <main class="container">
-        <div class="card">
-            <div class="img-box"><img src="https://www.gltglassbottle.com/wp-content/uploads/0141d2e7-28.webp"></div>
-            <div class="info">
-                <h2>Iogurte</h2>
-                <a href="#" onclick="order('Iogurte', '140ml', 8)" class="opt">140ml <b>R$8</b></a>
-                <a href="#" onclick="order('Iogurte', '500ml', 12)" class="opt">500ml <b>R$12</b></a>
-                <a href="#" onclick="order('Iogurte (BRINDE)', '1L', 20)" class="opt best">1 Litro <b>R$20</b></a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="img-box"><img src="https://dakikatarif.com/wp-content/uploads/pirinc-unu-olmadan-sutlac-tarifi.jpg"></div>
-            <div class="info">
-                <h2>Arroz Doce</h2>
-                <a href="#" onclick="order('Arroz Doce', '140ml', 7)" class="opt">140ml <b>R$7</b></a>
-                <a href="#" onclick="order('Arroz Doce', '500ml', 11)" class="opt">500ml <b>R$11</b></a>
-                <a href="#" onclick="order('Arroz Doce', '1L', 20)" class="opt">1 Litro <b>R$20</b></a>
-            </div>
-        </div>
-    </main>
-
-    <div class="actions">
-        <a href="https://www.ifood.com.br" class="btn btn-if"><i class="fas fa-motorcycle"></i> iFOOD</a>
-        <a href="https://wa.me/5561999851365" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WHATSAPP (BRINDE)</a>
-    </div>
-
-    <script>
-        function order(it, sz, pr) {
-            const sh = 8.00; const tt = pr + sh;
-            const br = (it.includes('BRINDE')) ? "\n🎁 BRINDE: 140ml Arroz Doce" : "";
-            const msg = `Mast Iogurte 1860\n----------------\nItem: ${it}\nTam: ${sz}${br}\nTotal c/ Frete: R$ ${tt.toFixed(2)}`;
-            window.location.href = `https://wa.me/5561999851365?text=${encodeURIComponent(msg)}`;
-        }
-    </script>
 </body>
 </html>
