@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | 1860</title>
+    <title>MAST IOGURTE | Brasília</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&display=swap');
 
@@ -11,6 +11,7 @@
             --vintage-bg: #fdfaf5;
             --gold: #b89550;
             --ink: #1a1a1a;
+            --white: #ffffff;
         }
 
         body {
@@ -19,54 +20,60 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         header {
             text-align: center;
             padding: 30px 10px;
-            background: #fff;
+            background: var(--white);
             border-bottom: 3px double var(--gold);
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin: 0;
-            letter-spacing: 2px;
         }
 
         /* 1800s RETRO ICONS */
         .retro-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             padding: 15px;
-            background: #fff;
+            background: var(--white);
             border-bottom: 1px solid #ddd;
         }
 
-        .icon-item { text-align: center; font-size: 0.65rem; font-weight: bold; color: var(--gold); }
-        .icon-item span { display: block; font-size: 1.5rem; filter: sepia(1); }
+        .icon-item { text-align: center; font-size: 0.6rem; font-weight: bold; color: var(--gold); }
+        .icon-item span { display: block; font-size: 1.4rem; filter: sepia(1); }
 
         .container {
             max-width: 950px;
             margin: 20px auto;
-            padding: 0 10px;
+            padding: 0 5px;
         }
 
         /* ZORUNLU 2 SÜTUN SİSTEMİ */
         .split-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* HER ZAMAN 2 SÜTUN */
+            grid-template-columns: 1fr 1fr; 
             gap: 10px;
             align-items: start;
         }
 
         .column {
-            background: #fff;
+            background: var(--white);
             border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 8px;
+            overflow: hidden; /* Taşmayı engeller */
+        }
+
+        /* FOTOĞRAF AYARLARI (TAŞMA YAPMAZ) */
+        .product-img {
+            width: 100%;
+            height: 150px; /* Sabit yükseklik */
+            object-fit: cover; /* Fotoğrafı kesmeden sığdırır */
             border-radius: 8px;
-            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #eee;
+            display: block;
         }
 
         .column-header {
@@ -74,12 +81,11 @@
             font-size: 1.2rem;
             text-align: center;
             border-bottom: 2px solid var(--gold);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             padding-bottom: 5px;
-            color: var(--ink);
         }
 
-        /* Ürün Kartları */
+        /* Ürün Listesi */
         .item-card {
             border-bottom: 1px solid #eee;
             padding: 10px 0;
@@ -88,18 +94,16 @@
             align-items: center;
         }
 
-        .item-card:last-child { border-bottom: none; }
-
-        .item-ml { font-size: 0.85rem; font-weight: bold; color: #555; }
+        .item-ml { font-size: 0.8rem; font-weight: bold; color: #555; }
         .item-price { font-size: 1.1rem; font-weight: 800; color: var(--gold); }
 
-        /* Adres ve Butonlar */
+        /* Footer Bilgileri */
         .footer-info {
             text-align: center;
             margin-top: 30px;
             padding: 20px;
-            background: #fff;
-            border-radius: 10px;
+            background: var(--white);
+            border-radius: 15px;
         }
 
         .btn {
@@ -118,14 +122,13 @@
         .btn-ifood { background: #ea1d2c; color: white; }
 
         footer { text-align: center; padding: 20px; font-size: 0.7rem; color: #999; }
-
     </style>
 </head>
 <body>
 
 <header>
-    <h1>MAST IOGURTE</h1>
-    <p style="color: var(--gold); font-weight: bold; margin:0;">BRASÍLIA • DESDE 1860</p>
+    <h1 style="font-family:'Playfair Display'; margin:0;">MAST IOGURTE</h1>
+    <p style="color: var(--gold); font-weight: bold; margin:0; font-size: 0.8rem;">BRASÍLIA • DESDE 1860</p>
 </header>
 
 <div class="retro-icons">
@@ -138,6 +141,7 @@
     <div class="split-layout">
         
         <div class="column">
+            <img src="yogurt.jpg" alt="Iogurte Mast" class="product-img">
             <div class="column-header">🍦 IOGURTE</div>
             <div class="item-card">
                 <span class="item-ml">1000ml</span>
@@ -158,6 +162,7 @@
         </div>
 
         <div class="column">
+            <img src="sutlac.jpg" alt="Arroz Doce Mast" class="product-img">
             <div class="column-header">🍚 ARROZ DOCE</div>
             <div class="item-card">
                 <span class="item-ml">1000ml</span>
@@ -188,7 +193,7 @@
 </div>
 
 <footer>
-    Mast Iogurte & Arroz Doce • Qualidade Superior
+    Mast Iogurte & Arroz Doce • O Sabor de Brasília
 </footer>
 
 </body>
