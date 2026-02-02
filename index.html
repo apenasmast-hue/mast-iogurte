@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MAST IOGURTE | Gourmet Delivery</title>
+    <title>MAST IOGURTE | Gourmet Order</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&family=Courier+Prime&display=swap');
 
@@ -24,114 +24,102 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        #status-bar { padding: 10px; font-weight: 700; font-size: 0.75rem; color: white; text-align: center; position: sticky; top: 0; z-index: 2000; }
+        /* ÜST BİLGİ */
+        #status-bar { padding: 10px; font-weight: 700; font-size: 0.8rem; color: white; text-align: center; position: sticky; top: 0; z-index: 1001; }
+        header { background: var(--white); padding: 20px; border-bottom: 5px double var(--gold); text-align: center; }
+        .logo-wrapper { max-width: 100px; margin: 0 auto 10px; }
+        .logo-wrapper img { width: 100%; height: auto; border-radius: 50%; border: 2px solid var(--gold); }
 
-        /* ANA LAYOUT */
+        /* ANA DÜZEN (MASAÜSTÜNDE YAN YANA) */
         .main-layout {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
+            max-width: 1100px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 1fr 350px; /* Ürünler | Fiş */
             gap: 30px;
-            padding: 20px;
+            padding: 0 15px 100px;
         }
-
-        .products-side { flex: 1; padding-bottom: 150px; } /* Mobil pay için boşluk */
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--gold);
-            margin: 20px 0;
-            border-bottom: 2px solid var(--gold);
-            display: block;
+            margin: 20px 0 15px;
+            border-bottom: 1px solid var(--gold);
+            display: inline-block;
         }
 
-        .products-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
+        /* ÜRÜN KARTLARI */
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .product-card {
-            background: var(--white);
-            border: 1px solid rgba(184, 149, 80, 0.2);
-            border-radius: 15px;
-            padding: 12px;
-            text-align: center;
+            background: var(--white); border: 1px solid rgba(184, 149, 80, 0.15);
+            border-radius: 15px; padding: 12px; text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
-
         .img-box { width: 100%; aspect-ratio: 1; border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        .price-tag { color: var(--gold); font-weight: 800; font-size: 1.1rem; margin: 10px 0; }
+        .gram-select {
+            width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #eee;
+            margin: 8px 0; font-family: 'Poppins'; font-size: 0.8rem;
+        }
 
         .add-btn {
             background: var(--ink); color: white; border: none; padding: 10px;
             border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%;
-            text-transform: uppercase; font-size: 0.7rem;
+            transition: 0.2s; text-transform: uppercase; font-size: 0.75rem;
         }
+        .add-btn:hover { background: var(--gold); }
 
-        /* SAĞ SÜTUN (MASAÜSTÜ) */
-        .sidebar-sticky {
-            width: 350px;
+        /* --- SABİT FİŞ SİSTEMİ --- */
+        .receipt-sidebar {
             position: sticky;
-            top: 60px;
+            top: 80px; /* Header'dan sonra başlar */
             height: fit-content;
         }
 
         .receipt-container {
             background: var(--paper);
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 2px;
+            padding: 25px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
             font-family: 'Courier Prime', monospace;
             border: 1px solid #eee;
-            position: relative;
+        }
+        .receipt-container::after {
+            content: ""; position: absolute; bottom: -10px; left: 0; width: 100%; height: 10px;
+            background-image: linear-gradient(-45deg, var(--bg) 5px, transparent 0), linear-gradient(45deg, var(--bg) 5px, transparent 0);
+            background-size: 10px 10px;
         }
 
         .receipt-header { border-bottom: 1px dashed #ccc; padding-bottom: 10px; margin-bottom: 15px; text-align: center; }
-        .receipt-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.8rem; }
-        .total-row { border-top: 2px dashed #ccc; padding-top: 10px; display: flex; justify-content: space-between; font-weight: 900; font-size: 1.2rem; }
+        .receipt-item { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem; }
+        .receipt-total-section { border-top: 1px dashed #ccc; padding-top: 12px; margin-top: 12px; }
+        .total-row { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; }
 
-        .sidebar-logo { margin-top: 20px; text-align: center; }
-        .sidebar-logo img { width: 120px; border-radius: 50%; border: 2px solid var(--gold); background: white; }
-
-        /* MOBİL WHATSAPP & FİŞ BARI */
-        .mobile-order-wrapper {
+        /* MOBİL WHATSAPP BUTONU */
+        .order-bar {
             position: fixed; bottom: 0; left: 0; width: 100%;
-            background: var(--white);
+            background: var(--white); padding: 15px;
             box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-            z-index: 3000;
-            display: none; /* Masaüstünde gizli */
-            flex-direction: column;
-            border-radius: 20px 20px 0 0;
+            display: flex; justify-content: center; z-index: 2000;
         }
-
-        .mobile-total-bar {
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 700;
-            border-bottom: 1px solid #eee;
-        }
-
         #order-btn {
             background: var(--wa); color: white; text-decoration: none;
-            padding: 15px; border-radius: 50px; font-weight: 800;
-            margin: 10px 20px 20px; text-align: center;
-            text-transform: uppercase; font-size: 0.9rem;
+            padding: 15px; border-radius: 50px; font-weight: 700;
+            width: 100%; max-width: 400px; text-align: center;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
 
-        /* MOBİL GÖRÜNÜM AYARLARI */
+        /* MOBİL AYARLAR */
         @media (max-width: 900px) {
-            .main-layout { flex-direction: column; padding: 10px; }
-            .sidebar-sticky { display: none; } /* Masaüstü fişi gizle */
-            .mobile-order-wrapper { display: flex; } /* Mobil fişi göster */
-            .products-container { grid-template-columns: 1fr 1fr; }
+            .main-layout { grid-template-columns: 1fr; }
+            .receipt-sidebar { position: relative; top: 0; margin-top: 30px; }
+            .product-grid { grid-template-columns: 1fr 1fr; }
         }
-
         @media (max-width: 500px) {
-            .products-container { grid-template-columns: 1fr; }
+            .product-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -139,104 +127,127 @@
 
 <div id="status-bar">CARREGANDO...</div>
 
+<header>
+    <div class="logo-wrapper"><img src="logo.png" alt="Mast Iogurte"></div>
+    <div style="font-family:'Playfair Display'; font-size: 1.4rem; font-weight: 900;">MAST IOGURTE</div>
+    <div style="color:var(--gold); font-size: 0.7rem; font-weight: 700;">LAGO SUL • BRASÍLIA</div>
+</header>
+
 <div class="main-layout">
+    
     <div class="products-side">
         <h2 class="section-title">Iogurtes</h2>
-        <div class="products-container">
+        <div class="product-grid">
             <div class="product-card">
                 <div class="img-box"><img src="yogurt.jpg"></div>
-                <h4 style="font-family:'Playfair Display';">Tradicional 1L</h4>
-                <div class="price-tag">R$ 20,00</div>
-                <button class="add-btn" onclick="addToCart('Iogurte 1L', 20)">ADICIONAR +</button>
+                <h4 style="font-size:0.9rem;">Iogurte Tradicional</h4>
+                <select id="sel-iog" class="gram-select">
+                    <option value="1000ML|20">1000 ML - R$ 20</option>
+                    <option value="500ML|10">500 ML - R$ 10</option>
+                    <option value="250ML|7">250 ML - R$ 7</option>
+                </select>
+                <button class="add-btn" onclick="addToCart('Iogurte Trad.', 'sel-iog')">ADICIONAR +</button>
             </div>
             <div class="product-card">
                 <div class="img-box"><img src="yogurt.jpg"></div>
-                <h4 style="font-family:'Playfair Display';">Tradicional 500ML</h4>
-                <div class="price-tag">R$ 10,00</div>
-                <button class="add-btn" onclick="addToCart('Iogurte 500ML', 10)">ADICIONAR +</button>
+                <h4 style="font-size:0.9rem;">Iogurte Desnatado</h4>
+                <select id="sel-des" class="gram-select">
+                    <option value="1000ML|22">1000 ML - R$ 22</option>
+                    <option value="500ML|12">500 ML - R$ 12</option>
+                </select>
+                <button class="add-btn" onclick="addToCart('Iogurte Desn.', 'sel-des')">ADICIONAR +</button>
             </div>
         </div>
 
         <h2 class="section-title">Arroz Doce</h2>
-        <div class="products-container">
+        <div class="product-grid">
             <div class="product-card">
                 <div class="img-box"><img src="sutlac.jpg"></div>
-                <h4 style="font-family:'Playfair Display';">Arroz Médio</h4>
-                <div class="price-tag">R$ 10,00</div>
-                <button class="add-btn" onclick="addToCart('Arroz Médio', 10)">ADICIONAR +</button>
+                <h4 style="font-size:0.9rem;">Arroz Doce</h4>
+                <select id="sel-arr" class="gram-select">
+                    <option value="Família|20">Família - R$ 20</option>
+                    <option value="Médio|10">Médio - R$ 10</option>
+                    <option value="Pequeno|5">Pequeno - R$ 5</option>
+                </select>
+                <button class="add-btn" onclick="addToCart('Arroz Doce', 'sel-arr')">ADICIONAR +</button>
             </div>
         </div>
     </div>
 
-    <div class="sidebar-sticky">
-        <div class="receipt-container">
+    <div class="receipt-sidebar">
+        <div class="receipt-container" id="receipt">
             <div class="receipt-header">
-                <div style="font-weight: 900; letter-spacing: 1px;">MAST IOGURTE</div>
-                <div style="font-size: 0.6rem; margin-top: 5px;">LAGO SUL, DF</div>
+                <div style="font-weight: 900;">*** MAST IOGURTE ***</div>
+                <div style="font-size: 0.6rem; margin-top: 5px;" id="receipt-date">AGUARDANDO...</div>
             </div>
-            <div id="desktop-items" style="min-height: 50px;">
-                <div style="text-align:center; color:#ccc; font-size:0.7rem;">CARRINHO VAZIO</div>
+            
+            <div id="cart-items" style="min-height: 50px;">
+                <div style="text-align:center; color:#ccc; font-size:0.7rem; padding: 10px;">CARRINHO VAZIO</div>
             </div>
-            <div class="total-row" style="margin-top:15px; font-size: 1rem;">
-                <span>TOTAL:</span><span class="final-price">R$ 10,00</span>
+
+            <div class="receipt-total-section">
+                <div class="receipt-item"><span>Subtotal:</span><span id="subtotal">R$ 0,00</span></div>
+                <div class="receipt-item"><span>Delivery:</span><span id="delivery-fee">R$ 10,00</span></div>
+                <div class="total-row"><span>TOTAL:</span><span id="total-price">R$ 10,00</span></div>
             </div>
-        </div>
-        <div class="sidebar-logo">
-            <img src="logo.png" alt="Logo">
+            
+            <button onclick="clearCart()" style="background:none; border:none; color:#e74c3c; font-size:0.6rem; cursor:pointer; margin-top:10px; width:100%; font-family:'Courier Prime';"> [ LIMPAR CARRINHO ] </button>
         </div>
     </div>
+
 </div>
 
-<div class="mobile-order-wrapper">
-    <div class="mobile-total-bar">
-        <span>SEU PEDIDO:</span>
-        <span class="final-price" style="color:var(--gold); font-size:1.2rem;">R$ 10,00</span>
-    </div>
-    <a href="javascript:void(0)" id="order-btn" onclick="sendWhatsApp()">PEDIR VIA WHATSAPP</a>
+<div class="order-bar">
+    <a href="javascript:void(0)" id="order-btn" onclick="sendWhatsApp()">FECHAR PEDIDO NO WHATSAPP</a>
 </div>
 
 <script>
     let cart = [];
     const deliveryFee = 10.00;
 
-    function addToCart(name, price) {
-        cart.push({name, price});
-        updateUI();
+    function addToCart(baseName, elementId) {
+        const el = document.getElementById(elementId);
+        const [variant, price] = el.value.split('|');
+        cart.push({name: `${baseName} ${variant}`, price: parseFloat(price)});
+        updateReceipt();
     }
 
-    function updateUI() {
-        const desktopItems = document.getElementById('desktop-items');
-        const finalPrices = document.querySelectorAll('.final-price');
-        
-        let subtotal = 0;
-        let itemsHtml = "";
-        
-        cart.forEach(item => {
-            subtotal += item.price;
-            itemsHtml += `<div class="receipt-item"><span>${item.name}</span><b>R$ ${item.price.toFixed(2)}</b></div>`;
-        });
+    function clearCart() {
+        cart = [];
+        updateReceipt();
+    }
 
-        const total = subtotal + deliveryFee;
-
-        // Masaüstü listesi güncelle
-        if (cart.length > 0) {
-            desktopItems.innerHTML = itemsHtml;
-        } else {
-            desktopItems.innerHTML = '<div style="text-align:center; color:#ccc; font-size:0.7rem;">CARRINHO VAZIO</div>';
+    function updateReceipt() {
+        const itemsDiv = document.getElementById('cart-items');
+        const subtotalSpan = document.getElementById('subtotal');
+        const totalSpan = document.getElementById('total-price');
+        document.getElementById('receipt-date').innerText = new Date().toLocaleTimeString();
+        
+        if (cart.length === 0) {
+            itemsDiv.innerHTML = '<div style="text-align:center; color:#ccc; font-size:0.7rem; padding: 10px;">CARRINHO VAZIO</div>';
+            subtotalSpan.innerText = "R$ 0,00";
+            totalSpan.innerText = "R$ 10,00";
+            return;
         }
 
-        // Tüm total alanlarını güncelle
-        finalPrices.forEach(el => {
-            el.innerText = `R$ ${total.toFixed(2)}`;
+        itemsDiv.innerHTML = "";
+        let subtotal = 0;
+        cart.forEach(item => {
+            subtotal += item.price;
+            itemsDiv.innerHTML += `<div class="receipt-item"><span>${item.name}</span><b>R$ ${item.price.toFixed(2)}</b></div>`;
         });
+
+        subtotalSpan.innerText = `R$ ${subtotal.toFixed(2)}`;
+        totalSpan.innerText = `R$ ${(subtotal + deliveryFee).toFixed(2)}`;
     }
 
     function sendWhatsApp() {
         if (cart.length === 0) return alert("Adicione produtos!");
-        let text = "*MAST IOGURTE - PEDIDO*%0A%0A";
+        let text = "*MAST IOGURTE - PEDIDO GOURMET*%0A%0A";
         let sub = 0;
         cart.forEach(i => { text += `• ${i.name}: R$ ${i.price.toFixed(2)}%0A`; sub += i.price; });
-        text += `%0A*Total c/ Entrega:* R$ ${(sub + deliveryFee).toFixed(2)}%0A%0A*Endereço:* `;
+        const total = sub + deliveryFee;
+        text += `%0A*Subtotal:* R$ ${sub.toFixed(2)}%0A*Delivery:* R$ ${deliveryFee.toFixed(2)}%0A*TOTAL:* R$ ${total.toFixed(2)}%0A%0A*Endereço:* `;
         window.open(`https://wa.me/5561999851365?text=${text}`, '_blank');
     }
 
