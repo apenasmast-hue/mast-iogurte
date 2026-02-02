@@ -3,151 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Nossa História</title>
+    <title>MAST IOGURTE | Brasília</title>
     <style>
         :root {
-            --primary: #1a2a3a;
-            --accent: #d4af37;
-            --bg: #ffffff;
-            --light: #f8f9fa;
+            --bordo: #5a0000;
+            --gold: #d4af37;
+            --bg: #fdfdfd;
         }
-
         body {
             background-color: var(--bg);
             color: #333;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             text-align: center;
-            line-height: 1.6;
         }
-
         header {
             padding: 40px 20px;
             background: white;
-            border-bottom: 2px solid var(--accent);
+            border-bottom: 4px solid var(--bordo);
         }
-
-        .history-section {
-            background: #fffdf5;
-            padding: 50px 20px;
-            margin: 20px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            font-style: italic;
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--bordo);
+            letter-spacing: 2px;
         }
-
-        .history-text {
-            max-width: 700px;
-            margin: 0 auto;
-            color: #444;
-            font-size: 1.1rem;
-            text-align: justify;
-        }
-
+        /* O Meşhur Üç İkonlu Bölüm */
         .features {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 30px 10px;
+            justify-content: space-around;
+            padding: 20px 10px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #eee;
         }
-
-        .feature-card {
-            background: white;
-            padding: 15px 10px;
-            border-radius: 15px;
-            border: 1px solid #eee;
+        .feat-card {
             flex: 1;
-            max-width: 110px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .feat-card span {
+            font-size: 2rem;
+            display: block;
+        }
+        .feat-card strong {
+            font-size: 0.8rem;
+            color: var(--bordo);
+            text-transform: uppercase;
         }
 
         .container {
             max-width: 600px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 0 15px;
         }
-
-        .price-item {
+        .product {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px;
-            margin-bottom: 10px;
+            padding: 20px;
+            margin-bottom: 12px;
             background: white;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
+        .product strong { font-size: 1.2rem; }
+        .price { font-size: 1.4rem; font-weight: bold; color: var(--bordo); }
 
-        .price-tag {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--primary);
+        .address-box {
+            background: var(--bordo);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: left;
         }
-
-        .order-btn {
+        .btn {
             display: block;
             padding: 20px;
-            background: #25d366;
-            color: white;
-            text-decoration: none;
+            margin: 15px 0;
             border-radius: 50px;
+            text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
-            margin-top: 20px;
         }
-
-        footer { padding: 40px; color: #999; font-size: 0.8rem; }
+        .btn-wa { background: #25d366; color: white; }
+        .btn-ifood { background: #ea1d2c; color: white; }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
-    <h1 style="font-size: 2.5rem; color: var(--primary); margin: 0;">MAST IOGURTE</h1>
-    <p style="color: var(--accent); font-weight: bold; letter-spacing: 2px;">UMA LENDA DESDE 1860</p>
+    <h1>MAST IOGURTE</h1>
+    <p style="margin:5px 0 0; font-weight:bold; color:var(--gold);">BRASÍLIA • DESDE 1860</p>
 </header>
 
-<section class="history-section">
-    <div class="history-text">
-        <h2 style="text-align: center; color: var(--primary);">Nossa Essência</h2>
-        "Em 1860, quando o tempo ainda corria devagar, nascia um segredo guardado pelo silêncio das manhãs. Não era apenas leite; era a pureza da terra transformada em poesia líquida. Enquanto Dostoiévski mergulhava nas profundezas da alma humana, nós mergulhávamos na busca pela perfeição do sabor. Cada colherada do nosso iogurte é um capítulo de um livro que nunca termina — uma harmonia entre a tradição ancestral e o frescor da aurora. Atravessamos oceanos e gerações para trazer a Brasília não um produto, mas uma memória afetiva que abraça o coração."
-    </div>
-</section>
-
 <div class="features">
-    <div class="feature-card"><span>✨</span><strong>Limpeza</strong></div>
-    <div class="feature-card"><span>🛡️</span><strong>Segurança</strong></div>
-    <div class="feature-card"><span>🏍️</span><strong>Entrega</strong></div>
+    <div class="feat-card"><span>✨</span><strong>Temiz Üretim</strong></div>
+    <div class="feat-card"><span>🛡️</span><strong>Güvenli</strong></div>
+    <div class="feat-card"><span>🏍️</span><strong>Kapınızda</strong></div>
 </div>
 
 <div class="container">
-    <div class="price-item" style="border-left: 5px solid var(--accent);">
-        <strong>1000ml (Família)</strong>
-        <div class="price-tag">R$ 20,00</div>
+    <div class="product" style="border-left: 5px solid var(--gold);">
+        <div><strong>1000ml</strong><br><small>Tamanho Família</small></div>
+        <div class="price">R$ 20,00</div>
     </div>
-    <div class="price-item">
-        <strong>500ml (Médio)</strong>
-        <div class="price-tag">R$ 10,00</div>
+    <div class="product">
+        <div><strong>500ml</strong><br><small>Tamanho Médio</small></div>
+        <div class="price">R$ 10,00</div>
     </div>
-    <div class="price-item">
-        <strong>250ml (Individual)</strong>
-        <div class="price-tag">R$ 7,00</div>
+    <div class="product" style="background: #fffdf0; border-color: var(--gold);">
+        <div><strong>250ml</strong><br><small>Individual</small></div>
+        <div class="price">R$ 7,00</div>
     </div>
-    <div class="price-item">
-        <strong>140ml (Degustação)</strong>
-        <div class="price-tag">R$ 5,00</div>
-    </div>
-
-    <div style="background: var(--light); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left;">
-        <strong>📍 Lago Sul:</strong> SMDB, Conjunto 26, Brasília - DF<br>
-        <strong>⏰ Aberto:</strong> 08:00 - 20:00
+    <div class="product">
+        <div><strong>140ml</strong><br><small>Degustação</small></div>
+        <div class="price">R$ 5,00</div>
     </div>
 
-    <a href="https://wa.me/5561999851365" class="order-btn">PEDIR ESTA RELÍQUIA</a>
+    <div class="address-box">
+        <div style="font-weight:bold; color:var(--gold); margin-bottom:5px;">📍 ENDEREÇO:</div>
+        Setor de Mansões Dom Bosco, Conjunto 26, Lago Sul, Brasília - DF<br><br>
+        <div style="font-weight:bold; color:var(--gold); margin-bottom:5px;">⏰ HORÁRIO:</div>
+        08:00 - 20:00
+    </div>
+
+    <a href="https://wa.me/5561999851365" class="btn btn-wa">PEDIR NO WHATSAPP</a>
+    <a href="https://wa.me/5561999851365" class="btn btn-ifood">PEDIR NO iFOOD (YAKINDA)</a>
 </div>
 
-<footer>
-    <p>Mast Iogurte & Arroz Doce - Tradição que o tempo não apaga.</p>
+<footer style="margin: 40px 0; color: #ccc; font-size: 0.8rem;">
+    Mast Iogurte & Arroz Doce
 </footer>
 
 </body>
