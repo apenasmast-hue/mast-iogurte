@@ -3,136 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Premium Brasília</title>
+    <title>MAST IOGURTE | Premium</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;700&display=swap');
-
-        :root {
-            --bg: #fdfaf5;
-            --gold: #b89550;
-            --ink: #1a1a1a;
-            --wa: #25d366;
-            --red: #e74c3c;
-            --green: #2ecc71;
-        }
-
-        body { background-color: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; margin: 0; padding: 0; text-align: center; }
-
-        /* DİNAMİK DURUM ÇUBUĞU */
-        #status-bar {
-            padding: 12px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header { padding: 40px 20px; background: white; border-bottom: 5px double var(--gold); }
+        :root { --gold: #b89550; --ink: #1a1a1a; --white: #ffffff; --bg: #fdfaf5; }
+        body { background-color: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; margin: 0; text-align: center; }
+        
+        header { padding: 50px 20px; background: var(--white); border-bottom: 5px double var(--gold); }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; letter-spacing: 3px; }
+        
         .container { max-width: 800px; margin: 20px auto; padding: 0 15px; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+        .card { background: white; border-radius: 20px; padding: 15px; border: 1px solid rgba(184,149,80,0.2); }
+        .cat-title { font-family: 'Playfair Display', serif; color: var(--gold); border-bottom: 2px solid var(--gold); margin-bottom: 10px; }
+        
+        .price-line { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .price-line b { color: var(--gold); }
 
-        /* ÜRÜNLER */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
-        .card { background: white; border-radius: 20px; padding: 15px; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .img-box { width: 100%; aspect-ratio: 1; background: #fafafa; border-radius: 15px; overflow: hidden; margin-bottom: 10px; }
-        .img-box img { width: 100%; height: 100%; object-fit: contain; }
-
-        /* ÖZEL SET VE ABONELİK */
-        .special-box { background: #f9f4e8; border: 2px solid var(--gold); border-radius: 20px; padding: 25px; margin: 20px 0; }
-        .sub-box { background: var(--ink); color: white; border-radius: 20px; padding: 25px; margin: 20px 0; }
-
-        /* BUTON */
-        #order-btn {
-            display: block;
-            background: var(--wa);
-            color: white;
-            padding: 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 20px rgba(37,211,102,0.3);
-            transition: 0.3s;
-        }
-
-        .btn-off { background: #999 !important; pointer-events: none; opacity: 0.7; }
-
-        footer { padding: 40px; font-size: 0.7rem; color: #bbb; letter-spacing: 1px; }
+        .kit-box { background: #f9f4e8; border: 3px solid var(--gold); border-radius: 25px; padding: 25px; margin: 25px 0; }
+        .sub-box { background: var(--ink); color: white; border-radius: 25px; padding: 25px; margin-bottom: 30px; }
+        
+        .btn-wa { display: block; background: #25d366; color: white; padding: 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; box-shadow: 0 10px 20px rgba(37,211,102,0.3); }
+        
+        footer { padding: 40px; font-size: 0.7rem; color: #999; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
-<div id="status-bar">CARREGANDO...</div>
-
 <header>
-    <h1 style="font-family:'Playfair Display'; margin:0;">MAST IOGURTE</h1>
-    <div style="color:var(--gold); font-weight:700; margin-top:5px;">LAGO SUL • 11:00 - 23:00</div>
+    <div style="color: #2ecc71; font-weight: 700; margin-bottom: 10px;">● ABERTO AGORA (11:00 - 23:00)</div>
+    <h1>MAST IOGURTE</h1>
+    <div style="color: var(--gold); font-weight: 700; letter-spacing: 3px;">BRASÍLIA • DESDE 1860</div>
 </header>
 
 <div class="container">
     <div class="grid">
         <div class="card">
-            <div class="img-box"><img src="yogurt.jpg" alt="Iogurte"></div>
-            <h3 style="font-family:'Playfair Display'; border-bottom:1px solid var(--gold);">IOGURTE</h3>
-            <p style="font-size:0.8rem;">1000 ML - <b>R$ 20</b></p>
-            <p style="font-size:0.8rem;">500 ML - <b>R$ 10</b></p>
-            <p style="font-size:0.8rem; color:var(--gold);">250 ML - <b>R$ 7</b></p>
+            <h2 class="cat-title">IOGURTE</h2>
+            <div class="price-line"><span>1000 ML</span><b>R$ 20</b></div>
+            <div class="price-line"><span>500 ML</span><b>R$ 10</b></div>
+            <div class="price-line" style="color: var(--gold);"><span>250 ML</span><b>R$ 7</b></div>
+            <div class="price-line"><span>140 ML</span><b>R$ 5</b></div>
         </div>
         <div class="card">
-            <div class="img-box"><img src="sutlac.jpg" alt="Sutlac"></div>
-            <h3 style="font-family:'Playfair Display'; border-bottom:1px solid var(--gold);">ARROZ DOCE</h3>
-            <p style="font-size:0.8rem;">Família - <b>R$ 20</b></p>
-            <p style="font-size:0.8rem; color:var(--gold);">Kase - <b>R$ 10</b></p>
-            <p style="font-size:0.8rem;">Pequeno - <b>R$ 5</b></p>
+            <h2 class="cat-title">ARROZ DOCE</h2>
+            <div class="price-line"><span>Aile Boyu</span><b>R$ 20</b></div>
+            <div class="price-line"><span>Büyük Boy</span><b>R$ 15</b></div>
+            <div class="price-line" style="color: var(--gold);"><span>Orta (Kase)</span><b>R$ 10</b></div>
+            <div class="price-line"><span>Küçük Boy</span><b>R$ 5</b></div>
         </div>
     </div>
 
-    <div class="special-box">
-        <h3 style="margin:0; font-family:'Playfair Display';">Kit Gurme da Semana</h3>
-        <p style="font-size:0.8rem; color:#666;">1 Yoğurt (1L) + 2 Sütlaç (Kase)</p>
-        <div style="font-size:1.5rem; font-weight:900; color:var(--gold);">R$ 35,00</div>
+    <div class="kit-box">
+        <h2 style="font-family: 'Playfair Display'; margin: 0;">Kit Gurme da Semana</h2>
+        <p style="font-size: 0.9rem; color: #555;">1 Iogurte Família + 2 Arroz Doce (Kase)</p>
+        <div style="font-size: 1.8rem; font-weight: 900; color: var(--gold);">R$ 35,00</div>
     </div>
 
     <div class="sub-box">
-        <h3 style="margin:0; font-family:'Playfair Display';">Assinatura Mast</h3>
-        <p style="font-size:0.8rem;">Haftalık abonelik için WhatsApp'tan yazın.</p>
+        <h2 style="font-family: 'Playfair Display'; margin: 0;">Assinatura Mast</h2>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Haftalık abonelik için WhatsApp'tan yazın, lezzet kapınıza gelsin.</p>
     </div>
 
-    <a href="https://wa.me/5561999851365" id="order-btn">PEDIR PELO WHATSAPP</a>
-
-    <div style="margin-top:20px; font-size:0.7rem; color:#888;">
-        📍 Lago Sul, SMDB Conjunto 26 | Pedido Mínimo: R$ 30
-    </div>
+    <a href="https://wa.me/5561999851365" class="btn-wa">PEDIR NO WHATSAPP</a>
+    
+    <p style="margin-top: 20px; font-size: 0.8rem; color: #777;">📍 Lago Sul, SMDB Conjunto 26 | Pedido Mínimo: R$ 30</p>
 </div>
 
 <footer>MAST IOGURTE & ARROZ DOCE © 2026</footer>
-
-<script>
-    function updateDinamikStatus() {
-        const agora = new Date();
-        const hora = agora.getHours();
-        const statusBar = document.getElementById('status-bar');
-        const btn = document.getElementById('order-btn');
-
-        // Çalışma saatleri: 11:00 - 23:00
-        if (hora >= 11 && hora < 23) {
-            statusBar.style.backgroundColor = "#2ecc71";
-            statusBar.innerHTML = "● ABERTO AGORA - PEÇA JÁ";
-            btn.classList.remove('btn-off');
-            btn.innerHTML = "PEDIR PELO WHATSAPP";
-        } else {
-            statusBar.style.backgroundColor = "#e74c3c";
-            statusBar.innerHTML = "○ FECHADO - VOLTAMOS ÀS 11:00";
-            btn.classList.add('btn-off');
-            btn.innerHTML = "FECHADO NO MOMENTO";
-        }
-    }
-    updateDinamikStatus();
-    setInterval(updateDinamikStatus, 60000); // Her dakika kontrol et
-</script>
 
 </body>
 </html>
