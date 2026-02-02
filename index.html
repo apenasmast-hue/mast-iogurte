@@ -4,40 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>MAST IOGURTE | Delivery Brasília | Iogurte 1000ml, 500ml, 250ml</title>
-    <meta name="description" content="Iogurte natural artesanal em Brasília. Entregas de 1000ml, 500ml e 250ml no Lago Sul. O melhor Arroz Doce gourmet da capital. Peça agora!">
+    <title>MAST IOGURTE | Brasília Delivery - Iogurte Natural & Arroz Doce</title>
+    <meta name="description" content="O melhor iogurte natural artesanal e arroz doce de Brasília. Peça 1000ml, 500ml ou 250ml. Entrega rápida no Lago Sul. Qualidade Mast!">
+    <meta name="keywords" content="Iogurte Natural Brasília, Arroz Doce Brasília, Delivery Iogurte, Mast Iogurte, Lago Sul">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@400;600;700&family=Courier+Prime:wght@700&display=swap');
 
         :root { --bg: #fdfaf5; --gold: #b89550; --ink: #1a1a1a; --white: #ffffff; --wa: #25d366; --red: #d63031; --beige: #EBD8B8; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body { background-color: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; }
 
-        /* HEADER - SİMETRİ ŞART */
+        /* HEADER */
         .header { background: var(--beige); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 5000; border-bottom: 3px solid #000; }
-        .header-left { display: flex; align-items: center; border: 2px solid #000; padding: 8px 15px; background: #fff; border-radius: 5px; }
-        .logo-box { width: 50px; height: 50px; border-radius: 50%; border: 2px solid #000; margin-right: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--bg); }
-        .logo-box img { width: 80%; }
+        .header-left { display: flex; align-items: center; border: 2px solid #000; padding: 5px 15px; background: #fff; border-radius: 5px; }
+        .logo-box { width: 50px; height: 50px; border-radius: 50%; border: 2px solid #000; margin-right: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-weight: 900; }
         .header-title h1 { font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1; }
-        .header-alert { color: var(--red); font-weight: 700; font-size: 0.8rem; text-align: right; animation: blinker 1.5s infinite; }
-        @keyframes blinker { 50% { opacity: 0.3; } }
+        .header-alert { color: var(--red); font-weight: 700; font-size: 0.8rem; text-align: right; animation: blink 1.5s infinite; }
+        @keyframes blink { 50% { opacity: 0.3; } }
 
-        /* KONTEYNER */
+        /* CONTAINER */
         .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 40px; padding: 40px 15px 150px; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; border-bottom: 4px solid #000; display: inline-block; margin: 30px 0 20px; }
 
-        /* ÜRÜN KARTLARI - LOGO ENTEGRELİ */
+        /* ÜRÜN KARTLARI */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
         .card { background: #fff; border: 1px solid #ddd; padding: 15px; text-align: center; position: relative; border-radius: 4px; box-shadow: 4px 4px 0px rgba(0,0,0,0.05); }
-        .img-box { width: 100%; aspect-ratio: 1; margin-bottom: 12px; position: relative; border: 1px solid #eee; overflow: hidden; }
+        .img-box { width: 100%; aspect-ratio: 1; margin-bottom: 15px; position: relative; border: 1px solid #eee; overflow: hidden; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* FOTOĞRAFA ENTEGRE LOGO (SİMETRİK) */
-        .card-logo { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; background: #fff; border-radius: 50%; border: 1px solid #000; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 900; z-index: 10; }
+        /* LOGO DAMGASI */
+        .card-logo { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; background: #fff; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 900; z-index: 10; }
 
-        .card h3 { font-size: 1rem; margin-bottom: 8px; font-weight: 700; height: 40px; display: flex; align-items: center; justify-content: center; }
-        .price { color: var(--red); font-weight: 800; font-size: 1.3rem; margin-bottom: 15px; }
+        .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        .price { color: var(--red); font-weight: 800; font-size: 1.4rem; margin-bottom: 15px; }
         .add-btn { background: #000; color: #fff; border: none; padding: 12px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; }
 
         /* FİŞ (RECEIPT) */
@@ -45,8 +46,8 @@
         .receipt-head { text-align: center; border-bottom: 2px dashed #000; padding-bottom: 20px; margin-bottom: 20px; }
         .bairro-sel { width: 100%; padding: 12px; font-family: 'Courier Prime'; border: 2px solid #000; margin-bottom: 15px; font-weight: 700; font-size: 1rem; }
         .items-list { min-height: 80px; margin-bottom: 20px; }
-        .item-row { display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: 700; font-size: 0.9rem; }
-        .total-box { border-top: 3px solid #000; padding-top: 20px; font-size: 1.6rem; font-weight: 900; display: flex; justify-content: space-between; }
+        .item-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 700; font-size: 0.9rem; }
+        .total-box { border-top: 3px solid #000; padding-top: 20px; font-size: 1.8rem; font-weight: 900; display: flex; justify-content: space-between; }
         
         .btn-group { display: flex; justify-content: space-between; margin-top: 25px; }
         .btn-mal { background: #eee; border: 2px solid #000; padding: 12px; width: 45%; font-weight: 700; cursor: pointer; }
@@ -71,63 +72,63 @@
 
 <div class="container">
     <main>
-        <h2 class="section-title">Nossos Iogurtes Naturais</h2>
+        <h2 class="section-title">32 Iogurtes Naturais</h2>
         <div class="grid">
             <div class="card">
                 <div class="img-box">
-                    <img src="yogurt-foto.jpg" alt="Iogurte 1000ml">
+                    <img src="yogurt.jpg" alt="Iogurte 1000ml">
                     <div class="card-logo">MAST</div>
                 </div>
-                <h3>Iogurte Natural 1000ml</h3>
+                <h3>Tradicional 1000ml</h3>
                 <div class="price">R$ 20,00</div>
                 <button class="add-btn" onclick="add('Iogurte 1000ml', 20)">ADICIONAR +</button>
             </div>
             <div class="card">
                 <div class="img-box">
-                    <img src="yogurt-foto.jpg" alt="Iogurte 500ml">
+                    <img src="yogurt.jpg" alt="Iogurte 500ml">
                     <div class="card-logo">MAST</div>
                 </div>
-                <h3>Iogurte Natural 500ml</h3>
+                <h3>Tradicional 500ml</h3>
                 <div class="price">R$ 10,00</div>
                 <button class="add-btn" onclick="add('Iogurte 500ml', 10)">ADICIONAR +</button>
             </div>
             <div class="card">
                 <div class="img-box">
-                    <img src="yogurt-foto.jpg" alt="Iogurte 250ml">
+                    <img src="yogurt.jpg" alt="Iogurte 250ml">
                     <div class="card-logo">MAST</div>
                 </div>
-                <h3>Iogurte Natural 250ml</h3>
+                <h3>Tradicional 250ml</h3>
                 <div class="price">R$ 7,00</div>
                 <button class="add-btn" onclick="add('Iogurte 250ml', 7)">ADICIONAR +</button>
             </div>
         </div>
 
-        <h2 class="section-title" style="margin-top: 50px;">Sobremesas Gourmet</h2>
+        <h2 class="section-title" style="margin-top: 50px;">Sobremesas (Arroz Doce)</h2>
         <div class="grid">
             <div class="card">
                 <div class="img-box">
-                    <img src="sutlac-foto.jpg" alt="Arroz Doce Família">
+                    <img src="sutlac.jpg" alt="Arroz Doce Família">
                     <div class="card-logo">MAST</div>
                 </div>
-                <h3>Arroz Doce Família (Büyük)</h3>
+                <h3>Arroz Doce Família</h3>
                 <div class="price">R$ 20,00</div>
                 <button class="add-btn" onclick="add('Arroz Família', 20)">ADICIONAR +</button>
             </div>
             <div class="card">
                 <div class="img-box">
-                    <img src="sutlac-foto.jpg" alt="Arroz Doce Médio">
+                    <img src="sutlac.jpg" alt="Arroz Doce Médio">
                     <div class="card-logo">MAST</div>
                 </div>
-                <h3>Arroz Doce Médio (Orta)</h3>
+                <h3>Arroz Doce Médio</h3>
                 <div class="price">R$ 10,00</div>
                 <button class="add-btn" onclick="add('Arroz Médio', 10)">ADICIONAR +</button>
             </div>
             <div class="card">
                 <div class="img-box">
-                    <img src="sutlac-foto.jpg" alt="Arroz Doce Pequeno">
+                    <img src="sutlac.jpg" alt="Arroz Doce Individual">
                     <div class="card-logo">MAST</div>
                 </div>
-                <h3>Arroz Doce 250ml (Küçük)</h3>
+                <h3>Arroz Doce 250ml</h3>
                 <div class="price">R$ 7,00</div>
                 <button class="add-btn" onclick="add('Arroz 250ml', 7)">ADICIONAR +</button>
             </div>
@@ -156,7 +157,7 @@
 <script>
     let cart = []; let fee = 10;
     function add(n, p) { cart.push({n, p}); upd(); }
-    function clearC() { if(confirm("Limpar?")) { cart = []; upd(); } }
+    function clearC() { if(confirm("Limpar pedido?")) { cart = []; upd(); } }
     function sync(v) { fee = parseFloat(v); upd(); }
     function upd() {
         const lists = document.querySelectorAll('.items-list');
@@ -169,11 +170,13 @@
     }
     function send() {
         if(!cart.length) return alert("Vazio!");
+        const b = document.querySelector('.bairro-sel').options[document.querySelector('.bairro-sel').selectedIndex].text;
         let m = "*MAST IOGURTE*%0A";
         cart.forEach(i => m += `• ${i.n}: R$ ${i.p.toFixed(2)}%0A`);
-        m += `%0A💰 *TOTAL:* ${document.querySelector('.t-val').innerText}`;
+        m += `%0A📍 ${b}%0A💰 *TOTAL:* ${document.querySelector('.t-val').innerText}`;
         window.open(`https://wa.me/5561999851365?text=${m}`, '_blank');
     }
 </script>
+
 </body>
 </html>
