@@ -3,169 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Qualidade Premium</title>
+    <title>MAST IOGURTE | Brasília - 1000ml Premium</title>
     <style>
         :root {
-            --primary: #1a2a3a; /* Derin Gece Mavisi - Güven verir */
-            --accent: #d4af37;  /* Altın Sarısı - Kaliteyi simgeler */
-            --bg: #fdfdfd;      /* Süt Beyazı Arka Plan - Gözü yormaz */
-            --text: #2c3e50;
+            --primary: #1a2a3a;
+            --accent: #d4af37;
+            --bg: #ffffff;
+            --card-bg: #fdfdfd;
         }
 
         body {
             background-color: var(--bg);
-            color: var(--text);
+            color: #333;
             font-family: 'Poppins', sans-serif;
             margin: 0;
             line-height: 1.6;
         }
 
         header {
-            background: white;
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-bottom: 1px solid #eee;
         }
 
         header h1 {
             color: var(--primary);
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin: 0;
             letter-spacing: 2px;
-            text-transform: uppercase;
         }
 
         .promo-bar {
             background: var(--accent);
             color: white;
             text-align: center;
-            padding: 8px 0;
-            font-size: 0.9rem;
+            padding: 10px 0;
             font-weight: bold;
-            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        /* Ürün Listeleme */
+        .product-list {
+            display: flex;
+            flex-direction: column;
             gap: 20px;
         }
 
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-
-        .card {
-            background: white;
-            border: 1px solid #efefef;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .product-item:hover {
             border-color: var(--accent);
+            transform: scale(1.02);
         }
 
-        .card h2 {
+        .product-info h3 {
+            margin: 0;
             color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
         }
 
-        .price {
-            font-size: 1.8rem;
-            color: var(--accent);
-            font-weight: bold;
-            margin: 15px 0;
-        }
-
-        .description {
+        .product-info p {
+            margin: 5px 0 0;
             color: #7f8c8d;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        .action-buttons {
+        .product-price {
+            text-align: right;
+        }
+
+        .price-tag {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .unit {
+            font-size: 0.8rem;
+            color: #bdc3c7;
+            text-transform: uppercase;
+        }
+
+        /* Sipariş Butonları */
+        .cta-box {
             margin-top: 50px;
             text-align: center;
+            padding: 30px;
+            background: var(--primary);
+            border-radius: 20px;
+            color: white;
         }
 
         .btn {
             display: inline-block;
-            padding: 18px 40px;
+            padding: 15px 35px;
+            margin: 10px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
             transition: 0.3s;
-            margin: 10px;
-            min-width: 250px;
         }
 
-        .btn-wa {
-            background: #25d366;
-            color: white;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-ifood {
-            background: #ea1d2c;
-            color: white;
-            box-shadow: 0 4px 15px rgba(234, 29, 44, 0.3);
-        }
+        .btn-wa { background: #25d366; color: white; }
+        .btn-ifood { background: #ea1d2c; color: white; }
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
         footer {
             text-align: center;
-            padding: 60px 20px;
-            background: #f9f9f9;
+            padding: 40px;
             color: #bdc3c7;
             font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .product-item { flex-direction: column; text-align: center; }
+            .product-price { margin-top: 15px; text-align: center; }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="promo-bar">🎁 PROMOÇÃO ESPECIAL: COMPRE 1L DE IOGURTE E GANHE UM ARROZ DOCE!</div>
+<div class="promo-bar">🚚 ENTREGAS EM TODA BRASÍLIA - QUALIDADE GARANTIDA</div>
 
 <header>
     <h1>MAST IOGURTE</h1>
-    <p style="color: var(--accent); font-weight: bold;">BRASÍLIA • DESDE 1860</p>
+    <p style="color: var(--accent); font-weight: bold; margin-top: 5px;">PRODUTOS NATURAIS DE 1000ml</p>
 </header>
 
 <div class="container">
-    <div class="grid">
-        <div class="card">
-            <h2>🍦 Iogurte</h2>
-            <p class="description">Artesanal, sem conservantes e extremamente cremoso.</p>
-            <div class="price">R$ 20,00</div>
-            <span style="color: #bdc3c7;">Garrafa 1 Litro</span>
+    <div class="product-list">
+        
+        <div class="product-item">
+            <div class="product-info">
+                <h3>🍦 Iogurte Natural Premium</h3>
+                <p>Cremosidade incomparável, feito com leite fresco do dia.</p>
+            </div>
+            <div class="product-price">
+                <span class="price-tag">R$ 20,00</span>
+                <span class="unit">Garrafa 1000ml</span>
+            </div>
         </div>
 
-        <div class="card">
-            <h2>🍚 Arroz Doce</h2>
-            <p class="description">Receita de família com leite fresco e canela selecionada.</p>
-            <div class="price">R$ 12,00</div>
-            <span style="color: #bdc3c7;">Pote 250g</span>
+        <div class="product-item">
+            <div class="product-info">
+                <h3>🍚 Arroz Doce Especial</h3>
+                <p>O autêntico sabor caseiro com o toque mestre da canela.</p>
+            </div>
+            <div class="product-price">
+                <span class="price-tag">R$ 25,00</span>
+                <span class="unit">Pote 1000ml</span>
+            </div>
         </div>
+
+        <div class="product-item">
+            <div class="product-info">
+                <h3>🍓 Iogurte de Morango</h3>
+                <p>Pedaços reais de fruta em uma base ultra cremosa.</p>
+            </div>
+            <div class="product-price">
+                <span class="price-tag">R$ 22,00</span>
+                <span class="unit">Garrafa 1000ml</span>
+            </div>
+        </div>
+
     </div>
 
-    <div class="action-buttons">
-        <p>Faça seu pedido agora:</p>
+    <div class="cta-box">
+        <h3>Gostou? Peça agora mesmo!</h3>
+        <p>Entregamos fresquinho na sua porta.</p>
         <a href="https://wa.me/5561999851365" class="btn btn-wa">WHATSAPP</a>
         <a href="https://www.ifood.com.br" class="btn btn-ifood">iFOOD</a>
     </div>
 </div>
 
 <footer>
-    <p>Mast Iogurte & Arroz Doce - Brasília/DF<br>O sabor que atravessa gerações.</p>
+    <p>Mast Iogurte & Arroz Doce - Brasília/DF<br>Qualidade que você sente em cada colherada.</p>
 </footer>
 
 </body>
