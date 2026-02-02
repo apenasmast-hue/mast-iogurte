@@ -3,63 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Brasília</title>
+    <title>MAST IOGURTE | Tradição desde 1860</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;600&display=swap');
+
         :root {
-            --primary: #1a2a3a;
-            --accent: #d4af37;
-            --bg: #fdfdfd;
-            --card: #ffffff;
+            --vintage-cream: #fdfaf5;
+            --paper: #ffffff;
+            --ink: #1a1a1a;
+            --gold: #b89550;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--primary);
+            background-color: var(--vintage-cream);
+            color: var(--ink);
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
         }
 
         header {
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
-            background: white;
-            border-bottom: 1px solid #eee;
+            background: var(--paper);
+            border-bottom: 2px double var(--gold);
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
             margin: 0;
-            letter-spacing: 3px;
-            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
-        /* O Meşhur Üç İkon */
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 25px;
-            background: #f9f9f9;
+        /* 1800'lerin Heyecanı: Retro İkonlar */
+        .retro-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 30px 10px;
+            background: #fff;
+            max-width: 800px;
+            margin: -30px auto 30px;
+            border: 1px solid #ddd;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        .feat-item {
+        .retro-item {
             text-align: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #777;
         }
 
-        .feat-item span {
+        .retro-item .icon {
+            font-size: 2.2rem;
             display: block;
-            font-size: 1.8rem;
             margin-bottom: 5px;
+            filter: sepia(1);
+        }
+
+        .retro-item span {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         /* 2 Sütunlu Ürün Sergileme */
@@ -69,140 +82,159 @@
             gap: 20px;
         }
 
-        .product-card {
-            background: var(--card);
-            padding: 30px 20px;
-            border-radius: 20px;
-            border: 1px solid #efefef;
+        .card {
+            background: var(--paper);
+            padding: 30px;
+            border: 1px solid #eee;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            position: relative;
             transition: 0.3s;
         }
 
-        .product-card:hover {
-            border-color: var(--accent);
+        .card:hover {
+            border-color: var(--gold);
             transform: translateY(-5px);
         }
 
-        .product-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 0;
         }
 
-        .product-card .ml {
-            color: #aaa;
-            font-size: 0.9rem;
+        .card .vol {
+            font-size: 0.8rem;
+            color: #888;
             display: block;
             margin-bottom: 15px;
         }
 
-        .product-card .price {
+        .card .price {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--primary);
+            color: var(--ink);
+            border-top: 1px solid var(--gold);
+            display: inline-block;
+            padding-top: 10px;
         }
 
-        /* Adres Bölümü */
-        .address-section {
+        /* Adres Alanı */
+        .vintage-address {
             margin-top: 50px;
-            padding: 30px;
-            background: white;
-            border-radius: 25px;
-            border: 1px solid #eee;
+            padding: 40px;
+            background: var(--paper);
+            border: 1px solid #ddd;
             text-align: center;
+            font-style: italic;
         }
 
-        .address-section strong {
-            color: var(--accent);
+        .vintage-address strong {
             display: block;
+            font-size: 1.2rem;
             margin-bottom: 10px;
-            letter-spacing: 1px;
+            font-style: normal;
+            color: var(--gold);
         }
 
-        /* Butonlar */
-        .actions {
+        .btn-box {
             margin-top: 40px;
             text-align: center;
         }
 
         .btn {
-            display: inline-block;
-            padding: 18px 40px;
-            border-radius: 50px;
+            display: block;
+            max-width: 300px;
+            margin: 15px auto;
+            padding: 20px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
-            margin: 10px;
-            min-width: 200px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .btn-wa { background: #25d366; color: white; box-shadow: 0 10px 20px rgba(37,211,102,0.2); }
-        .btn-ifood { background: #ea1d2c; color: white; box-shadow: 0 10px 20px rgba(234,29,44,0.2); }
+        .btn-wa { background: #25d366; color: white; }
+        .btn-ifood { background: #ea1d2c; color: white; }
 
-        footer { padding: 50px; color: #ccc; font-size: 0.8rem; text-align: center; }
+        footer {
+            padding: 60px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #aaa;
+            letter-spacing: 2px;
+        }
 
         @media (max-width: 600px) {
             .product-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
     <h1>MAST IOGURTE</h1>
-    <p style="color: var(--accent); font-weight: bold; margin: 0;">PREMIUM QUALITY • BRASÍLIA</p>
+    <p style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold);">Artesanal & Puro • Desde 1860</p>
 </header>
 
-<div class="features">
-    <div class="feat-item"><span>✨</span>TEMIZ ÜRETİM</div>
-    <div class="feat-item"><span>🛡️</span>GÜVENLİ</div>
-    <div class="feat-item"><span>🏍️</span>KAPINIZDA</div>
+<div class="retro-features">
+    <div class="retro-item">
+        <span class="icon">🏺</span>
+        <span>Temiz Üretim</span>
+    </div>
+    <div class="retro-item">
+        <span class="icon">📜</span>
+        <span>Güvenli Teslim</span>
+    </div>
+    <div class="retro-item">
+        <span class="icon">🚲</span>
+        <span>Kapınızda</span>
+    </div>
 </div>
 
 <div class="container">
     <div class="product-grid">
-        <div class="product-card" style="border-top: 5px solid var(--accent);">
+        <div class="card">
             <h3>Familiar</h3>
-            <span class="ml">1000ml (1 Litro)</span>
+            <span class="vol">1000ml / 1 Litro</span>
             <div class="price">R$ 20,00</div>
         </div>
 
-        <div class="product-card">
+        <div class="card">
             <h3>Médio</h3>
-            <span class="ml">500ml</span>
+            <span class="vol">500ml</span>
             <div class="price">R$ 10,00</div>
         </div>
 
-        <div class="product-card">
+        <div class="card">
             <h3>Individual</h3>
-            <span class="ml">250ml</span>
-            <div class="price" style="color: var(--accent);">R$ 7,00</div>
+            <span class="vol">250ml</span>
+            <div class="price" style="color: var(--gold);">R$ 7,00</div>
         </div>
 
-        <div class="product-card">
+        <div class="card">
             <h3>Degustação</h3>
-            <span class="ml">140ml</span>
+            <span class="vol">140ml</span>
             <div class="price">R$ 5,00</div>
         </div>
     </div>
 
-    <div class="address-section">
-        <strong>📍 LOCALIZAÇÃO</strong>
+    <div class="vintage-address">
+        <strong>📍 Localização Histórica</strong>
         Setor de Mansões Dom Bosco, Conjunto 26<br>
         Lago Sul, Brasília - DF<br><br>
-        <strong>⏰ HORÁRIO</strong>
-        Todos os dias: 08:00 - 20:00
+        <strong>⏰ Atendimento</strong><br>
+        08:00 — 20:00
     </div>
 
-    <div class="actions">
-        <a href="https://wa.me/5561999851365" class="btn btn-wa">WHATSAPP</a>
-        <a href="https://wa.me/5561999851365" class="btn btn-ifood">iFOOD (EM BREVE)</a>
+    <div class="btn-box">
+        <a href="https://wa.me/5561999851365" class="btn btn-wa">Pedir no WhatsApp</a>
+        <a href="https://wa.me/5561999851365" class="btn btn-ifood">iFood (Em Breve)</a>
     </div>
 </div>
 
 <footer>
-    &copy; 2026 Mast Iogurte & Arroz Doce - Qualidade Superior
+    BRASÍLIA, DISTRITO FEDERAL - O SABOR QUE ATRAVESSA SÉCULOS
 </footer>
 
 </body>
