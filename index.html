@@ -3,75 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Premium</title>
+    <title>MAST IOGURTE | Premium Brasília</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;700&display=swap');
-        :root { --gold: #b89550; --ink: #1a1a1a; --white: #ffffff; --bg: #fdfaf5; }
-        body { background-color: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; margin: 0; text-align: center; }
-        
-        header { padding: 50px 20px; background: var(--white); border-bottom: 5px double var(--gold); }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; letter-spacing: 3px; }
-        
-        .container { max-width: 800px; margin: 20px auto; padding: 0 15px; }
-        
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
-        .card { background: white; border-radius: 20px; padding: 15px; border: 1px solid rgba(184,149,80,0.2); }
-        .cat-title { font-family: 'Playfair Display', serif; color: var(--gold); border-bottom: 2px solid var(--gold); margin-bottom: 10px; }
-        
-        .price-line { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
-        .price-line b { color: var(--gold); }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
 
-        .kit-box { background: #f9f4e8; border: 3px solid var(--gold); border-radius: 25px; padding: 25px; margin: 25px 0; }
-        .sub-box { background: var(--ink); color: white; border-radius: 25px; padding: 25px; margin-bottom: 30px; }
+        :root {
+            --bg: #fdfaf5;
+            --gold: #b89550;
+            --ink: #1a1a1a;
+            --white: #ffffff;
+            --wa: #25d366;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            color: var(--ink);
+            font-family: 'Poppins', sans-serif;
+            margin: 0; padding: 0;
+        }
+
+        /* ÜST BAR & SAAT */
+        #top-status {
+            padding: 10px; font-weight: 700; font-size: 0.75rem; color: white;
+            text-transform: uppercase; letter-spacing: 2px; text-align: center;
+        }
+
+        header {
+            text-align: center; padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 5px double var(--gold);
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 10vw, 3rem);
+            margin: 0; letter-spacing: 5px; text-transform: uppercase;
+        }
+
+        .container { max-width: 900px; margin: -30px auto 40px; padding: 0 15px; }
+
+        /* ÜRÜN KUTULARI (GLASS) */
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .product-box {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(184, 149, 80, 0.3);
+            border-radius: 25px; padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .product-box:hover { transform: translateY(-10px); border-color: var(--gold); }
+
+        .cat-title {
+            font-family: 'Playfair Display', serif; font-size: 1.5rem;
+            text-align: center; margin-bottom: 20px; color: var(--gold);
+            text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--gold);
+        }
+
+        .price-item { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(184, 149, 80, 0.1); font-size: 0.9rem; }
+        .price-item b { color: var(--gold); }
+        .featured { background: rgba(184, 149, 80, 0.08); border-radius: 10px; padding: 14px 10px !important; }
+
+        /* HAFTALIK KIT & ABONELİK */
+        .special-section { margin-top: 30px; display: grid; gap: 20px; }
         
-        .btn-wa { display: block; background: #25d366; color: white; padding: 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; box-shadow: 0 10px 20px rgba(37,211,102,0.3); }
-        
-        footer { padding: 40px; font-size: 0.7rem; color: #999; letter-spacing: 2px; }
+        .kit-card {
+            background: linear-gradient(135deg, #fff 0%, #fffdf0 100%);
+            border: 2px solid var(--gold); border-radius: 25px; padding: 25px; text-align: center;
+        }
+
+        .sub-card {
+            background: var(--ink); color: white; border-radius: 25px; padding: 25px; text-align: center;
+        }
+
+        /* WHATSAPP BUTON */
+        .wa-btn {
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            background: var(--wa); color: white; padding: 22px; border-radius: 50px;
+            text-decoration: none; font-weight: 700; font-size: 1.1rem;
+            margin-top: 30px; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+        }
+        .closed { background: #999 !important; pointer-events: none; box-shadow: none; }
+
+        footer { padding: 60px 20px; text-align: center; font-size: 0.7rem; color: #999; letter-spacing: 3px; }
+
+        @media (max-width: 600px) { .product-grid { gap: 10px; } .product-box { padding: 15px; } }
     </style>
 </head>
 <body>
 
+<div id="top-status">Verificando...</div>
+
 <header>
-    <div style="color: #2ecc71; font-weight: 700; margin-bottom: 10px;">● ABERTO AGORA (11:00 - 23:00)</div>
     <h1>MAST IOGURTE</h1>
-    <div style="color: var(--gold); font-weight: 700; letter-spacing: 3px;">BRASÍLIA • DESDE 1860</div>
+    <div style="font-weight:600; color:var(--gold); letter-spacing:5px; font-size:0.8rem; margin-top:10px;">LAGO SUL • 11:00 - 23:00</div>
 </header>
 
 <div class="container">
-    <div class="grid">
-        <div class="card">
-            <h2 class="cat-title">IOGURTE</h2>
-            <div class="price-line"><span>1000 ML</span><b>R$ 20</b></div>
-            <div class="price-line"><span>500 ML</span><b>R$ 10</b></div>
-            <div class="price-line" style="color: var(--gold);"><span>250 ML</span><b>R$ 7</b></div>
-            <div class="price-line"><span>140 ML</span><b>R$ 5</b></div>
+    <div class="product-grid">
+        <div class="product-box">
+            <h2 class="cat-title">Iogurte</h2>
+            <div class="price-item"><span>1000 ML</span><b>R$ 20</b></div>
+            <div class="price-item"><span>500 ML</span><b>R$ 10</b></div>
+            <div class="price-item featured"><span>250 ML ★</span><b>R$ 7</b></div>
+            <div class="price-item"><span>140 ML</span><b>R$ 5</b></div>
         </div>
-        <div class="card">
-            <h2 class="cat-title">ARROZ DOCE</h2>
-            <div class="price-line"><span>Aile Boyu</span><b>R$ 20</b></div>
-            <div class="price-line"><span>Büyük Boy</span><b>R$ 15</b></div>
-            <div class="price-line" style="color: var(--gold);"><span>Orta (Kase)</span><b>R$ 10</b></div>
-            <div class="price-line"><span>Küçük Boy</span><b>R$ 5</b></div>
+
+        <div class="product-box">
+            <h2 class="cat-title">Arroz Doce</h2>
+            <div class="price-item"><span>Aile Boyu</span><b>R$ 20</b></div>
+            <div class="price-item"><span>Büyük Boy</span><b>R$ 15</b></div>
+            <div class="price-item featured"><span>Orta Kase ★</span><b>R$ 10</b></div>
+            <div class="price-item"><span>Küçük Boy</span><b>R$ 5</b></div>
         </div>
     </div>
 
-    <div class="kit-box">
-        <h2 style="font-family: 'Playfair Display'; margin: 0;">Kit Gurme da Semana</h2>
-        <p style="font-size: 0.9rem; color: #555;">1 Iogurte Família + 2 Arroz Doce (Kase)</p>
-        <div style="font-size: 1.8rem; font-weight: 900; color: var(--gold);">R$ 35,00</div>
+    <div class="special-section">
+        <div class="kit-card">
+            <span style="background:var(--gold); color:white; padding:4px 12px; border-radius:5px; font-size:0.7rem; font-weight:800;">FAVORITO DO LAGO SUL</span>
+            <h3 style="font-family:'Playfair Display'; margin:15px 0 5px 0;">Kit Gurme da Semana</h3>
+            <p style="font-size:0.85rem; color:#666;">1 Iogurte Família + 2 Arroz Doce (Kase)</p>
+            <div style="font-size:1.8rem; font-weight:900; color:var(--gold);">R$ 35,00</div>
+        </div>
+
+        <div class="sub-card">
+            <h3 style="font-family:'Playfair Display'; margin:0 0 10px 0;">Assinatura Mast</h3>
+            <p style="font-size:0.8rem; opacity:0.8;">Her hafta taze ürünler kapınıza gelsin. Özel abonelik detayları için bize yazın.</p>
+        </div>
     </div>
 
-    <div class="sub-box">
-        <h2 style="font-family: 'Playfair Display'; margin: 0;">Assinatura Mast</h2>
-        <p style="font-size: 0.8rem; opacity: 0.8;">Haftalık abonelik için WhatsApp'tan yazın, lezzet kapınıza gelsin.</p>
-    </div>
+    <a href="https://wa.me/5561999851365" id="main-btn" class="wa-btn">
+        PEDIR AGORA VIA WHATSAPP
+    </a>
 
-    <a href="https://wa.me/5561999851365" class="btn-wa">PEDIR NO WHATSAPP</a>
-    
-    <p style="margin-top: 20px; font-size: 0.8rem; color: #777;">📍 Lago Sul, SMDB Conjunto 26 | Pedido Mínimo: R$ 30</p>
+    <div style="text-align:center; margin-top:30px; font-size:0.8rem; color:#777;">
+        📍 <b>SMDB Conjunto 26, Lago Sul</b> | Mínimo: R$ 30
+    </div>
 </div>
 
-<footer>MAST IOGURTE & ARROZ DOCE © 2026</footer>
+<footer>ESTE É O SABOR DA TRADIÇÃO • MAST IOGURTE</footer>
+
+<script>
+    function updateDinamikStatus() {
+        const hora = new Date().getHours();
+        const bar = document.getElementById('top-status');
+        const btn = document.getElementById('main-btn');
+
+        if (hora >= 11 && hora < 23) {
+            bar.style.backgroundColor = "#2ecc71";
+            bar.innerHTML = "● ABERTO AGORA - ENTREGANDO";
+            btn.classList.remove('closed');
+            btn.innerHTML = "PEDIR AGORA VIA WHATSAPP";
+        } else {
+            bar.style.backgroundColor = "#e74c3c";
+            bar.innerHTML = "○ FECHADO AGORA - VOLTAMOS ÀS 11:00";
+            btn.classList.add('closed');
+            btn.innerHTML = "VOLTAMOS AMANHÃ ÀS 11:00";
+        }
+    }
+    updateDinamikStatus();
+    setInterval(updateDinamikStatus, 60000);
+</script>
 
 </body>
 </html>
