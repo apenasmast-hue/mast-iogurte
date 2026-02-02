@@ -25,6 +25,7 @@
             text-align: center;
         }
 
+        /* DİNAMİK ÜST DURUM ÇUBUĞU */
         #status-bar {
             padding: 12px;
             font-weight: 700;
@@ -36,49 +37,47 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            white-space: nowrap;
+            white-space: nowrap; /* Üst barın kaymasını engeller */
         }
 
+        /* LOGO ALANI */
         header {
-            padding: 50px 20px;
+            padding: 40px 20px;
             background: var(--white);
             border-bottom: 5px double var(--gold);
         }
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 10vw, 3rem);
-            margin: 0;
-            letter-spacing: 5px;
-            text-transform: uppercase;
+        .logo-container {
+            max-width: 280px; /* Logonun yayılmasını engeller */
+            margin: 0 auto;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .container { max-width: 850px; margin: 30px auto; padding: 0 15px; }
 
+        /* ÜRÜN IZGARASI */
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        
         .product-card {
             background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(184, 149, 80, 0.3);
+            border: 1px solid rgba(184, 149, 80, 0.2);
             border-radius: 20px;
             padding: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: 0.3s;
         }
 
-        /* FOTOĞRAFLARIN GÜZEL GÖRÜNMESİ İÇİN AYAR */
         .img-box {
-            width: 100%; 
-            aspect-ratio: 1; 
-            background: #fff; 
-            border-radius: 12px;
-            margin-bottom: 15px; 
-            border: 1px solid #f0f0f0;
-            overflow: hidden;
+            width: 100%; aspect-ratio: 1; background: #fff; border-radius: 12px;
+            margin-bottom: 15px; border: 1px solid #f0f0f0; overflow: hidden;
         }
-        .img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Fotoğrafı kutuya tam oturtur */
-        }
+        
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
 
         .cat-title {
             font-family: 'Playfair Display', serif;
@@ -93,38 +92,31 @@
         .price-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; white-space: nowrap; }
         .price-row b { color: var(--gold); font-weight: 700; }
 
+        /* ÖZEL PAKETLER */
         .kit-box {
             background: #f9f4e8;
             border: 3px solid var(--gold);
-            border-radius: 25px;
-            padding: 30px;
-            margin: 30px 0;
+            border-radius: 25px; padding: 30px; margin: 30px 0;
             box-shadow: 0 10px 30px rgba(184, 149, 80, 0.15);
         }
 
         .sub-box {
-            background: var(--ink);
-            color: white;
-            border-radius: 25px;
-            padding: 30px;
-            margin-bottom: 30px;
+            background: var(--ink); color: white;
+            border-radius: 25px; padding: 30px; margin-bottom: 30px;
         }
 
+        /* WHATSAPP BUTON - ASLA KAYMA YAPMAZ */
         #order-btn {
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            background: var(--wa);
-            color: white;
-            padding: 22px 10px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: clamp(0.85rem, 4vw, 1.1rem);
+            display: flex; align-items: center; justify-content: center;
+            background: var(--wa); color: white;
+            padding: 22px 10px; border-radius: 50px;
+            text-decoration: none; font-weight: 700;
+            font-size: clamp(0.8rem, 4.5vw, 1.15rem); /* Dinamik yazı boyutu */
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
             transition: 0.3s;
-            white-space: nowrap;
+            white-space: nowrap; /* Satır kaymasını önleyen mühür */
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-closed { background: #999 !important; pointer-events: none; opacity: 0.7; }
@@ -133,7 +125,8 @@
 
         @media (max-width: 600px) { 
             .product-grid { gap: 10px; } 
-            #order-btn { padding: 18px 5px; }
+            .logo-container { max-width: 200px; }
+            #order-btn { padding: 20px 5px; }
         }
     </style>
 </head>
@@ -142,16 +135,18 @@
 <div id="status-bar">CARREGANDO...</div>
 
 <header>
-    <h1>MAST IOGURTE</h1>
-    <div style="font-weight:700; color:var(--gold); letter-spacing:4px; margin-top:10px;">LAGO SUL • 11:00 - 23:00</div>
+    <div class="logo-container">
+        <img src="logo.logo" alt="Mast Iogurte Logo">
+    </div>
+    <div style="font-weight:700; color:var(--gold); letter-spacing:4px; margin-top:15px; font-size:0.8rem;">
+        LAGO SUL • 11:00 - 23:00
+    </div>
 </header>
 
 <div class="container">
     <div class="product-grid">
         <div class="product-card">
-            <div class="img-box">
-                <img src="https://images.unsplash.com/photo-1571212515416-fef01fc43637?q=80&w=500&auto=format&fit=crop" alt="Iogurte">
-            </div>
+            <div class="img-box"><img src="yogurt.jpg" alt="Iogurte"></div>
             <h2 class="cat-title">Iogurte</h2>
             <div class="price-row"><span>1000 ML</span><b>R$ 20</b></div>
             <div class="price-row"><span>500 ML</span><b>R$ 10</b></div>
@@ -159,9 +154,7 @@
         </div>
 
         <div class="product-card">
-            <div class="img-box">
-                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=500&auto=format&fit=crop" alt="Arroz Doce">
-            </div>
+            <div class="img-box"><img src="sutlac.jpg" alt="Arroz Doce"></div>
             <h2 class="cat-title">Arroz Doce</h2>
             <div class="price-row"><span>Aile Boyu</span><b>R$ 20</b></div>
             <div class="price-row"><span>Büyük Boy</span><b>R$ 15</b></div>
@@ -170,15 +163,15 @@
     </div>
 
     <div class="kit-box">
-        <span style="background:var(--gold); color:white; padding:4px 12px; border-radius:5px; font-size:0.7rem; font-weight:800;">LAGO SUL'UN FAVORİSİ</span>
+        <span style="background:var(--gold); color:white; padding:4px 12px; border-radius:5px; font-size:0.7rem; font-weight:800;">O MAIS PEDIDO</span>
         <h2 style="font-family:'Playfair Display'; margin:15px 0;">Kit Gurme da Semana</h2>
         <p style="color:#555; font-size:0.9rem;">1 Iogurte Família (1000 ML) + 2 Arroz Doce (Kase)</p>
-        <div style="font-size:2rem; font-weight:900; color:var(--gold);">R$ 35,00</div>
+        <div style="font-size:2.2rem; font-weight:900; color:var(--gold);">R$ 35,00</div>
     </div>
 
     <div class="sub-box">
         <h2 style="font-family:'Playfair Display'; margin:0 0 10px 0;">Assinatura Mast</h2>
-        <p style="font-size:0.85rem; opacity:0.8;">Her hafta taze yoğurdunuz kapınıza gelsin ister misiniz? Özel abonelik avantajları için WhatsApp'tan yazın.</p>
+        <p style="font-size:0.85rem; opacity:0.8;">Haftalık abonelik ile taze lezzetler kapınıza gelsin. Bilgi almak için WhatsApp'tan yazın.</p>
     </div>
 
     <a href="https://wa.me/5561999851365" id="order-btn">PEDIR AGORA VIA WHATSAPP</a>
@@ -199,6 +192,7 @@
         const bar = document.getElementById('status-bar');
         const btn = document.getElementById('order-btn');
 
+        // Çalışma Saatleri: 11:00 - 23:00
         if (hora >= 11 && hora < 23) {
             bar.style.backgroundColor = "#2ecc71";
             bar.innerHTML = "● ABERTO AGORA - ENTREGANDO NO LAGO SUL";
@@ -211,6 +205,7 @@
             btn.innerHTML = "VOLTAMOS AMANHÃ ÀS 11:00";
         }
     }
+    // Sayfa açıldığında ve her dakikada bir kontrol et
     checkDinamikStatus();
     setInterval(checkDinamikStatus, 60000); 
 </script>
