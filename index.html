@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Premium Brasília</title>
+    <title>MAST IOGURTE | Tradição em Brasília</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
 
         :root {
             --bg: #fdfaf5;
@@ -22,15 +22,15 @@
             color: var(--ink);
             font-family: 'Poppins', sans-serif;
             margin: 0; padding: 0;
+            line-height: 1.5;
         }
 
-        /* HEADER & CANLI DURUM */
         header {
             text-align: center;
             padding: 50px 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--white);
             border-bottom: 5px double var(--gold);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .status-badge {
@@ -39,15 +39,15 @@
             gap: 8px;
             background: var(--ink);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.7rem;
+            padding: 6px 18px;
+            border-radius: 25px;
+            font-size: 0.75rem;
             font-weight: 700;
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
 
-        .dot { height: 8px; width: 8px; background-color: var(--status-on); border-radius: 50%; display: inline-block; animation: blink 1.5s infinite; }
+        .dot { height: 10px; width: 10px; background-color: var(--status-on); border-radius: 50%; display: inline-block; animation: blink 1.5s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
         header h1 {
@@ -58,62 +58,71 @@
             letter-spacing: 4px;
         }
 
-        .container { max-width: 900px; margin: -20px auto 50px; padding: 0 15px; }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
 
-        /* ÜRÜN KUTULARI */
-        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        /* ÜRÜN GRID */
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
         .product-box {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(184, 149, 80, 0.2);
-            border-radius: 25px;
-            padding: 20px;
-            backdrop-filter: blur(5px);
-            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(184,149,80,0.3);
+            border-radius: 20px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .img-frame { width: 100%; aspect-ratio: 1/1; background: #fff; border-radius: 15px; overflow: hidden; margin-bottom: 15px; border: 1px solid #eee; }
+        .img-frame { width: 100%; aspect-ratio: 1/1; background: #fff; border-radius: 12px; overflow: hidden; margin-bottom: 15px; border: 1px solid #eee; }
         .img-frame img { width: 100%; height: 100%; object-fit: contain; }
 
-        .cat-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; text-align: center; color: var(--gold); text-transform: uppercase; margin: 0 0 15px 0; border-bottom: 1px solid var(--gold); padding-bottom: 5px; }
+        .cat-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; text-align: center; color: var(--gold); text-transform: uppercase; margin: 0 0 15px 0; border-bottom: 2px solid var(--gold); padding-bottom: 5px; }
 
         .price-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; }
         .val { font-weight: 700; color: var(--gold); }
 
-        /* HAFTALIK SET (YENİ) */
+        /* 1. KIT DA SEMANA */
         .combo-card {
-            background: linear-gradient(135deg, #fff 0%, #fffdf0 100%);
-            border: 2px solid var(--gold);
-            margin-top: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #fffdf0 100%);
+            border: 3px solid var(--gold);
             border-radius: 25px;
-            padding: 25px;
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 15px 30px rgba(184,149,80,0.1);
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(184,149,80,0.15);
         }
 
-        .combo-badge { background: var(--gold); color: white; padding: 4px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 700; }
+        .combo-tag { background: var(--gold); color: white; padding: 5px 15px; border-radius: 5px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
 
-        /* ABONELİK (YENİ) */
-        .subscription-card {
+        /* 2. ASSINATURA MAST */
+        .sub-card {
             background: var(--ink);
             color: white;
-            margin-top: 20px;
-            padding: 25px;
+            padding: 30px;
             border-radius: 25px;
             text-align: center;
+            margin-bottom: 30px;
         }
 
-        /* BUTONLAR */
+        /* 3. QR MENU ALANI */
+        .qr-section {
+            text-align: center;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            margin-top: 40px;
+        }
+
+        /* WHATSAPP BUTON */
         .wa-btn {
             display: flex; align-items: center; justify-content: center; gap: 12px;
-            background: var(--wa); color: white; padding: 20px; border-radius: 50px;
-            text-decoration: none; font-weight: 700; margin-top: 25px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); transition: 0.3s;
+            background: var(--wa); color: white; padding: 22px; border-radius: 50px;
+            text-decoration: none; font-weight: 700; font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: 0.3s;
         }
-        .wa-btn:hover { transform: scale(1.02); }
 
-        footer { padding: 40px; text-align: center; font-size: 0.65rem; color: #999; letter-spacing: 2px; }
+        footer { padding: 50px; text-align: center; font-size: 0.7rem; color: #999; letter-spacing: 2px; }
 
-        @media (max-width: 600px) { .product-grid { gap: 10px; } .product-box { padding: 12px; } }
+        @media (max-width: 600px) { .product-grid { gap: 10px; } .product-box { padding: 10px; } }
     </style>
 </head>
 <body>
@@ -121,29 +130,60 @@
 <header>
     <div class="status-badge"><span class="dot"></span> ABERTO AGORA</div>
     <h1>MAST IOGURTE</h1>
-    <div style="font-weight:600; color:var(--gold); letter-spacing:4px; font-size:0.75rem;">LAGO SUL • DESDE 1860</div>
+    <div style="font-weight:700; color:var(--gold); letter-spacing:3px; font-size:0.8rem;">BRASÍLIA • 11:00 - 23:00</div>
 </header>
 
 <div class="container">
+    
     <div class="product-grid">
         <div class="product-box">
             <div class="img-frame"><img src="yogurt.jpg" alt="Iogurte"></div>
             <h2 class="cat-title">Iogurte</h2>
-            <div class="price-item"><span>1000 ML</span><span class="val">R$ 20</span></div>
-            <div class="price-item"><span>500 ML</span><span class="val">R$ 10</span></div>
-            <div class="price-item" style="background:rgba(184,149,80,0.1);"><span>250 ML (Top)</span><span class="val">R$ 7</span></div>
-            <div class="price-item"><span>140 ML</span><span class="val">R$ 5</span></div>
+            <div class="price-list">
+                <div class="price-item"><span>1000 ML</span><span class="val">R$ 20</span></div>
+                <div class="price-item"><span>500 ML</span><span class="val">R$ 10</span></div>
+                <div class="price-item" style="background:rgba(184,149,80,0.1);"><span>250 ML</span><span class="val">R$ 7</span></div>
+                <div class="price-item"><span>140 ML</span><span class="val">R$ 5</span></div>
+            </div>
         </div>
 
         <div class="product-box">
             <div class="img-frame"><img src="sutlac.jpg" alt="Arroz Doce"></div>
             <h2 class="cat-title">Arroz Doce</h2>
-            <div class="price-item"><span>Aile Boyu</span><span class="val">R$ 20</span></div>
-            <div class="price-item"><span>Büyük Boy</span><span class="val">R$ 15</span></div>
-            <div class="price-item" style="background:rgba(184,149,80,0.1);"><span>Orta Kase</span><span class="val">R$ 10</span></div>
-            <div class="price-item"><span>Küçük Boy</span><span class="val">R$ 5</span></div>
+            <div class="price-list">
+                <div class="price-item"><span>Aile Boyu</span><span class="val">R$ 20</span></div>
+                <div class="price-item"><span>Büyük Boy</span><span class="val">R$ 15</span></div>
+                <div class="price-item" style="background:rgba(184,149,80,0.1);"><span>Orta (Kase)</span><span class="val">R$ 10</span></div>
+                <div class="price-item"><span>Küçük Boy</span><span class="val">R$ 5</span></div>
+            </div>
         </div>
     </div>
 
     <div class="combo-card">
-        <span class="
+        <span class="combo-tag">Lago Sul'un En Çok Tercih Edileni</span>
+        <h2 style="font-family:'Playfair Display'; margin:15px 0;">Kit Gurme da Semana</h2>
+        <p style="color:#555; font-size:0.9rem;">1 Iogurte Família (1000 ML) + 2 Arroz Doce (Kase)</p>
+        <div style="font-size:1.8rem; font-weight:900; color:var(--gold); margin:10px 0;">R$ 35,00</div>
+    </div>
+
+    <div class="sub-card">
+        <h2 style="font-family:'Playfair Display'; margin:0 0 10px 0;">Assinatura Mast</h2>
+        <p style="font-size:0.9rem; opacity:0.9;">Her hafta taze yoğurdunuz kapınıza gelsin ister misiniz? Özel abonelik avantajları için bize yazın.</p>
+    </div>
+
+    <a href="https://wa.me/5561999851365" class="wa-btn">PEDIR AGORA VIA WHATSAPP</a>
+
+    <div class="qr-section">
+        <p style="margin:0; font-size:0.8rem; font-weight:700; color:var(--gold);">📍 LAGO SUL - CONJUNTO 26</p>
+        <p style="margin:5px 0; font-size:0.7rem; color:#888;">Peça direto e evite taxas do iFood</p>
+    </div>
+
+</div>
+
+<footer>
+    MAST IOGURTE & ARROZ DOCE • TRADIÇÃO DESDE 1860<br>
+    HORÁRIO: 11:00 - 23:00 (TODOS OS DIAS)
+</footer>
+
+</body>
+</html>
