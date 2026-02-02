@@ -13,7 +13,7 @@
             --ink: #1a1a1a;
             --white: #ffffff;
             --wa: #25d366;
-            --dark-section: #222222; /* Siyah kısımların yeni elit tonu */
+            --card-bg: #f9f4e8; /* Kutuların yeni yumuşak krem rengi */
         }
 
         body {
@@ -25,65 +25,73 @@
             text-align: center;
         }
 
-        /* OVAL LOGO AYARI */
-        .logo-container {
-            max-width: 200px;
-            margin: 30px auto 10px;
-            padding: 10px;
-        }
-
-        .logo-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 50%; /* KARE RESMİ OVAL/YUVARLAK YAPAR */
-            border: 3px solid var(--gold); /* Etrafına altın çerçeve atar */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            object-fit: cover;
-        }
-
+        /* AKILLI DURUM ÇUBUĞU */
         #status-bar {
             padding: 12px; font-weight: 700; font-size: 0.85rem; color: white;
             text-transform: uppercase; letter-spacing: 2px; position: sticky;
             top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+
+        /* OVAL LOGO AYARI */
+        .logo-wrapper {
+            max-width: 180px;
+            margin: 30px auto 10px;
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 50%; /* Kareyi Oval Yapar */
+            border: 3px solid var(--gold);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         header { padding: 20px; background: var(--white); border-bottom: 5px double var(--gold); }
+        
         .container { max-width: 850px; margin: 30px auto; padding: 0 15px; }
 
-        /* ÜRÜN KARTLARI */
+        /* ÜRÜN IZGARASI */
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
         .product-card {
             background: var(--white); border: 1px solid rgba(184, 149, 80, 0.2);
-            border-radius: 20px; padding: 15px;
+            border-radius: 20px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
         .img-box { width: 100%; aspect-ratio: 1; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* ALTTAKİ KOYU KISIMLARIN YENİ TASARIMI */
+        /* ÖZEL ALT KUTULAR (UYARLANMIŞ) */
         .special-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
         
-        .dark-box {
-            background: var(--dark-section);
-            color: var(--white);
+        .premium-box {
+            background: var(--card-bg);
+            color: var(--ink);
+            border: 2px solid var(--gold);
             border-radius: 20px;
             padding: 25px 15px;
             text-align: center;
-            border-top: 4px solid var(--gold); /* Üste altın çizgi */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(184, 149, 80, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 180px;
         }
 
-        .dark-box h2 { font-family: 'Playfair Display', serif; color: var(--gold); margin: 0 0 10px 0; font-size: 1.3rem; }
-        .dark-box p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 15px; line-height: 1.4; }
-        .dark-box .price-tag { font-size: 1.8rem; font-weight: 800; color: var(--gold); }
+        .premium-box h2 { font-family: 'Playfair Display', serif; color: var(--gold); margin: 0 0 10px 0; font-size: 1.3rem; }
+        .premium-box p { font-size: 0.85rem; margin-bottom: 10px; line-height: 1.4; color: #555; }
+        .premium-box .price { font-size: 1.8rem; font-weight: 800; color: var(--gold); }
 
         /* WHATSAPP BUTON */
         #order-btn {
             display: flex; align-items: center; justify-content: center;
-            background: var(--wa); color: white; padding: 20px; border-radius: 50px;
+            background: var(--wa); color: white; padding: 22px; border-radius: 50px;
             text-decoration: none; font-weight: 700; margin-top: 30px;
-            white-space: nowrap; text-transform: uppercase; font-size: 1rem;
+            white-space: nowrap; text-transform: uppercase; font-size: clamp(0.8rem, 4vw, 1.1rem);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
         }
+
+        .btn-closed { background: #999 !important; pointer-events: none; opacity: 0.7; }
 
         @media (max-width: 600px) { 
             .product-grid, .special-grid { grid-template-columns: 1fr; } 
@@ -94,8 +102,8 @@
 
 <div id="status-bar">CARREGANDO...</div>
 
-<div class="logo-container">
-    <img src="logo.jpg" alt="Mast Iogurte">
+<div class="logo-wrapper">
+    <img src="logo.jpg" alt="Mast Iogurte Logo">
 </div>
 
 <header>
@@ -107,50 +115,58 @@
     <div class="product-grid">
         <div class="product-card">
             <div class="img-box"><img src="yogurt.jpg"></div>
-            <h3 style="color:var(--gold); font-family:'Playfair Display';">Iogurte</h3>
-            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:8px 0;"><span>1000 ML</span><b>R$ 20</b></div>
-            <div style="display:flex; justify-content:space-between; padding:8px 0;"><span>500 ML</span><b>R$ 10</b></div>
+            <h3 style="color:var(--gold); font-family:'Playfair Display'; text-transform: uppercase;">Iogurte</h3>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:10px 0;"><span>1000 ML</span><b>R$ 20</b></div>
+            <div style="display:flex; justify-content:space-between; padding:10px 0;"><span>500 ML</span><b>R$ 10</b></div>
         </div>
         <div class="product-card">
             <div class="img-box"><img src="sutlac.jpg"></div>
-            <h3 style="color:var(--gold); font-family:'Playfair Display';">Arroz Doce</h3>
-            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:8px 0;"><span>Família</span><b>R$ 20</b></div>
-            <div style="display:flex; justify-content:space-between; padding:8px 0;"><span>Kase</span><b>R$ 10</b></div>
+            <h3 style="color:var(--gold); font-family:'Playfair Display'; text-transform: uppercase;">Arroz Doce</h3>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:10px 0;"><span>Família</span><b>R$ 20</b></div>
+            <div style="display:flex; justify-content:space-between; padding:10px 0;"><span>Kase</span><b>R$ 10</b></div>
         </div>
     </div>
 
     <div class="special-grid">
-        <div class="dark-box">
-            <span style="background:var(--gold); color:white; padding:2px 8px; border-radius:4px; font-size:0.6rem; font-weight:800;">MAIS PEDIDO</span>
+        <div class="premium-box">
+            <span style="background:var(--gold); color:white; padding:3px 10px; border-radius:5px; font-size:0.65rem; font-weight:800; align-self:center; margin-bottom:10px;">MAIS PEDIDO</span>
             <h2>Kit Gurme</h2>
-            <p>1 Iogurte (1L) + <br>2 Arroz Doce (Kase)</p>
-            <div class="price-tag">R$ 35</div>
+            <p>1 Iogurte (1L) +<br>2 Arroz Doce (Kase)</p>
+            <div class="price">R$ 35,00</div>
         </div>
         
-        <div class="dark-box">
+        <div class="premium-box">
             <h2>Assinatura</h2>
-            <p>Taze yoğurdunuz her hafta kapınıza gelsin.</p>
-            <div style="color:var(--gold); font-weight:700; margin-top:10px;">PROMOÇÃO VIP</div>
-            <div style="font-size:0.7rem; margin-top:5px;">Consulte no WhatsApp</div>
+            <p>Her hafta taze yoğurt kapınıza gelsin.</p>
+            <div style="color:var(--gold); font-weight:700; border:1px solid var(--gold); padding:5px; border-radius:5px; font-size:0.8rem;">PROMOÇÃO VIP</div>
+            <div style="font-size:0.75rem; margin-top:10px; color:#777;">Fale conosco no WhatsApp</div>
         </div>
     </div>
 
     <a href="https://wa.me/5561999851365" id="order-btn">PEDIR AGORA VIA WHATSAPP</a>
+
+    <p style="margin-top:30px; font-size:0.75rem; color:#999; letter-spacing:1px;">📍 SMDB Conjunto 26, Lago Sul | Mínimo: R$ 30</p>
 </div>
 
 <script>
     function checkStatus() {
-        const h = new Date().getHours();
+        const hora = new Date().getHours();
         const bar = document.getElementById('status-bar');
-        if (h >= 11 && h < 23) {
+        const btn = document.getElementById('order-btn');
+        if (hora >= 11 && hora < 23) {
             bar.style.backgroundColor = "#2ecc71";
-            bar.innerText = "● ABERTO AGORA";
+            bar.innerText = "● ABERTO AGORA - ENTREGANDO NO LAGO SUL";
+            btn.classList.remove('btn-closed');
+            btn.innerText = "PEDIR AGORA VIA WHATSAPP";
         } else {
             bar.style.backgroundColor = "#e74c3c";
-            bar.innerText = "○ FECHADO NO MOMENTO";
+            bar.innerText = "○ FECHADO NO MOMENTO - VOLTAMOS ÀS 11:00";
+            btn.classList.add('btn-closed');
+            btn.innerHTML = "VOLTAMOS AMANHÃ ÀS 11:00";
         }
     }
     checkStatus();
+    setInterval(checkStatus, 60000);
 </script>
 
 </body>
