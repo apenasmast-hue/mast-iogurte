@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Brasília 1860</title>
+    <title>MAST IOGURTE | Premium Brasília</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;700&display=swap');
 
         :root {
             --vintage-bg: #fdfaf5;
@@ -14,6 +14,7 @@
             --white: #ffffff;
             --wa-green: #25d366;
             --ifood-red: #ea1d2c;
+            --map-blue: #4285F4;
         }
 
         body {
@@ -22,167 +23,220 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
+        /* Hero Header */
         header {
             text-align: center;
-            padding: 25px 10px;
+            padding: 40px 15px;
             background: var(--white);
-            border-bottom: 3px double var(--gold);
+            border-bottom: 4px double var(--gold);
         }
 
-        /* Sağlık Mühürleri */
-        .badges {
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* 1860 Icons */
+        .retro-nav {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            padding: 10px;
-            background: #f9f4e8;
-            border-bottom: 1px solid #ddd;
+            gap: 20px;
+            padding: 15px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
         }
 
-        .badge-item { font-size: 0.6rem; font-weight: bold; border: 1px solid var(--gold); padding: 3px 8px; border-radius: 20px; color: var(--gold); text-transform: uppercase; }
+        .nav-item { text-align: center; font-size: 0.6rem; font-weight: 700; color: #888; }
+        .nav-item span { display: block; font-size: 1.5rem; margin-bottom: 2px; }
 
         .container {
             max-width: 900px;
-            margin: 15px auto;
-            padding: 0 5px;
+            margin: 20px auto;
+            padding: 0 10px;
         }
 
-        .split-layout {
+        /* Main Grid - 2 Sütun */
+        .product-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 15px;
         }
 
-        .column {
+        .product-box {
             background: var(--white);
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 12px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
-        .product-img {
+        .img-frame {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: contain;
+            aspect-ratio: 1/1;
             background: #f9f9f9;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid #f0f0f0;
         }
 
-        .column-header {
+        .img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* BAŞLIKLAR BURADA BÜYÜTÜLDÜ VE EŞİTLENDİ */
+        .cat-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            border-bottom: 2px solid var(--gold);
-            margin-bottom: 10px;
-            padding-bottom: 5px;
+            font-size: 1.5rem; /* Yoğurt ve Sütlaç için eşit büyük boy */
             text-align: center;
+            color: var(--ink);
+            border-bottom: 2px solid var(--gold);
+            margin: 0 0 15px 0;
+            padding-bottom: 5px;
+            text-transform: uppercase; /* Her zaman büyük harf */
         }
 
-        .item-row { border-bottom: 1px solid #eee; padding: 8px 0; text-align: center; }
-        .item-label { font-size: 0.8rem; font-weight: bold; color: #555; }
-        .item-price { font-size: 1.1rem; font-weight: 800; color: var(--gold); display: block; }
+        .price-list {
+            flex-grow: 1;
+        }
 
-        .col-btn { margin-top: 15px; padding: 12px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: bold; font-size: 0.8rem; color: white; text-transform: uppercase; }
-        .btn-wa { background: var(--wa-green); }
-        .btn-ifood { background: var(--ifood-red); }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
 
-        /* MÜŞTERİ YORUMLARI */
-        .testimonials {
+        .price-item:last-child { border-bottom: none; }
+        .label { font-size: 0.8rem; font-weight: 400; }
+        .val { font-weight: 700; color: var(--gold); }
+
+        /* Action Buttons */
+        .action-btns {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn-wa { background: var(--wa-green); box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
+        .btn-if { background: var(--ifood-red); box-shadow: 0 4px 12px rgba(234,29,44,0.3); }
+        .btn-map { background: var(--map-blue); box-shadow: 0 4px 12px rgba(66,133,244,0.3); }
+        
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        .location-card {
+            background: var(--white);
             margin-top: 30px;
             padding: 20px;
-            background: var(--white);
-            border: 1px solid #ddd;
-            border-radius: 12px;
-        }
-
-        .testimonials h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; text-align: center; margin-bottom: 20px; color: var(--gold); }
-
-        .quote { font-style: italic; font-size: 0.85rem; margin-bottom: 15px; border-left: 3px solid var(--gold); padding-left: 10px; }
-        .quote span { display: block; font-weight: bold; font-style: normal; margin-top: 5px; color: #777; font-size: 0.75rem; }
-
-        /* KONUM BUTONU */
-        .maps-btn {
-            display: block;
-            background: #4285F4;
-            color: white;
+            border-radius: 15px;
             text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
+            border: 1px solid #eee;
         }
 
-        footer { text-align: center; padding: 30px; font-size: 0.6rem; color: #999; }
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #bbb;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.8rem; }
+            .product-grid { gap: 8px; }
+            .product-box { padding: 8px; }
+            .cat-title { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 style="font-family:'Playfair Display'; margin:0;">MAST IOGURTE</h1>
-    <p style="color:var(--gold); font-weight:bold; margin:0; font-size: 0.8rem;">BRASÍLIA • DESDE 1860</p>
+    <h1>MAST IOGURTE</h1>
+    <div class="subtitle">PREMIUM QUALITY • 1860</div>
 </header>
 
-<div class="badges">
-    <div class="badge-item">✓ 100% Natural</div>
-    <div class="badge-item">✓ Sem Glúten</div>
-    <div class="badge-item">✓ Artesanal</div>
-</div>
+<nav class="retro-nav">
+    <div class="nav-item"><span>🏺</span>ARTESANAL</div>
+    <div class="nav-item"><span>🛡️</span>PURO</div>
+    <div class="nav-item"><span>🚲</span>ENTREGA</div>
+</nav>
 
 <div class="container">
-    <div class="split-layout">
-        
-        <div class="column">
-            <div>
-                <img src="yogurt.jpg" alt="Iogurte" class="product-img">
-                <div class="column-header">IOGURTE</div>
-                <div class="item-row"><span class="item-label">1000ml</span><span class="item-price">R$ 20,00</span></div>
-                <div class="item-row"><span class="item-label">500ml</span><span class="item-price">R$ 10,00</span></div>
-                <div class="item-row" style="background:#fffdf0;"><span class="item-label">250ml</span><span class="item-price">R$ 7,00</span></div>
+    <div class="product-grid">
+        <div class="product-box">
+            <div class="img-frame"><img src="yogurt.jpg" alt="Iogurte"></div>
+            <h2 class="cat-title">Iogurte</h2>
+            <div class="price-list">
+                <div class="price-item"><span class="label">1000ml</span><span class="val">R$ 20</span></div>
+                <div class="price-item"><span class="label">500ml</span><span class="val">R$ 10</span></div>
+                <div class="price-item" style="background: #fffdf0;"><span class="label">250ml</span><span class="val">R$ 7</span></div>
+                <div class="price-item"><span class="label">140ml</span><span class="val">R$ 5</span></div>
             </div>
-            <a href="https://wa.me/5561999851365" class="col-btn btn-wa">WhatsApp</a>
         </div>
 
-        <div class="column">
-            <div>
-                <img src="sutlac.jpg" alt="Arroz Doce" class="product-img">
-                <div class="column-header">ARROZ DOCE</div>
-                <div class="item-row"><span class="item-label">Kase (Unidade)</span><span class="item-price">R$ 10,00</span></div>
-                <div class="item-row"><span class="item-label">Pote Médio</span><span class="item-price">R$ 15,00</span></div>
-                <div class="item-row"><span class="item-label">Pote Grande</span><span class="item-price">R$ 20,00</span></div>
+        <div class="product-box">
+            <div class="img-frame"><img src="sutlac.jpg" alt="Arroz Doce"></div>
+            <h2 class="cat-title">Arroz Doce</h2>
+            <div class="price-list">
+                <div class="price-item"><span class="label">Pote Família</span><span class="val">R$ 20</span></div>
+                <div class="price-item" style="background: #fffdf0;"><span class="label">Kase (Unid.)</span><span class="val">R$ 10</span></div>
+                <div class="price-item"><span class="label">Pote Médio</span><span class="val">R$ 15</span></div>
+                <div class="price-item"><span class="label">Degustação</span><span class="val">R$ 5</span></div>
             </div>
-            <a href="https://wa.me/5561999851365" class="col-btn btn-ifood">iFood (Breve)</a>
         </div>
     </div>
 
-    <div class="testimonials">
-        <h2>O que dizem nossos clientes</h2>
-        <div class="quote">
-            "O melhor iogurte artesanal que já provei em Brasília. Lembra o sabor da fazenda!"
-            <span>— Ricardo S., Lago Sul</span>
-        </div>
-        <div class="quote">
-            "O Arroz Doce é cremoso na medida certa. O pote de 10 reais vale cada centavo."
-            <span>— Maria L., SMDB</span>
-        </div>
+    <div class="action-btns">
+        <a href="https://wa.me/5561999851365" class="btn btn-wa">Encomendar via WhatsApp</a>
+        <a href="https://wa.me/5561999851365" class="btn btn-if">Peça no iFood (Em Breve)</a>
+        <a href="https://maps.google.com/?q=Lago+Sul+Brasilia+SMDB+Conjunto+26" target="_blank" class="btn btn-map">📍 Ver no Google Maps</a>
     </div>
 
-    <a href="https://maps.google.com/?q=-15.8361,-47.8242" target="_blank" class="maps-btn">
-        📍 VER LOCALIZAÇÃO NO MAPA
-    </a>
-
-    <div style="text-align:center; margin-top:20px; font-size:0.8rem;">
-        ⏰ <strong>Atendimento:</strong> 08:00 - 20:00
+    <div class="location-card">
+        <strong>Lago Sul, Brasília - DF</strong><br>
+        <span style="font-size: 0.8rem; color: #666;">SMDB Conjunto 26 | Aberto até 20:00</span>
     </div>
 </div>
 
-<footer>Mast Iogurte & Arroz Doce • Qualidade Superior 1860</footer>
+<footer>
+    © 2026 MAST IOGURTE & ARROZ DOCE - DESDE 1860
+</footer>
 
 </body>
 </html>
