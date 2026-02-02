@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Brasília 1860</title>
+    <title>MAST IOGURTE | Premium Brasília</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap');
 
@@ -13,165 +13,115 @@
             --ink: #1a1a1a;
             --white: #ffffff;
             --wa: #25d366;
-            --if: #ea1d2c;
+            --status-on: #2ecc71;
         }
 
         body {
             background-color: var(--bg);
-            background-image: radial-gradient(var(--gold) 0.5px, transparent 0.5px);
-            background-size: 30px 30px;
-            background-attachment: fixed;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
             color: var(--ink);
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            margin: 0; padding: 0;
         }
 
+        /* HEADER & CANLI DURUM */
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: var(--white);
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
             border-bottom: 5px double var(--gold);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
         }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--ink);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .dot { height: 8px; width: 8px; background-color: var(--status-on); border-radius: 50%; display: inline-block; animation: blink 1.5s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.5rem, 7vw, 2.5rem);
+            font-size: clamp(2rem, 8vw, 3rem);
             margin: 0;
+            text-transform: uppercase;
             letter-spacing: 4px;
-            text-transform: uppercase;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 10px;
-        }
+        .container { max-width: 900px; margin: -20px auto 50px; padding: 0 15px; }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
+        /* ÜRÜN KUTULARI */
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .product-box {
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid var(--gold);
-            border-radius: 15px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(184, 149, 80, 0.2);
+            border-radius: 25px;
+            padding: 20px;
             backdrop-filter: blur(5px);
-        }
-
-        .img-frame {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            border: 1px solid #eee;
-        }
-
-        .img-frame img { width: 100%; height: 100%; object-fit: contain; }
-
-        .cat-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1rem, 4vw, 1.4rem);
-            text-align: center;
-            color: var(--white);
-            background: var(--gold);
-            margin: 0 0 15px 0;
-            padding: 5px;
-            border-radius: 5px;
-            text-transform: uppercase;
-        }
-
-        .price-list { flex-grow: 1; }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px dotted var(--gold);
-            min-height: 45px; /* Satır kaymasını engeller */
-        }
-
-        .label { 
-            font-size: clamp(0.65rem, 3vw, 0.85rem); 
-            font-weight: 600; 
-            color: #333;
-            max-width: 60%; /* Yazının fiyata çarpmasını engeller */
-        }
-
-        .val { 
-            font-weight: 700; 
-            color: var(--gold); 
-            font-size: clamp(0.75rem, 3vw, 1rem);
-            white-space: nowrap;
-        }
-
-        .action-btns {
-            margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            color: white;
             transition: 0.3s;
         }
 
-        .btn-wa { 
-            background: var(--wa); 
-            box-shadow: 0 4px 15px rgba(37,211,102,0.4);
-            animation: pulse 2s infinite;
-        }
+        .img-frame { width: 100%; aspect-ratio: 1/1; background: #fff; border-radius: 15px; overflow: hidden; margin-bottom: 15px; border: 1px solid #eee; }
+        .img-frame img { width: 100%; height: 100%; object-fit: contain; }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
+        .cat-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; text-align: center; color: var(--gold); text-transform: uppercase; margin: 0 0 15px 0; border-bottom: 1px solid var(--gold); padding-bottom: 5px; }
 
-        .btn-if { background: var(--if); opacity: 0.8; }
+        .price-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; }
+        .val { font-weight: 700; color: var(--gold); }
 
-        .footer-card {
-            background: var(--white);
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 15px;
+        /* HAFTALIK SET (YENİ) */
+        .combo-card {
+            background: linear-gradient(135deg, #fff 0%, #fffdf0 100%);
+            border: 2px solid var(--gold);
+            margin-top: 30px;
+            border-radius: 25px;
+            padding: 25px;
             text-align: center;
-            border: 1px solid var(--gold);
+            box-shadow: 0 15px 30px rgba(184,149,80,0.1);
         }
 
-        footer { text-align: center; padding: 30px; font-size: 0.6rem; color: #888; letter-spacing: 2px; }
+        .combo-badge { background: var(--gold); color: white; padding: 4px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 700; }
 
-        @media (max-width: 480px) {
-            .product-grid { gap: 8px; }
-            .product-box { padding: 10px; }
+        /* ABONELİK (YENİ) */
+        .subscription-card {
+            background: var(--ink);
+            color: white;
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 25px;
+            text-align: center;
         }
+
+        /* BUTONLAR */
+        .wa-btn {
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            background: var(--wa); color: white; padding: 20px; border-radius: 50px;
+            text-decoration: none; font-weight: 700; margin-top: 25px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); transition: 0.3s;
+        }
+        .wa-btn:hover { transform: scale(1.02); }
+
+        footer { padding: 40px; text-align: center; font-size: 0.65rem; color: #999; letter-spacing: 2px; }
+
+        @media (max-width: 600px) { .product-grid { gap: 10px; } .product-box { padding: 12px; } }
     </style>
 </head>
 <body>
 
 <header>
+    <div class="status-badge"><span class="dot"></span> ABERTO AGORA</div>
     <h1>MAST IOGURTE</h1>
-    <div style="font-weight:600; color:var(--gold); letter-spacing:3px; font-size:0.7rem;">BRASÍLIA • DESDE 1860</div>
+    <div style="font-weight:600; color:var(--gold); letter-spacing:4px; font-size:0.75rem;">LAGO SUL • DESDE 1860</div>
 </header>
 
 <div class="container">
@@ -179,38 +129,21 @@
         <div class="product-box">
             <div class="img-frame"><img src="yogurt.jpg" alt="Iogurte"></div>
             <h2 class="cat-title">Iogurte</h2>
-            <div class="price-list">
-                <div class="price-item"><span class="label">1000 ML</span><span class="val">R$ 20</span></div>
-                <div class="price-item"><span class="label">500 ML</span><span class="val">R$ 10</span></div>
-                <div class="price-item" style="background:rgba(184,149,80,0.1);"><span class="label">250 ML</span><span class="val">R$ 7</span></div>
-                <div class="price-item"><span class="label">140 ML</span><span class="val">R$ 5</span></div>
-            </div>
+            <div class="price-item"><span>1000 ML</span><span class="val">R$ 20</span></div>
+            <div class="price-item"><span>500 ML</span><span class="val">R$ 10</span></div>
+            <div class="price-item" style="background:rgba(184,149,80,0.1);"><span>250 ML (Top)</span><span class="val">R$ 7</span></div>
+            <div class="price-item"><span>140 ML</span><span class="val">R$ 5</span></div>
         </div>
 
         <div class="product-box">
             <div class="img-frame"><img src="sutlac.jpg" alt="Arroz Doce"></div>
             <h2 class="cat-title">Arroz Doce</h2>
-            <div class="price-list">
-                <div class="price-item"><span class="label">Aile Boyu</span><span class="val">R$ 20</span></div>
-                <div class="price-item"><span class="label">Büyük Boy</span><span class="val">R$ 15</span></div>
-                <div class="price-item" style="background:rgba(184,149,80,0.1);"><span class="label">Orta (Kase)</span><span class="val">R$ 10</span></div>
-                <div class="price-item"><span class="label">Küçük Boy</span><span class="val">R$ 5</span></div>
-            </div>
+            <div class="price-item"><span>Aile Boyu</span><span class="val">R$ 20</span></div>
+            <div class="price-item"><span>Büyük Boy</span><span class="val">R$ 15</span></div>
+            <div class="price-item" style="background:rgba(184,149,80,0.1);"><span>Orta Kase</span><span class="val">R$ 10</span></div>
+            <div class="price-item"><span>Küçük Boy</span><span class="val">R$ 5</span></div>
         </div>
     </div>
 
-    <div class="action-btns">
-        <a href="https://wa.me/5561999851365" class="btn btn-wa">Fazer Pedido Agora</a>
-        <a href="#" class="btn btn-if">iFood (Em Breve)</a>
-    </div>
-
-    <div class="footer-card">
-        <strong style="color:var(--gold)">LAGO SUL, BRASÍLIA</strong><br>
-        <span style="font-size:0.8rem">Aberto todos os dias: 08:00 - 20:00</span>
-    </div>
-</div>
-
-<footer>© 2026 MAST IOGURTE - A TRADIÇÃO DE BRASÍLIA</footer>
-
-</body>
-</html>
+    <div class="combo-card">
+        <span class="
