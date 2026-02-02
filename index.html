@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | 1860</title>
+    <title>MAST IOGURTE | Brasília 1860</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&display=swap');
 
@@ -12,6 +12,8 @@
             --gold: #b89550;
             --ink: #1a1a1a;
             --white: #ffffff;
+            --wa-green: #25d366;
+            --ifood-red: #ea1d2c;
         }
 
         body {
@@ -24,12 +26,10 @@
 
         header {
             text-align: center;
-            padding: 25px 10px;
+            padding: 20px 10px;
             background: var(--white);
             border-bottom: 3px double var(--gold);
         }
-
-        header h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0; }
 
         .retro-icons {
             display: flex;
@@ -49,26 +49,26 @@
             padding: 0 5px;
         }
 
-        /* TAŞ GİBİ 2 SÜTUN */
         .split-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            gap: 10px;
         }
 
         .column {
             background: var(--white);
             border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 5px;
-            text-align: center;
+            border-radius: 12px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        /* KARE VE KESİLMEYEN RESİM */
         .product-img {
             width: 100%;
-            aspect-ratio: 1 / 1; /* Kare yapar */
-            object-fit: contain; /* Kesmeden içine sığdırır */
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
             background: #f9f9f9;
             border-radius: 8px;
             margin-bottom: 10px;
@@ -76,44 +76,49 @@
 
         .column-header {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             border-bottom: 2px solid var(--gold);
             margin-bottom: 10px;
             padding-bottom: 5px;
+            text-align: center;
         }
 
         .item-row {
             border-bottom: 1px solid #eee;
             padding: 8px 0;
-            display: flex;
-            flex-direction: column;
+            text-align: center;
         }
 
-        .item-ml { font-size: 0.75rem; font-weight: bold; color: #666; }
-        .item-price { font-size: 1rem; font-weight: 800; color: var(--gold); }
+        .item-label { font-size: 0.8rem; font-weight: bold; color: #555; }
+        .item-price { font-size: 1.1rem; font-weight: 800; color: var(--gold); display: block; }
+
+        /* Sütun Altı Logolar */
+        .col-btn {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .btn-wa { background: var(--wa-green); }
+        .btn-ifood { background: var(--ifood-red); }
+
+        .col-btn img { width: 18px; height: 18px; filter: brightness(0) invert(1); }
 
         .footer-info {
             text-align: center;
             margin-top: 20px;
             padding: 15px;
-            background: var(--white);
-            border-radius: 10px;
+            font-size: 0.8rem;
         }
-
-        .btn {
-            display: block;
-            padding: 15px;
-            margin: 8px auto;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85rem;
-            max-width: 250px;
-            text-transform: uppercase;
-        }
-
-        .btn-wa { background: #25d366; color: white; }
-        .btn-ifood { background: #ea1d2c; color: white; }
 
         footer { text-align: center; padding: 20px; font-size: 0.6rem; color: #999; }
     </style>
@@ -121,8 +126,8 @@
 <body>
 
 <header>
-    <h1>MAST IOGURTE</h1>
-    <small style="color:var(--gold); font-weight:bold;">BRASÍLIA • 1860</small>
+    <h1 style="font-family:'Playfair Display'; margin:0;">MAST IOGURTE</h1>
+    <small style="color:var(--gold); font-weight:bold;">BRASÍLIA • DESDE 1860</small>
 </header>
 
 <div class="retro-icons">
@@ -135,29 +140,37 @@
     <div class="split-layout">
         
         <div class="column">
-            <img src="yogurt.jpg" alt="Iogurte" class="product-img">
-            <div class="column-header">IOGURTE</div>
-            <div class="item-row"><span class="item-ml">1000ml</span><span class="item-price">R$ 20,00</span></div>
-            <div class="item-row"><span class="item-ml">500ml</span><span class="item-price">R$ 10,00</span></div>
-            <div class="item-row" style="background:#fffdf0;"><span class="item-ml">250ml</span><span class="item-price">R$ 7,00</span></div>
-            <div class="item-row"><span class="item-ml">140ml</span><span class="item-price">R$ 5,00</span></div>
+            <div>
+                <img src="yogurt.jpg" alt="Iogurte" class="product-img">
+                <div class="column-header">IOGURTE</div>
+                <div class="item-row"><span class="item-label">1000ml (Família)</span><span class="item-price">R$ 20,00</span></div>
+                <div class="item-row"><span class="item-label">500ml (Médio)</span><span class="item-price">R$ 10,00</span></div>
+                <div class="item-row" style="background:#fffdf0;"><span class="item-label">250ml (Individual)</span><span class="item-price">R$ 7,00</span></div>
+                <div class="item-row"><span class="item-label">140ml (Degustação)</span><span class="item-price">R$ 5,00</span></div>
+            </div>
+            <a href="https://wa.me/5561999851365" class="col-btn btn-wa">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp
+            </a>
         </div>
 
         <div class="column">
-            <img src="sutlac.jpg" alt="Arroz Doce" class="product-img">
-            <div class="column-header">ARROZ DOCE</div>
-            <div class="item-row"><span class="item-ml">1000ml</span><span class="item-price">R$ 20,00</span></div>
-            <div class="item-row"><span class="item-ml">500ml</span><span class="item-price">R$ 10,00</span></div>
-            <div class="item-row" style="background:#fffdf0;"><span class="item-ml">250ml</span><span class="item-price">R$ 7,00</span></div>
-            <div class="item-row"><span class="item-ml">140ml</span><span class="item-price">R$ 5,00</span></div>
+            <div>
+                <img src="sutlac.jpg" alt="Arroz Doce" class="product-img">
+                <div class="column-header">ARROZ DOCE</div>
+                <div class="item-row"><span class="item-label">Pote Grande</span><span class="item-price">R$ 20,00</span></div>
+                <div class="item-row" style="background:#fffdf0;"><span class="item-label">Kase (Unidade)</span><span class="item-price">R$ 10,00</span></div>
+                <div class="item-row"><span class="item-label">Pote Médio</span><span class="item-price">R$ 15,00</span></div>
+                <div class="item-row"><span class="item-label">Degustação</span><span class="item-price">R$ 5,00</span></div>
+            </div>
+            <a href="https://wa.me/5561999851365" class="col-btn btn-ifood">
+                <img src="https://cdn-icons-png.flaticon.com/512/5969/5969180.png"> iFood (Breve)
+            </a>
         </div>
 
     </div>
 
     <div class="footer-info">
-        <p style="font-size: 0.75rem; margin:0;">📍 <strong>Lago Sul, Brasília</strong></p>
-        <a href="https://wa.me/5561999851365" class="btn btn-wa">WHATSAPP</a>
-        <a href="https://wa.me/5561999851365" class="btn btn-ifood">iFOOD (BREVE)</a>
+        <p>📍 <strong>Lago Sul, Brasília</strong> | ⏰ 08:00 - 20:00</p>
     </div>
 </div>
 
