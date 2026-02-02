@@ -3,59 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MAST IOGURTE | Brasília Delivery</title>
+    <title>MAST IOGURTE | Delivery Brasília</title>
     
-    <meta name="description" content="Iogurte natural artesanal e Arroz Doce em Brasília. Delivery rápido no Lago Sul.">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@400;600;700&family=Courier+Prime:wght@700&display=swap');
 
-        :root { --bg: #fdfaf5; --ink: #1a1a1a; --white: #ffffff; --wa: #25d366; --red: #d63031; --beige: #EBD8B8; }
+        :root { --bg: #fdfaf5; --ink: #1a1a1a; --wa: #25d366; --red: #d63031; --beige: #EBD8B8; }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; }
 
-        /* HEADER - GÖRSELDEKİ GİBİ SİMETRİK */
+        /* HEADER */
         .header { background: var(--beige); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 5000; border-bottom: 3px solid #000; }
         .header-left { display: flex; align-items: center; border: 2px solid #000; padding: 5px 15px; background: #fff; border-radius: 5px; }
         .logo-box { width: 45px; height: 45px; border-radius: 50%; border: 2px solid #000; margin-right: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; background: var(--bg); }
         .header-title h1 { font-family: 'Playfair Display', serif; font-size: 1.3rem; line-height: 1; }
 
-        /* CONTAINER */
+        /* MAIN CONTENT */
         .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 40px; padding: 30px 15px 150px; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; border-bottom: 4px solid #000; display: inline-block; margin: 25px 0; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; border-bottom: 5px solid #000; display: inline-block; margin: 30px 0 20px; text-transform: uppercase; }
 
-        /* PRODUCT CARDS - TAM SİMETRİ */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
-        .card { background: #fff; border: 1px solid #ddd; padding: 15px; text-align: center; position: relative; border-radius: 5px; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 5px 5px 0px rgba(0,0,0,0.1); }
+        /* CARDS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+        .card { background: #fff; border: 2px solid #000; padding: 15px; text-align: center; position: relative; border-radius: 0px; transition: 0.2s; }
+        .card:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0px #000; }
         
-        .img-box { width: 100%; aspect-ratio: 1; margin-bottom: 12px; position: relative; border: 1px solid #eee; overflow: hidden; background: #f9f9f9; }
+        .img-box { width: 100%; aspect-ratio: 1; margin-bottom: 15px; position: relative; border: 1px solid #000; overflow: hidden; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* LOGO DAMGASI - FOTO ÜSTÜNDE */
-        .card-logo { position: absolute; top: 8px; right: 8px; width: 35px; height: 35px; background: #fff; border-radius: 50%; border: 1px solid #000; display: flex; align-items: center; justify-content: center; font-size: 0.5rem; font-weight: 900; z-index: 10; }
+        .card-logo { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; background: #fff; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 900; }
 
-        .card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; height: 40px; display: flex; align-items: center; justify-content: center; }
-        .price { color: var(--red); font-weight: 800; font-size: 1.3rem; margin-bottom: 12px; }
-        .add-btn { background: #000; color: #fff; border: none; padding: 10px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; }
+        .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; height: 45px; display: flex; align-items: center; justify-content: center; }
+        .price { color: var(--red); font-weight: 900; font-size: 1.5rem; margin-bottom: 15px; }
+        .add-btn { background: #000; color: #fff; border: none; padding: 12px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* RECEIPT (FİŞ) - EFSANE TASARIM */
-        .receipt { background: #fff; border: 4px solid #000; padding: 25px; font-family: 'Courier Prime', monospace; position: sticky; top: 100px; box-shadow: 10px 10px 0px rgba(0,0,0,0.05); }
-        .receipt-head { text-align: center; border-bottom: 2px dashed #000; padding-bottom: 15px; margin-bottom: 15px; }
-        .bairro-sel { width: 100%; padding: 10px; font-family: 'Courier Prime'; border: 2px solid #000; font-weight: 700; margin-bottom: 15px; font-size: 1rem; }
-        .items-list { min-height: 80px; margin-bottom: 15px; max-height: 300px; overflow-y: auto; }
-        .item-row { display: flex; justify-content: space-between; margin-bottom: 5px; font-weight: 700; font-size: 0.9rem; }
-        .total-box { border-top: 3px solid #000; padding-top: 15px; font-size: 1.6rem; font-weight: 900; display: flex; justify-content: space-between; }
+        /* RECEIPT (FİŞ) */
+        .receipt { background: #fff; border: 5px solid #000; padding: 30px; font-family: 'Courier Prime', monospace; position: sticky; top: 100px; }
+        .receipt-head { text-align: center; border-bottom: 3px dashed #000; padding-bottom: 20px; margin-bottom: 20px; }
+        .bairro-sel { width: 100%; padding: 12px; font-family: 'Courier Prime'; border: 2px solid #000; font-weight: 700; margin-bottom: 20px; font-size: 1.1rem; background: #eee; }
+        .items-list { min-height: 100px; margin-bottom: 20px; }
+        .item-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 700; font-size: 1rem; }
+        .total-box { border-top: 4px solid #000; padding-top: 20px; font-size: 2rem; font-weight: 900; display: flex; justify-content: space-between; }
         
-        .btn-group { display: flex; justify-content: space-between; margin-top: 20px; }
-        .btn-mal { background: #eee; border: 2px solid #000; padding: 10px; width: 45%; font-weight: 700; cursor: pointer; }
-        .btn-wa { background: var(--wa); color: #fff; border: 2px solid #000; padding: 10px; width: 50%; font-weight: 700; cursor: pointer; }
+        .btn-group { display: flex; justify-content: space-between; margin-top: 30px; }
+        .btn-mal { background: #fff; border: 2px solid #000; padding: 15px; width: 40%; font-weight: 700; cursor: pointer; font-family: 'Poppins'; }
+        .btn-wa { background: var(--wa); color: #fff; border: 2px solid #000; padding: 15px; width: 55%; font-weight: 700; cursor: pointer; font-family: 'Poppins'; font-size: 1rem; }
 
         @media (max-width: 950px) {
-            .container { grid-template-columns: 1fr; padding-bottom: 100px; }
+            .container { grid-template-columns: 1fr; }
             .desktop-sidebar { display: none; }
-            .grid { grid-template-columns: 1fr 1fr; }
+            .grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .section-title { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -66,7 +63,6 @@
         <div class="logo-box">MAST</div>
         <div class="header-title"><h1>MAST IOGURTE</h1><span>DELIVERY BRASILIA</span></div>
     </div>
-    <div style="font-weight: 700; color: var(--red); font-size: 0.8rem; text-align: right;">Entrega rápida<br>no Lago Sul!</div>
 </header>
 
 <div class="container">
@@ -74,44 +70,44 @@
         <h2 class="section-title">Iogurtes Naturais</h2>
         <div class="grid">
             <div class="card">
-                <div class="img-box"><img src="yogurt.jpg" alt="Iogurte 1000ml"><div class="card-logo">MAST</div></div>
-                <h3>Iogurte Tradicional 1000ml</h3>
+                <div class="img-box"><img src="yogurt.jpg"><div class="card-logo">MAST</div></div>
+                <h3>Natural Tradicional 1000ml</h3>
                 <div class="price">R$ 20,00</div>
-                <button class="add-btn" onclick="addItem('Iogurte 1000ml', 20)">ADICIONAR +</button>
+                <button class="add-btn" onclick="add('Iogurte 1000ml', 20)">ADICIONAR +</button>
             </div>
             <div class="card">
-                <div class="img-box"><img src="yogurt.jpg" alt="Iogurte 500ml"><div class="card-logo">MAST</div></div>
-                <h3>Iogurte Tradicional 500ml</h3>
+                <div class="img-box"><img src="yogurt.jpg"><div class="card-logo">MAST</div></div>
+                <h3>Natural Tradicional 500ml</h3>
                 <div class="price">R$ 10,00</div>
-                <button class="add-btn" onclick="addItem('Iogurte 500ml', 10)">ADICIONAR +</button>
+                <button class="add-btn" onclick="add('Iogurte 500ml', 10)">ADICIONAR +</button>
             </div>
             <div class="card">
-                <div class="img-box"><img src="yogurt.jpg" alt="Iogurte 250ml"><div class="card-logo">MAST</div></div>
-                <h3>Iogurte Tradicional 250ml</h3>
+                <div class="img-box"><img src="yogurt.jpg"><div class="card-logo">MAST</div></div>
+                <h3>Natural Tradicional 250ml</h3>
                 <div class="price">R$ 7,00</div>
-                <button class="add-btn" onclick="addItem('Iogurte 250ml', 7)">ADICIONAR +</button>
+                <button class="add-btn" onclick="add('Iogurte 250ml', 7)">ADICIONAR +</button>
             </div>
         </div>
 
-        <h2 class="section-title" style="margin-top: 50px;">Arroz Doce Gourmet</h2>
+        <h2 class="section-title" style="margin-top: 60px;">Arroz Doce Gourmet</h2>
         <div class="grid">
             <div class="card">
-                <div class="img-box"><img src="sutlac.jpg" alt="Arroz Doce Grande"><div class="card-logo">MAST</div></div>
-                <h3>Arroz Doce Família (Grande)</h3>
+                <div class="img-box"><img src="sutlac.jpg"><div class="card-logo">MAST</div></div>
+                <h3>Arroz Doce Família (G)</h3>
                 <div class="price">R$ 20,00</div>
-                <button class="add-btn" onclick="addItem('Arroz Família', 20)">ADICIONAR +</button>
+                <button class="add-btn" onclick="add('Arroz G', 20)">ADICIONAR +</button>
             </div>
             <div class="card">
-                <div class="img-box"><img src="sutlac.jpg" alt="Arroz Doce Médio"><div class="card-logo">MAST</div></div>
-                <h3>Arroz Doce Tradicional (Médio)</h3>
+                <div class="img-box"><img src="sutlac.jpg"><div class="card-logo">MAST</div></div>
+                <h3>Arroz Doce Médio (M)</h3>
                 <div class="price">R$ 10,00</div>
-                <button class="add-btn" onclick="addItem('Arroz Médio', 10)">ADICIONAR +</button>
+                <button class="add-btn" onclick="add('Arroz M', 10)">ADICIONAR +</button>
             </div>
             <div class="card">
-                <div class="img-box"><img src="sutlac.jpg" alt="Arroz Doce Pequeno"><div class="card-logo">MAST</div></div>
-                <h3>Arroz Doce Individual (250ml)</h3>
+                <div class="img-box"><img src="sutlac.jpg"><div class="card-logo">MAST</div></div>
+                <h3>Arroz Doce Individual (P)</h3>
                 <div class="price">R$ 7,00</div>
-                <button class="add-btn" onclick="addItem('Arroz 250ml', 7)">ADICIONAR +</button>
+                <button class="add-btn" onclick="add('Arroz P', 7)">ADICIONAR +</button>
             </div>
         </div>
     </main>
@@ -119,81 +115,43 @@
     <aside class="desktop-sidebar">
         <div class="receipt">
             <div class="receipt-head"><h2>MAST IOGURTE</h2><p>Brasília - DF</p></div>
-            <select class="bairro-sel" id="ship" onchange="updateCart()">
+            <p style="font-size: 0.8rem; margin-bottom: 5px;">SELECIONE O LOCAL:</p>
+            <select class="bairro-sel" id="frete" onchange="upd()">
                 <option value="10">Lago Sul (Perto) - R$ 10</option>
                 <option value="15">Lago Sul (Longe) - R$ 15</option>
                 <option value="20">Asa Norte/Sul - R$ 20</option>
-                <option value="0">Retirada no Local - R$ 0</option>
+                <option value="0">Retirada Local - R$ 0</option>
             </select>
-            <div class="items-list" id="cart-items">
-                <p style="text-align:center; opacity:0.3; padding-top:20px;">Seu carrinho está vazio</p>
-            </div>
-            <div class="total-box"><span>TOTAL:</span><span id="final-price">R$ 10,00</span></div>
+            <div class="items-list" id="lista"></div>
+            <div class="total-box"><span>TOTAL:</span><span id="total">R$ 10,00</span></div>
             <div class="btn-group">
-                <button class="btn-mal" onclick="resetCart()">LIMPAR</button>
-                <button class="btn-wa" onclick="checkout()">PEDIR (WA)</button>
+                <button class="btn-mal" onclick="clearC()">LIMPAR</button>
+                <button class="btn-wa" onclick="send()">PEDIR AGORA</button>
             </div>
         </div>
     </aside>
 </div>
 
 <script>
-    let cart = [];
-
-    function addItem(name, price) {
-        cart.push({ name, price });
-        updateCart();
+    let c = [];
+    function add(n, p) { c.push({n, p}); upd(); }
+    function clearC() { if(confirm("Limpar?")) { c = []; upd(); } }
+    function upd() {
+        const l = document.getElementById('lista');
+        const t = document.getElementById('total');
+        const f = parseFloat(document.getElementById('frete').value);
+        let s = 0; let h = "";
+        c.forEach(i => { s += i.p; h += `<div class="item-row"><span>${i.n}</span><span>R$ ${i.p.toFixed(2)}</span></div>`; });
+        l.innerHTML = c.length ? h : "<p style='text-align:center; opacity:0.3'>Vazio</p>";
+        t.innerText = `R$ ${(s + f).toFixed(2)}`;
     }
-
-    function resetCart() {
-        if(confirm("Deseja limpar o pedido?")) {
-            cart = [];
-            updateCart();
-        }
-    }
-
-    function updateCart() {
-        const list = document.getElementById('cart-items');
-        const totalDisp = document.getElementById('final-price');
-        const shipFee = parseFloat(document.getElementById('ship').value);
-        
-        let subtotal = 0;
-        let html = "";
-
-        if (cart.length === 0) {
-            list.innerHTML = `<p style="text-align:center; opacity:0.3; padding-top:20px;">Seu carrinho está vazio</p>`;
-            totalDisp.innerText = `R$ ${shipFee.toFixed(2)}`;
-            return;
-        }
-
-        cart.forEach((item, index) => {
-            subtotal += item.price;
-            html += `<div class="item-row">
-                        <span>${item.name}</span>
-                        <span>R$ ${item.price.toFixed(2)}</span>
-                     </div>`;
-        });
-
-        list.innerHTML = html;
-        totalDisp.innerText = `R$ ${(subtotal + shipFee).toFixed(2)}`;
-    }
-
-    function checkout() {
-        if (cart.length === 0) return alert("Adicione produtos primeiro!");
-        
-        const shipSelect = document.getElementById('ship');
-        const shipText = shipSelect.options[shipSelect.selectedIndex].text;
-        const total = document.getElementById('final-price').innerText;
-        
-        let message = "*MAST IOGURTE - NOVO PEDIDO*%0A%0A";
-        cart.forEach(item => {
-            message += `• ${item.name}: R$ ${item.price.toFixed(2)}%0A`;
-        });
-        message += `%0A📍 *Entrega:* ${shipText}`;
-        message += `%0A💰 *TOTAL COM ENTREGA:* ${total}`;
-        message += `%0A%0A*Endereço de entrega:* `;
-
-        window.open(`https://wa.me/5561999851365?text=${message}`, '_blank');
+    function send() {
+        if(!c.length) return alert("Adicione produtos!");
+        const b = document.getElementById('frete').options[document.getElementById('frete').selectedIndex].text;
+        let m = "*NOVO PEDIDO - MAST IOGURTE*%0A%0A";
+        c.forEach(i => m += `• ${i.n}: R$ ${i.p.toFixed(2)}%0A`);
+        m += `%0A📍 *Entrega:* ${b}%0A💰 *TOTAL:* ${document.getElementById('total').innerText}`;
+        window.open(`https://wa.me/5561999851365?text=${m}%0A%0A*Endereço:* `, '_blank');
     }
 </script>
 </body>
