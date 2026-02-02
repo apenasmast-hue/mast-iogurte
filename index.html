@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Brasília</title>
+    <title>MAST IOGURTE | 1860</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&display=swap');
 
@@ -20,181 +20,148 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
         }
 
         header {
             text-align: center;
-            padding: 30px 10px;
+            padding: 25px 10px;
             background: var(--white);
             border-bottom: 3px double var(--gold);
         }
 
-        /* 1800s RETRO ICONS */
+        header h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0; }
+
         .retro-icons {
             display: flex;
             justify-content: center;
             gap: 15px;
-            padding: 15px;
+            padding: 10px;
             background: var(--white);
             border-bottom: 1px solid #ddd;
         }
 
-        .icon-item { text-align: center; font-size: 0.6rem; font-weight: bold; color: var(--gold); }
-        .icon-item span { display: block; font-size: 1.4rem; filter: sepia(1); }
+        .icon-item { text-align: center; font-size: 0.55rem; font-weight: bold; color: var(--gold); }
+        .icon-item span { display: block; font-size: 1.2rem; }
 
         .container {
-            max-width: 950px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 15px auto;
             padding: 0 5px;
         }
 
-        /* ZORUNLU 2 SÜTUN SİSTEMİ */
+        /* TAŞ GİBİ 2 SÜTUN */
         .split-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr; 
-            gap: 10px;
-            align-items: start;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
         }
 
         .column {
             background: var(--white);
             border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 8px;
-            overflow: hidden; /* Taşmayı engeller */
+            border-radius: 10px;
+            padding: 5px;
+            text-align: center;
         }
 
-        /* FOTOĞRAF AYARLARI (TAŞMA YAPMAZ) */
+        /* KARE VE KESİLMEYEN RESİM */
         .product-img {
             width: 100%;
-            height: 150px; /* Sabit yükseklik */
-            object-fit: cover; /* Fotoğrafı kesmeden sığdırır */
+            aspect-ratio: 1 / 1; /* Kare yapar */
+            object-fit: contain; /* Kesmeden içine sığdırır */
+            background: #f9f9f9;
             border-radius: 8px;
             margin-bottom: 10px;
-            border: 1px solid #eee;
-            display: block;
         }
 
         .column-header {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            text-align: center;
+            font-size: 1rem;
             border-bottom: 2px solid var(--gold);
             margin-bottom: 10px;
             padding-bottom: 5px;
         }
 
-        /* Ürün Listesi */
-        .item-card {
+        .item-row {
             border-bottom: 1px solid #eee;
-            padding: 10px 0;
+            padding: 8px 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
-        .item-ml { font-size: 0.8rem; font-weight: bold; color: #555; }
-        .item-price { font-size: 1.1rem; font-weight: 800; color: var(--gold); }
+        .item-ml { font-size: 0.75rem; font-weight: bold; color: #666; }
+        .item-price { font-size: 1rem; font-weight: 800; color: var(--gold); }
 
-        /* Footer Bilgileri */
         .footer-info {
             text-align: center;
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 20px;
+            padding: 15px;
             background: var(--white);
-            border-radius: 15px;
+            border-radius: 10px;
         }
 
         .btn {
             display: block;
             padding: 15px;
-            margin: 10px auto;
+            margin: 8px auto;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.9rem;
-            max-width: 300px;
+            font-size: 0.85rem;
+            max-width: 250px;
             text-transform: uppercase;
         }
 
         .btn-wa { background: #25d366; color: white; }
         .btn-ifood { background: #ea1d2c; color: white; }
 
-        footer { text-align: center; padding: 20px; font-size: 0.7rem; color: #999; }
+        footer { text-align: center; padding: 20px; font-size: 0.6rem; color: #999; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 style="font-family:'Playfair Display'; margin:0;">MAST IOGURTE</h1>
-    <p style="color: var(--gold); font-weight: bold; margin:0; font-size: 0.8rem;">BRASÍLIA • DESDE 1860</p>
+    <h1>MAST IOGURTE</h1>
+    <small style="color:var(--gold); font-weight:bold;">BRASÍLIA • 1860</small>
 </header>
 
 <div class="retro-icons">
-    <div class="icon-item"><span>🏺</span>TEMİZ ÜRETİM</div>
+    <div class="icon-item"><span>🏺</span>TEMİZ</div>
     <div class="icon-item"><span>🛡️</span>GÜVENLİ</div>
-    <div class="icon-item"><span>🚲</span>KAPINIZDA</div>
+    <div class="icon-item"><span>🚲</span>KAPIDA</div>
 </div>
 
 <div class="container">
     <div class="split-layout">
         
         <div class="column">
-            <img src="yogurt.jpg" alt="Iogurte Mast" class="product-img">
-            <div class="column-header">🍦 IOGURTE</div>
-            <div class="item-card">
-                <span class="item-ml">1000ml</span>
-                <span class="item-price">R$ 20,00</span>
-            </div>
-            <div class="item-card">
-                <span class="item-ml">500ml</span>
-                <span class="item-price">R$ 10,00</span>
-            </div>
-            <div class="item-card" style="background: #fffdf0;">
-                <span class="item-ml">250ml</span>
-                <span class="item-price">R$ 7,00</span>
-            </div>
-            <div class="item-card">
-                <span class="item-ml">140ml</span>
-                <span class="item-price">R$ 5,00</span>
-            </div>
+            <img src="yogurt.jpg" alt="Iogurte" class="product-img">
+            <div class="column-header">IOGURTE</div>
+            <div class="item-row"><span class="item-ml">1000ml</span><span class="item-price">R$ 20,00</span></div>
+            <div class="item-row"><span class="item-ml">500ml</span><span class="item-price">R$ 10,00</span></div>
+            <div class="item-row" style="background:#fffdf0;"><span class="item-ml">250ml</span><span class="item-price">R$ 7,00</span></div>
+            <div class="item-row"><span class="item-ml">140ml</span><span class="item-price">R$ 5,00</span></div>
         </div>
 
         <div class="column">
-            <img src="sutlac.jpg" alt="Arroz Doce Mast" class="product-img">
-            <div class="column-header">🍚 ARROZ DOCE</div>
-            <div class="item-card">
-                <span class="item-ml">1000ml</span>
-                <span class="item-price">R$ 20,00</span>
-            </div>
-            <div class="item-card">
-                <span class="item-ml">500ml</span>
-                <span class="item-price">R$ 10,00</span>
-            </div>
-            <div class="item-card" style="background: #fffdf0;">
-                <span class="item-ml">250ml</span>
-                <span class="item-price">R$ 7,00</span>
-            </div>
-            <div class="item-card">
-                <span class="item-ml">140ml</span>
-                <span class="item-price">R$ 5,00</span>
-            </div>
+            <img src="sutlac.jpg" alt="Arroz Doce" class="product-img">
+            <div class="column-header">ARROZ DOCE</div>
+            <div class="item-row"><span class="item-ml">1000ml</span><span class="item-price">R$ 20,00</span></div>
+            <div class="item-row"><span class="item-ml">500ml</span><span class="item-price">R$ 10,00</span></div>
+            <div class="item-row" style="background:#fffdf0;"><span class="item-ml">250ml</span><span class="item-price">R$ 7,00</span></div>
+            <div class="item-row"><span class="item-ml">140ml</span><span class="item-price">R$ 5,00</span></div>
         </div>
 
     </div>
 
     <div class="footer-info">
-        <p style="font-size: 0.8rem; margin: 0;"><strong>📍 Lago Sul:</strong> SMDB Conj. 26, Brasília</p>
-        <p style="font-size: 0.8rem; margin: 5px 0;"><strong>⏰ 08:00 - 20:00</strong></p>
-        <a href="https://wa.me/5561999851365" class="btn btn-wa">PEDIR WHATSAPP</a>
+        <p style="font-size: 0.75rem; margin:0;">📍 <strong>Lago Sul, Brasília</strong></p>
+        <a href="https://wa.me/5561999851365" class="btn btn-wa">WHATSAPP</a>
         <a href="https://wa.me/5561999851365" class="btn btn-ifood">iFOOD (BREVE)</a>
     </div>
 </div>
 
-<footer>
-    Mast Iogurte & Arroz Doce • O Sabor de Brasília
-</footer>
+<footer>Mast Iogurte & Arroz Doce</footer>
 
 </body>
 </html>
