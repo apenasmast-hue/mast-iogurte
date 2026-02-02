@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAST IOGURTE | Brasília</title>
+    <title>MAST IOGURTE | Nossa História</title>
     <style>
         :root {
             --primary: #1a2a3a;
             --accent: #d4af37;
             --bg: #ffffff;
-            --light: #f9f9f9;
+            --light: #f8f9fa;
         }
 
         body {
@@ -18,148 +18,136 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             text-align: center;
+            line-height: 1.6;
         }
 
         header {
-            padding: 50px 20px;
-            background: var(--light);
-            border-bottom: 3px solid var(--accent);
+            padding: 40px 20px;
+            background: white;
+            border-bottom: 2px solid var(--accent);
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin: 0;
-            letter-spacing: 2px;
+        .history-section {
+            background: #fffdf5;
+            padding: 50px 20px;
+            margin: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            font-style: italic;
+        }
+
+        .history-text {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #444;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 30px 10px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 15px 10px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            flex: 1;
+            max-width: 110px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .container {
             max-width: 600px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .price-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
         .price-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            margin-bottom: 12px;
+            padding: 18px;
+            margin-bottom: 10px;
             background: white;
             border-radius: 12px;
             border: 1px solid #eee;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            transition: 0.3s;
-        }
-
-        .price-item:hover {
-            border-color: var(--accent);
-            transform: scale(1.02);
-        }
-
-        .price-item.featured {
-            border-left: 6px solid var(--accent);
-            background: #fffdf5;
-        }
-
-        .info {
-            text-align: left;
-        }
-
-        .info strong {
-            display: block;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .info span {
-            font-size: 0.85rem;
-            color: #888;
         }
 
         .price-tag {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: var(--primary);
         }
 
         .order-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 20px 60px;
+            display: block;
+            padding: 20px;
             background: #25d366;
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             font-size: 1.2rem;
-            box-shadow: 0 10px 20px rgba(37,211,102,0.2);
+            margin-top: 20px;
         }
 
-        footer {
-            margin-top: 50px;
-            padding: 30px;
-            font-size: 0.8rem;
-            color: #bbb;
-        }
+        footer { padding: 40px; color: #999; font-size: 0.8rem; }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
-    <h1>MAST IOGURTE</h1>
-    <p style="color: var(--accent); font-weight: bold;">BRASÍLIA • QUALIDADE SUPERIOR</p>
+    <h1 style="font-size: 2.5rem; color: var(--primary); margin: 0;">MAST IOGURTE</h1>
+    <p style="color: var(--accent); font-weight: bold; letter-spacing: 2px;">UMA LENDA DESDE 1860</p>
 </header>
 
+<section class="history-section">
+    <div class="history-text">
+        <h2 style="text-align: center; color: var(--primary);">Nossa Essência</h2>
+        "Em 1860, quando o tempo ainda corria devagar, nascia um segredo guardado pelo silêncio das manhãs. Não era apenas leite; era a pureza da terra transformada em poesia líquida. Enquanto Dostoiévski mergulhava nas profundezas da alma humana, nós mergulhávamos na busca pela perfeição do sabor. Cada colherada do nosso iogurte é um capítulo de um livro que nunca termina — uma harmonia entre a tradição ancestral e o frescor da aurora. Atravessamos oceanos e gerações para trazer a Brasília não um produto, mas uma memória afetiva que abraça o coração."
+    </div>
+</section>
+
+<div class="features">
+    <div class="feature-card"><span>✨</span><strong>Limpeza</strong></div>
+    <div class="feature-card"><span>🛡️</span><strong>Segurança</strong></div>
+    <div class="feature-card"><span>🏍️</span><strong>Entrega</strong></div>
+</div>
+
 <div class="container">
-    <div class="price-list">
-        
-        <div class="price-item featured">
-            <div class="info">
-                <strong>Iogurte / Arroz Doce</strong>
-                <span>Tamanho Família - 1000ml</span>
-            </div>
-            <div class="price-tag">R$ 20,00</div>
-        </div>
-
-        <div class="price-item">
-            <div class="info">
-                <strong>Iogurte / Arroz Doce</strong>
-                <span>Tamanho Médio - 500ml</span>
-            </div>
-            <div class="price-tag">R$ 10,00</div>
-        </div>
-
-        <div class="price-item">
-            <div class="info">
-                <strong>Iogurte / Arroz Doce</strong>
-                <span>Tamanho Individual - 250ml</span>
-            </div>
-            <div class="price-tag">R$ 7,00</div>
-        </div>
-
-        <div class="price-item">
-            <div class="info">
-                <strong>Iogurte / Arroz Doce</strong>
-                <span>Degustação - 140ml</span>
-            </div>
-            <div class="price-tag">R$ 5,00</div>
-        </div>
-
+    <div class="price-item" style="border-left: 5px solid var(--accent);">
+        <strong>1000ml (Família)</strong>
+        <div class="price-tag">R$ 20,00</div>
+    </div>
+    <div class="price-item">
+        <strong>500ml (Médio)</strong>
+        <div class="price-tag">R$ 10,00</div>
+    </div>
+    <div class="price-item">
+        <strong>250ml (Individual)</strong>
+        <div class="price-tag">R$ 7,00</div>
+    </div>
+    <div class="price-item">
+        <strong>140ml (Degustação)</strong>
+        <div class="price-tag">R$ 5,00</div>
     </div>
 
-    <a href="https://wa.me/5561999851365" class="order-btn">PEDIR PELO WHATSAPP</a>
+    <div style="background: var(--light); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left;">
+        <strong>📍 Lago Sul:</strong> SMDB, Conjunto 26, Brasília - DF<br>
+        <strong>⏰ Aberto:</strong> 08:00 - 20:00
+    </div>
+
+    <a href="https://wa.me/5561999851365" class="order-btn">PEDIR ESTA RELÍQUIA</a>
 </div>
 
 <footer>
-    <p>Mast Iogurte & Arroz Doce<br>Preços válidos para entrega em Brasília-DF</p>
+    <p>Mast Iogurte & Arroz Doce - Tradição que o tempo não apaga.</p>
 </footer>
 
 </body>
