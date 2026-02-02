@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MAST IOGURTE | Brasília Delivery</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@400;600;700&family=Courier+Prime:wght@700&display=swap');
+        :root { --bg: #fdfaf5; --ink: #1a1a1a; --wa: #25d366; --red: #d63031; --beige: #EBD8B8; }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; }
+
+        /* HEADER */
+        .header { background: var(--beige); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 5000; border-bottom: 3px solid #000; }
+        .header-left { display: flex; align-items: center; border: 2px solid #000; padding: 5px 15px; background: #fff; border-radius: 5px; }
+        .logo-box { width: 45px; height: 45px; border-radius: 50%; border: 2px solid #000; margin-right: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; background: var(--bg); }
+
+        /* LAYOUT */
+        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 40px; padding: 30px 15px 150px; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; border-bottom: 5px solid #000; display: inline-block; margin: 30px 0 20px; text-transform: uppercase; }
+
+        /* CARDS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+        .card { background: #fff; border: 2px solid #000; padding: 15px; text-align: center; position: relative; transition: 0.2s; }
+        .card:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0px #000; }
+        .img-box { width: 100%; aspect-ratio: 1; margin-bottom: 15px; border: 1px solid #000; overflow: hidden; background: #eee; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .price { color: var(--red); font-weight: 900; font-size: 1.5rem; margin-bottom: 15px; }
+        .add-btn { background: #000; color: #fff; border: none; padding: 12px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; }
+
+        /* ADİSYON FİŞİ */
+        .receipt { background: #fff; border: 5px solid #000; padding: 30px; font-family: 'Courier Prime', monospace; position: sticky; top: 110px; }
+        .receipt-head { text-align: center; border-bottom: 3px dashed #000; padding-bottom: 15px; margin-bottom: 15px; }
+        .bairro-sel { width: 100%; padding: 12px; font-family: 'Courier Prime'; border: 2px solid #000; font-weight: 700; margin-bottom: 20px; font-size: 1rem; }
+        .total-box { border-top: 4px solid #000; padding-top: 20px; font-size: 1.8rem; font-weight: 900; display: flex; justify-content: space-between; }
+        
+        .btn-group { display: flex; justify-content: space-between; margin-top: 25px; }
+        .btn-wa { background: var(--wa); color: #fff; border: 2px solid #000; padding: 12px; width: 100%; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; }
+
+        @media (max-width: 950px) {
+            .container { grid-template-columns: 1fr; }
+            .desktop-sidebar { display: none; }
+            .grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-left">
+        <div class="logo-box">MAST</div>
+        <div class="header-title"><h1 style="font-size: 1.3rem;">MAST IOGURTE</h1><span>DELIVERY BRASILIA</span></div>
+    </div>
+</header>
+
+<div class="container">
+    <main id="menu-container">
+        </main>
+
+    <aside class="desktop-sidebar">
+        <div class="receipt">
+            <div class="receipt-head"><h2>RECIBO</h2><p>Mast Iogurte Brasília</p></div>
+            <p>LOCAL DE ENTREGA:</p>
+            <select class="bairro-sel" id="frete" onchange="renderCart()">
+                <option value="10">Lago Sul (Perto) - R$ 10</option>
+                <option value="15">Lago Sul (Longe) - R$ 15</option>
+                <option value="20">Asa Norte/Sul - R$ 20</option>
+                <option value="0">Retirada Local - R$ 0</option>
+            </select>
+            <div id="cart-list" style="min-height: 80px; margin-bottom: 20px;"></div>
+            <div class="total-box"><span>TOTAL:</span><span id="final-total">R$ 10,00</span></div>
+            <div class="btn-group">
+                <button class="btn-wa" onclick="sendWhatsApp()">PEDIR VIA WHATSAPP</button>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<script>
+    // --- BURASI SENİN AYAR PANELİN (DİNAMİK KISIM) ---
+    const config = {
+        whatsapp: "5561999851365",
+        categories: [
+            {
+                title: "Iogurtes Naturais",
+                image: "yogurt.jpg",
+                items: [
+                    { name: "Natural 1000ml", price: 20 },
+                    { name: "Natural 500ml", price: 10 },
+                    { name: "Natural 250ml", price: 7 }
+                ]
+            },
+            {
+                title: "Arroz Doce Gourmet",
+                image: "sutlac.jpg",
+                items: [
+                    { name: "Arroz Família (G)", price: 20 },
+                    { name: "Arroz Médio (M)", price: 10 },
+                    { name: "Arroz Individual (P)", price: 7 }
+                ]
+            }
+        ]
+    };
+
+    let cart = [];
+
+    // Menüyü Ekrana Bas
+    function renderMenu() {
+        const container = document.getElementById('menu-container');
+        let html = "";
+        config.categories.forEach(cat => {
+            html += `<h2 class="section-title">${cat.title}</h2><div class="grid">`;
+            cat.items.forEach(item => {
+                html += `
+                <div class="card">
+                    <div class="img-box"><img src="${cat.image}"></div>
+                    <h3>${item.name}</h3>
+                    <div class="price">R$ ${item.price.toFixed(2)}</div>
+                    <button class="add-btn" onclick="addToCart('${item.name}', ${item.price})">ADICIONAR +</button>
+                </div>`;
+            });
+            html += `</div>`;
+        });
+        container.innerHTML = html;
+    }
+
+    function addToCart(n, p) { cart.push({n, p}); renderCart(); }
+
+    function renderCart() {
+        const list = document.getElementById('cart-list');
+        const totalDisp = document.getElementById('final-total');
+        const fee = parseFloat(document.getElementById('frete').value);
+        let sub = 0; let html = "";
+        cart.forEach(i => { sub += i.p; html += `<div style="display:flex;justify-content:space-between;font-weight:700;"><span>${i.n}</span><span>R$ ${i.p.toFixed(2)}</span></div>`; });
+        list.innerHTML = cart.length ? html : "<p style='text-align:center;opacity:0.3'>Vazio</p>";
+        totalDisp.innerText = `R$ ${(sub + fee).toFixed(2)}`;
+    }
+
+    function sendWhatsApp() {
+        if(!cart.length) return alert("Adicione produtos!");
+        const bairro = document.getElementById('frete').options[document.getElementById('frete').selectedIndex].text;
+        let msg = "*PEDIDO MAST IOGURTE*%0A%0A";
+        cart.forEach(i => msg += `• ${i.n}: R$ ${i.p.toFixed(2)}%0A`);
+        msg += `%0A📍 *Entrega:* ${bairro}%0A💰 *TOTAL:* ${document.getElementById('final-total').innerText}`;
+        window.open(`https://wa.me/${config.whatsapp}?text=${msg}`, '_blank');
+    }
+
+    renderMenu();
+    renderCart();
+</script>
+</body>
+</html>
