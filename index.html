@@ -4,214 +4,257 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>MAST IOGURTE | Melhor Iogurte Natural de Brasília | Delivery Lago Sul</title>
-    <meta name="description" content="O melhor iogurte artesanal e arroz doce gourmet de Brasília. Entrega rápida no Lago Sul, Asa Sul, Norte ve Sudoeste. Peça agora pelo WhatsApp!">
-    <meta name="keywords" content="Iogurte Natural Brasília, Delivery Iogurte, Lago Sul Iogurte, Arroz Doce Gourmet, Mast Iogurte, Entrega de Iogurte DF">
-    <meta name="author" content="Mast Iogurte">
-    
+    <title>MAST IOGURTE | Delivery de Iogurte Natural em Brasília | Lago Sul</title>
+    <meta name="description" content="O melhor iogurte artesanal de Brasília. Entrega rápida no Lago Sul, Asa Sul, Norte e Sudoeste. Peça seu iogurte natural e arroz doce pelo WhatsApp.">
+    <meta name="keywords" content="Iogurte Natural Brasília, Delivery Iogurte DF, Iogurte Artesanal Lago Sul, Arroz Doce Brasília, Mast Iogurte">
+    <link rel="canonical" href="https://mast-iogurte.com.br"> <meta property="og:title" content="Mast Iogurte | O Melhor de Brasília">
+    <meta property="og:description" content="Iogurte natural e artesanal entregue na sua porta em Brasília.">
+    <meta property="og:type" content="website">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Restaurant",
+      "@type": "LocalBusiness",
       "name": "Mast Iogurte",
-      "image": "logo.png",
+      "image": "https://mast-iogurte.com.br/logo.png",
+      "@id": "",
+      "url": "https://mast-iogurte.com.br",
+      "telephone": "+5561999851365",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Lago Sul",
         "addressLocality": "Brasília",
         "addressRegion": "DF",
+        "postalCode": "70000-000",
         "addressCountry": "BR"
       },
-      "servesCuisine": "Iogurte Artesanal",
-      "priceRange": "$$"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -15.7942,
+        "longitude": -47.8822
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "22:00"
+      }
     }
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@400;600;700&family=Courier+Prime:wght@700&display=swap');
 
         :root {
             --bg: #fdfaf5; --gold: #b89550; --ink: #1a1a1a; --white: #ffffff; --wa: #25d366; --red: #d63031;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { background-color: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; line-height: 1.6; }
 
-        /* HEADER & BLINK */
-        .top-nav { position: sticky; top: 0; z-index: 4000; background: var(--white); padding: 10px 15px; display: flex; align-items: center; border-bottom: 3px solid var(--gold); }
-        .nav-logo { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--gold); margin-right: 12px; }
-        .nav-alert { font-size: 0.75rem; font-weight: 700; color: var(--red); animation: blinker 1.5s infinite; }
+        /* HEADER & MOBİL LOGO */
+        .top-nav { position: sticky; top: 0; z-index: 4000; background: #fff; padding: 12px 15px; display: flex; align-items: center; border-bottom: 3px solid var(--gold); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .nav-logo { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--gold); margin-right: 15px; object-fit: cover; }
+        .nav-alert { font-size: 0.8rem; font-weight: 700; color: var(--red); animation: blinker 1.5s infinite; line-height: 1.2; }
         @keyframes blinker { 50% { opacity: 0.3; } }
 
-        /* LAYOUT */
-        .main-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 30px; padding: 20px 15px 150px; }
+        /* ANA LAYOUT */
+        .main-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 40px; padding: 30px 15px 160px; }
+
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); margin: 30px 0 20px; border-bottom: 4px solid var(--gold); display: inline-block; }
 
         /* ÜRÜN KARTLARI */
-        .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); margin: 20px 0; border-bottom: 2px solid var(--gold); }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
-        .product-card { background: var(--white); border-radius: 15px; padding: 15px; text-align: center; border: 1px solid rgba(0,0,0,0.05); }
-        .img-box img { width: 100%; border-radius: 10px; }
-        .add-btn { background: var(--ink); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; cursor: pointer; font-weight: 700; text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+        .card { background: #fff; border-radius: 20px; padding: 20px; text-align: center; border: 1px solid rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .img-box { width: 100%; aspect-ratio: 1; border-radius: 15px; overflow: hidden; margin-bottom: 15px; background: #eee; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .price { color: var(--gold); font-weight: 800; font-size: 1.5rem; margin: 10px 0; }
+        .btn-add { background: var(--ink); color: white; border: none; padding: 15px; border-radius: 12px; width: 100%; cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
 
-        /* FİŞ TASARIMI (MASAÜSTÜ) */
-        .sidebar-receipt { position: sticky; top: 80px; }
-        .receipt { background: #fff; padding: 25px; border: 2px solid #000; font-family: 'Courier Prime', monospace; position: relative; }
-        .receipt-header { text-align: center; border-bottom: 2px dashed #000; margin-bottom: 15px; padding-bottom: 10px; }
-        .receipt-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 700; border-bottom: 1px dotted #ddd; }
-        .total-box { border-top: 2px solid #000; margin-top: 15px; padding-top: 15px; font-size: 1.4rem; font-weight: 900; }
+        /* DOLU DOLU FİŞ (ADİSYON) */
+        .receipt { background: #fff; padding: 30px; border: 3px solid #000; font-family: 'Courier Prime', monospace; position: relative; }
+        .receipt::before { content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background-image: linear-gradient(-45deg, var(--bg) 8px, transparent 0), linear-gradient(45deg, var(--bg) 8px, transparent 0); background-size: 16px 16px; }
+        .receipt-header { text-align: center; border-bottom: 2px dashed #000; padding-bottom: 20px; margin-bottom: 20px; }
+        .receipt-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1.1rem; }
+        .total-row { border-top: 3px solid #000; margin-top: 20px; padding-top: 20px; font-size: 1.8rem; font-weight: 900; display: flex; justify-content: space-between; }
+        
+        /* TEMİZLE BUTONU */
+        .btn-clear { background: #f8f9fa; border: 2px solid #000; color: #000; padding: 12px; width: 100%; margin-top: 20px; font-weight: 700; cursor: pointer; font-family: 'Poppins'; }
+        .btn-clear:hover { background: var(--red); color: #fff; border-color: var(--red); }
 
-        /* MOBİL SABİT DOLU FİŞ PANELİ */
-        .mobile-order-panel {
+        /* WHATSAPP BUTON */
+        .btn-wa { display: block; background: var(--wa); color: white; text-align: center; padding: 20px; margin-top: 15px; text-decoration: none; font-weight: 900; font-size: 1.3rem; border: 3px solid #000; }
+
+        /* MOBİL SABİT PANEL */
+        .mobile-panel {
             position: fixed; bottom: 0; left: 0; width: 100%; background: #fff;
-            z-index: 5000; border-top: 4px solid var(--gold); display: none;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.2); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 5000; border-top: 5px solid var(--gold); display: none;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.3); transition: 0.4s;
             max-height: 80vh; overflow-y: auto;
         }
-        /* Bu sınıf panel açıldığında eklenecek */
-        .panel-open { transform: translateY(0); }
-        
-        .panel-header { background: var(--ink); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .panel-content { padding: 20px; font-family: 'Courier Prime', monospace; }
+        .panel-trigger { background: var(--ink); color: white; padding: 18px 25px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .panel-content { padding: 25px; }
 
-        @media (max-width: 900px) {
-            .main-layout { grid-template-columns: 1fr; }
-            .sidebar-receipt { display: none; }
-            .mobile-order-panel { display: block; transform: translateY(calc(100% - 60px)); } /* Sadece başlık görünür */
-            .mobile-order-panel.active { transform: translateY(0); }
+        @media (max-width: 950px) {
+            .main-container { grid-template-columns: 1fr; padding-bottom: 120px; }
+            .desktop-sidebar { display: none; }
+            .mobile-panel { display: block; transform: translateY(calc(100% - 65px)); }
+            .mobile-panel.active { transform: translateY(0); }
+            .grid { grid-template-columns: 1fr 1fr; gap: 15px; }
         }
-
-        .clear-btn { background: var(--red); color: white; border: none; padding: 10px; width: 100%; margin-top: 10px; font-family: 'Poppins'; font-weight: 700; }
-        .final-btn { display: block; background: var(--wa); color: white; text-align:center; padding: 15px; margin-top: 10px; text-decoration: none; font-weight: 900; font-size: 1.2rem; }
+        @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <nav class="top-nav">
-    <img src="logo.png" class="nav-logo" alt="Mast Iogurte Logo">
-    <div class="nav-alert">📍 Kurye fiyatı için Alttaki Fişten Mahalle Seçiniz!</div>
+    <img src="logo.png" class="nav-logo" alt="Mast Iogurte Brasília">
+    <div class="nav-alert">
+        🛒 FİŞİNİZ EKRANIN ALTINDADIR!<br>
+        📍 KURYE İÇİN MAHALLE SEÇİNİZ.
+    </div>
 </nav>
 
-<main class="main-layout">
-    <section>
-        <h1 class="section-title">Iogurtes Artesanais</h1>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="img-box"><img src="yogurt.jpg" alt="Iogurte Tradicional 1L"></div>
+<main class="main-container">
+    <article>
+        <h1 class="section-title">Iogurtes Naturais</h1>
+        <div class="grid">
+            <div class="card">
+                <div class="img-box"><img src="yogurt.jpg" alt="Iogurte Tradicional 1 Litro"></div>
                 <h3>1000 ML Tradicional</h3>
-                <p class="price-tag">R$ 20,00</p>
-                <button class="add-btn" onclick="addToCart('Iogurte 1L', 20)">ADICIONAR +</button>
+                <p class="price">R$ 20,00</p>
+                <button class="btn-add" onclick="addItem('Iogurte 1L', 20)">ADICIONAR +</button>
             </div>
-            <div class="product-card">
+            <div class="card">
                 <div class="img-box"><img src="yogurt.jpg" alt="Iogurte Tradicional 500ml"></div>
                 <h3>500 ML Tradicional</h3>
-                <p class="price-tag">R$ 10,00</p>
-                <button class="add-btn" onclick="addToCart('Iogurte 500ML', 10)">ADICIONAR +</button>
+                <p class="price">R$ 10,00</p>
+                <button class="btn-add" onclick="addItem('Iogurte 500ML', 10)">ADICIONAR +</button>
             </div>
         </div>
-        
-        <h2 class="section-title">Sobremesas</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="img-box"><img src="sutlac.jpg" alt="Arroz Doce Gourmet"></div>
-                <h3>Arroz Doce Família</h3>
-                <p class="price-tag">R$ 20,00</p>
-                <button class="add-btn" onclick="addToCart('Arroz Doce', 20)">ADICIONAR +</button>
-            </div>
-        </div>
-    </section>
 
-    <aside class="sidebar-receipt">
+        <h2 class="section-title">Sobremesas Gourmet</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="img-box"><img src="sutlac.jpg" alt="Arroz Doce Tradicional"></div>
+                <h3>Arroz Doce Família</h3>
+                <p class="price">R$ 20,00</p>
+                <button class="btn-add" onclick="addItem('Arroz Doce', 20)">ADICIONAR +</button>
+            </div>
+        </div>
+    </article>
+
+    <aside class="desktop-sidebar">
         <div class="receipt">
-            <div class="receipt-header"><h2>MAST IOGURTE</h2><p>Brasília, DF</p></div>
-            <div class="address-box" style="margin-bottom:15px;">
-                <select class="bairro-sel" onchange="syncBairros(this.value)" style="width:100%; padding:10px; font-family: 'Courier Prime'; font-weight:700; border:2px solid #000;">
+            <div class="receipt-header">
+                <h2>MAST IOGURTE</h2>
+                <p>BRASÍLIA - DF</p>
+            </div>
+            <div style="margin-bottom:20px;">
+                <label style="font-size:0.8rem; font-weight:700;">📍 SELECIONE O BAIRRO:</label>
+                <select class="bairro-select" onchange="syncBairro(this.value)" style="width:100%; padding:12px; font-family:'Courier Prime'; font-size:1.1rem; border:2px solid #000;">
                     <option value="10">Lago Sul (Próximo) - R$ 10</option>
                     <option value="15">Lago Sul (Afastado) - R$ 15</option>
                     <option value="20">Asa Sul / Norte - R$ 20</option>
+                    <option value="25">Sudoeste / Águas Claras - R$ 25</option>
                     <option value="0">Retirada no Local - R$ 0</option>
                 </select>
             </div>
-            <div class="cart-render"></div>
-            <div class="total-box">
-                <div class="receipt-item"><span>TOTAL:</span><span class="total-price">R$ 10,00</span></div>
+            <div class="cart-items"></div>
+            <div class="total-row">
+                <span>TOTAL:</span>
+                <span class="total-val">R$ 10,00</span>
             </div>
-            <button class="clear-btn" onclick="clearCart()">LIMPAR</button>
-            <a href="javascript:void(0)" class="final-btn" onclick="sendWhatsApp()">PEDIR AGORA</a>
+            <button class="btn-clear" onclick="clearCart()">🗑️ SIPARIŞI TEMİZLE</button>
+            <a href="javascript:void(0)" class="btn-wa" onclick="sendOrder()">PEDIR NO WHATSAPP</a>
         </div>
     </aside>
 </main>
 
-<div class="mobile-order-panel" id="mobPanel">
-    <div class="panel-header" onclick="document.getElementById('mobPanel').classList.toggle('active')">
-        <span id="mob-summary">🛒 VER MEU PEDIDO</span>
-        <span class="total-price" style="font-size:1.2rem">R$ 10,00</span>
+<div class="mobile-panel" id="mobPanel">
+    <div class="panel-trigger" onclick="togglePanel()">
+        <span id="mob-count">🛒 SEPETİNİZ BOŞ</span>
+        <span class="total-val" style="font-size:1.4rem">R$ 10,00</span>
     </div>
     <div class="panel-content">
-        <div style="margin-bottom:15px;">
-            <label style="font-size:0.7rem; font-weight:900;">📍 ESCOLHA SUA REGIÃO:</label>
-            <select class="bairro-sel" onchange="syncBairros(this.value)" style="width:100%; padding:12px; font-family: 'Courier Prime'; font-weight:700; border:2px solid #000;">
-                <option value="10">Lago Sul (Próximo) - R$ 10</option>
-                <option value="15">Lago Sul (Afastado) - R$ 15</option>
-                <option value="20">Asa Sul / Norte - R$ 20</option>
-                <option value="0">Retirada no Local - R$ 0</option>
-            </select>
+        <div class="receipt" style="box-shadow:none; border:none; padding:0;">
+            <div style="margin-bottom:20px;">
+                <label style="font-size:0.8rem; font-weight:700;">📍 SELECIONE O BAIRRO:</label>
+                <select class="bairro-select" onchange="syncBairro(this.value)" style="width:100%; padding:12px; font-family:'Courier Prime'; font-size:1.1rem; border:2px solid #000;">
+                    <option value="10">Lago Sul (Próximo) - R$ 10</option>
+                    <option value="15">Lago Sul (Afastado) - R$ 15</option>
+                    <option value="20">Asa Sul / Norte - R$ 20</option>
+                    <option value="25">Sudoeste / Águas Claras - R$ 25</option>
+                    <option value="0">Retirada no Local - R$ 0</option>
+                </select>
+            </div>
+            <div class="cart-items"></div>
+            <div class="total-row">
+                <span>TOTAL:</span>
+                <span class="total-val">R$ 10,00</span>
+            </div>
+            <button class="btn-clear" onclick="clearCart()">🗑️ SIPARIŞI TEMİZLE</button>
+            <a href="javascript:void(0)" class="btn-wa" onclick="sendOrder()">PEDIR NO WHATSAPP</a>
         </div>
-        <div class="cart-render"></div>
-        <div class="total-box">
-            <div class="receipt-item"><span>TOTAL C/ TAXA:</span><span class="total-price">R$ 10,00</span></div>
-        </div>
-        <button class="clear-btn" onclick="clearCart()">LIMPAR CARRINHO</button>
-        <a href="javascript:void(0)" class="final-btn" onclick="sendWhatsApp()">FECHAR PEDIDO NO WHATSAPP</a>
     </div>
 </div>
 
 <script>
     let cart = [];
-    let currentFee = 10;
+    let fee = 10;
 
-    function addToCart(name, price) {
+    function addItem(name, price) {
         cart.push({name, price});
         updateUI();
-        if(window.innerWidth < 900) {
+        if(window.innerWidth < 950) {
             document.getElementById('mobPanel').classList.add('active');
         }
     }
 
     function clearCart() {
-        cart = [];
+        if(cart.length > 0 && confirm("Siparişi temizlemek istiyor musunuz?")) {
+            cart = [];
+            updateUI();
+        }
+    }
+
+    function syncBairro(v) {
+        fee = parseFloat(v);
+        document.querySelectorAll('.bairro-select').forEach(s => s.value = v);
         updateUI();
     }
 
-    function syncBairros(val) {
-        currentFee = parseFloat(val);
-        document.querySelectorAll('.bairro-sel').forEach(s => s.value = val);
-        updateUI();
+    function togglePanel() {
+        document.getElementById('mobPanel').classList.toggle('active');
     }
 
     function updateUI() {
-        const renders = document.querySelectorAll('.cart-render');
-        const totals = document.querySelectorAll('.total-price');
-        
-        let subtotal = 0;
+        const renders = document.querySelectorAll('.cart-items');
+        const totals = document.querySelectorAll('.total-val');
+        let sub = 0;
         let html = "";
         
         cart.forEach(item => {
-            subtotal += item.price;
+            sub += item.price;
             html += `<div class="receipt-item"><span>${item.name}</span><b>R$ ${item.price.toFixed(2)}</b></div>`;
         });
 
-        renders.forEach(r => r.innerHTML = cart.length ? html : "<p style='text-align:center; padding:10px; opacity:0.5'>CARRINHO VAZIO</p>");
+        renders.forEach(r => r.innerHTML = cart.length ? html : "<p style='text-align:center; opacity:0.5; padding:20px;'>CARRINHO VAZIO</p>");
         
-        const final = subtotal + currentFee;
+        const final = sub + fee;
         totals.forEach(t => t.innerText = `R$ ${final.toFixed(2)}`);
-        
-        document.getElementById('mob-summary').innerText = cart.length ? `🛒 ${cart.length} ITENS NO FİŞ` : "🛒 CARRINHO VAZIO";
+        document.getElementById('mob-count').innerText = cart.length ? `🛒 ${cart.length} ÜRÜN VAR` : "🛒 SEPETİNİZ BOŞ";
     }
 
-    function sendWhatsApp() {
-        if(!cart.length) return alert("Adicione produtos!");
-        let msg = "*MAST IOGURTE - BRASÍLIA*%0A";
+    function sendOrder() {
+        if(!cart.length) return alert("Sipariş boş patron!");
+        const bairro = document.querySelector('.bairro-select').options[document.querySelector('.bairro-select').selectedIndex].text;
+        let msg = "*PEDIDO MAST IOGURTE*%0A--------------------------%0A";
         cart.forEach(i => msg += `• ${i.name}: R$ ${i.price.toFixed(2)}%0A`);
-        msg += `%0A*TOTAL COM ENTREGA:* ${document.querySelector('.total-price').innerText}%0A%0A*Endereço:* `;
+        msg += "--------------------------%0A";
+        msg += `📍 *Região:* ${bairro}%0A`;
+        msg += `💰 *TOTAL:* ${document.querySelector('.total-val').innerText}%0A%0A*Endereço:* `;
         window.open(`https://wa.me/5561999851365?text=${msg}`, '_blank');
     }
 </script>
