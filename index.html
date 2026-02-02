@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MAST IOGURTE | Premium Brasília</title>
+    <title>MAST IOGURTE | Gourmet Order</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&family=Courier+Prime&display=swap');
 
         :root {
             --bg: #fdfaf5;
@@ -13,105 +13,83 @@
             --ink: #1a1a1a;
             --white: #ffffff;
             --wa: #25d366;
-            --card-bg: #f9f4e8;
+            --paper: #fefcf8;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
         body {
             background-color: var(--bg);
             background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
             color: var(--ink);
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+            padding-bottom: 100px;
         }
 
-        #status-bar {
-            padding: 12px; font-weight: 700; font-size: 0.8rem; color: white;
-            text-transform: uppercase; letter-spacing: 1px; position: sticky;
-            top: 0; z-index: 1000; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        header { background: var(--white); padding: 25px; border-bottom: 5px double var(--gold); text-align: center; }
-        
-        .logo-wrapper { max-width: 150px; margin: 0 auto 10px; }
-        .logo-wrapper img {
-            width: 100%; height: auto; border-radius: 50%;
-            border: 3px solid var(--gold); box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            object-fit: cover; aspect-ratio: 1/1;
-        }
+        /* HEADER */
+        #status-bar { padding: 12px; font-weight: 700; font-size: 0.8rem; color: white; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        header { background: var(--white); padding: 30px; border-bottom: 5px double var(--gold); text-align: center; }
+        .logo-wrapper { max-width: 140px; margin: 0 auto 10px; }
+        .logo-wrapper img { width: 100%; height: auto; border-radius: 50%; border: 3px solid var(--gold); object-fit: cover; aspect-ratio: 1/1; }
 
         .container { max-width: 800px; margin: 20px auto; padding: 0 15px; }
 
-        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
-        
+        /* ÜRÜN KARTLARI */
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
         .product-card {
             background: var(--white); border: 1px solid rgba(184, 149, 80, 0.2);
-            border-radius: 20px; padding: 15px; display: flex; flex-direction: column;
+            border-radius: 20px; padding: 15px; text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
-
-        .img-box { width: 100%; aspect-ratio: 1; border-radius: 12px; overflow: hidden; margin-bottom: 12px; }
+        .img-box { width: 100%; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; margin-bottom: 12px; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
-
-        .card-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.2rem; margin-bottom: 8px; text-transform: uppercase; }
-
-        .price-row {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 8px 0; border-bottom: 1px solid #f9f9f9;
-            font-size: 0.8rem;
-        }
-        .price-row b { color: var(--gold); white-space: nowrap; }
-
-        .special-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
         
-        .premium-box {
-            background: var(--card-bg); border: 2px solid var(--gold);
-            border-radius: 20px; padding: 20px; text-align: center;
-            min-height: 180px; display: flex; flex-direction: column; justify-content: center;
+        .add-btn {
+            background: var(--gold); color: white; border: none; padding: 10px 15px;
+            border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%;
+            margin-top: 10px; transition: 0.2s;
+        }
+        .add-btn:active { transform: scale(0.95); }
+
+        /* FOTOĞRAF KALİTESİNDE SİPARİŞ FİŞİ (RECEIPT) */
+        .receipt-container {
+            background: var(--paper);
+            border-radius: 5px;
+            padding: 30px 20px;
+            margin-top: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1), inset 0 0 100px rgba(0,0,0,0.02);
+            position: relative;
+            font-family: 'Courier Prime', monospace;
+            border: 1px solid #eee;
+        }
+        /* Fişin tırtıklı alt kısmı efekti */
+        .receipt-container::after {
+            content: ""; position: absolute; bottom: -10px; left: 0; width: 100%; height: 10px;
+            background-image: linear-gradient(-45deg, var(--bg) 5px, transparent 0), linear-gradient(45deg, var(--bg) 5px, transparent 0);
+            background-size: 10px 10px;
         }
 
-        .premium-box h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.2rem; margin-bottom: 5px; }
-        .premium-box p { font-size: 0.75rem; color: #555; line-height: 1.3; }
-        .price-tag { font-size: 1.6rem; font-weight: 800; color: var(--gold); margin-top: 5px; }
+        .receipt-header { border-bottom: 1px dashed #ccc; padding-bottom: 15px; margin-bottom: 15px; text-align: center; }
+        .receipt-title { font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; }
+        
+        .receipt-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; }
+        .receipt-total-section { border-top: 1px dashed #ccc; padding-top: 15px; margin-top: 15px; }
+        .total-row { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; color: var(--ink); }
 
-        /* --- WHATSAPP BUTONU: ASLA KAYMAZ --- */
-        .btn-container {
-            width: 100%;
-            padding: 20px 0;
-            margin-top: 20px;
+        /* WHATSAPP FLOAT BAR */
+        .order-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: var(--white); padding: 15px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            display: flex; justify-content: center; z-index: 2000;
         }
-
         #order-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--wa);
-            color: white;
-            width: 100%;
-            height: 65px; /* Sabit yükseklik */
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            /* YAZI AYARI: */
-            font-size: clamp(10px, 3.8vw, 16px); /* Ekran küçüldükçe yazı da küçülür, asla taşmaz */
-            white-space: nowrap; /* Asla alt satıra geçme */
-            padding: 0 15px;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s;
+            background: var(--wa); color: white; text-decoration: none;
+            padding: 18px 30px; border-radius: 50px; font-weight: 700;
+            width: 90%; text-align: center; text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
 
-        #order-btn:active { transform: scale(0.98); }
-
-        .btn-closed { background: #999 !important; pointer-events: none; opacity: 0.7; }
-
-        footer { padding: 40px 20px; color: #aaa; font-size: 0.65rem; text-align: center; }
-
-        @media (max-width: 600px) {
-            .product-grid, .special-grid { grid-template-columns: 1fr; }
-            .premium-box { min-height: auto; padding: 25px; }
-        }
+        @media (max-width: 600px) { .product-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -119,76 +97,124 @@
 <div id="status-bar">CARREGANDO...</div>
 
 <header>
-    <div class="logo-wrapper">
-        <img src="logo.png" alt="Mast Iogurte">
-    </div>
-    <h1 style="font-family:'Playfair Display'; font-size:1.4rem; letter-spacing:2px;">MAST IOGURTE</h1>
-    <p style="color:var(--gold); font-size:0.7rem; font-weight:700;">LAGO SUL • 11:00 - 23:00</p>
+    <div class="logo-wrapper"><img src="logo.png" alt="Logo"></div>
+    <div style="font-family:'Playfair Display'; font-size: 1.5rem; font-weight: 900;">MAST IOGURTE KITCHEN</div>
+    <div style="color:var(--gold); font-size: 0.8rem; font-weight: 700;">LAGO SUL, BRASÍLIA</div>
 </header>
 
 <div class="container">
     <div class="product-grid">
         <div class="product-card">
             <div class="img-box"><img src="yogurt.jpg"></div>
-            <h3 class="card-title">Iogurte</h3>
-            <div class="price-row"><span>1000 ML</span><b>R$ 20</b></div>
-            <div class="price-row"><span>500 ML</span><b>R$ 10</b></div>
-            <div class="price-row"><span>250 ML</span><b>R$ 7</b></div>
+            <h4 style="font-family:'Playfair Display';">Iogurte (1L)</h4>
+            <p style="color:var(--gold); font-weight:700;">R$ 20,00</p>
+            <button class="add-btn" onclick="addToCart('Iogurte 1L', 20)">ADICIONAR +</button>
         </div>
-
         <div class="product-card">
             <div class="img-box"><img src="sutlac.jpg"></div>
-            <h3 class="card-title">Arroz Doce</h3>
-            <div class="price-row"><span>Aile Boyu</span><b>R$ 20</b></div>
-            <div class="price-row"><span>Büyük Boy</span><b>R$ 15</b></div>
-            <div class="price-row"><span>Orta Kase</span><b>R$ 10</b></div>
+            <h4 style="font-family:'Playfair Display';">Arroz Doce</h4>
+            <p style="color:var(--gold); font-weight:700;">R$ 10,00</p>
+            <button class="add-btn" onclick="addToCart('Arroz Doce', 10)">ADICIONAR +</button>
         </div>
     </div>
 
-    <div class="special-grid">
-        <div class="premium-box">
-            <span style="background:var(--gold); color:white; font-size:0.55rem; padding:2px 6px; border-radius:3px; margin-bottom:8px; display:inline-block;">MAIS PEDIDO</span>
-            <h2>Kit Gurme</h2>
-            <p>1 Iogurte (1L) + 2 Arroz Doce (Kase)</p>
-            <div class="price-tag">R$ 35,00</div>
+    <div class="receipt-container" id="receipt">
+        <div class="receipt-header">
+            <div class="receipt-title">MAST IOGURTE</div>
+            <div style="font-size: 0.7rem; opacity: 0.7;" id="receipt-date">--/--/--</div>
         </div>
         
-        <div class="premium-box">
-            <h2>Assinatura</h2>
-            <p>Taze lezzetler her hafta kapınıza gelsin.</p>
-            <div style="color:var(--gold); font-weight:700; border:1px solid var(--gold); padding:5px; border-radius:5px; font-size:0.7rem; margin-top:10px;">CONSULTE NO WHATSAPP</div>
+        <div id="cart-items">
+            <div style="text-align:center; color:#999; font-size:0.8rem;">Seu carrinho está vazio</div>
+        </div>
+
+        <div class="receipt-total-section">
+            <div class="receipt-item"><span>Subtotal:</span><span id="subtotal">R$ 0,00</span></div>
+            <div class="receipt-item"><span>Taxa de Entrega (Lago Sul):</span><span id="delivery-fee">R$ 10,00</span></div>
+            <div class="total-row"><span>TOTAL:</span><span id="total-price">R$ 10,00</span></div>
+        </div>
+        
+        <div style="text-align:center; margin-top:20px; font-size:0.6rem; opacity:0.5;">
+            BRASÍLIA, DF - QUALIDADE PREMIUM
         </div>
     </div>
+</div>
 
-    <div class="btn-container">
-        <a href="https://wa.me/5561999851365" id="order-btn">PEDIR AGORA VIA WHATSAPP</a>
-    </div>
-
-    <footer>
-        📍 SMDB Conjunto 26, Lago Sul | Mínimo: R$ 30<br><br>
-        MAST IOGURTE & ARROZ DOCE • DESDE 1860
-    </footer>
+<div class="order-bar">
+    <a href="javascript:void(0)" id="order-btn" onclick="sendWhatsApp()">PEDIR VIA WHATSAPP</a>
 </div>
 
 <script>
-    function updateStatus() {
-        const hour = new Date().getHours();
+    let cart = [];
+    const deliveryFee = 10.00;
+
+    function addToCart(name, price) {
+        cart.push({name, price});
+        updateReceipt();
+    }
+
+    function updateReceipt() {
+        const itemsDiv = document.getElementById('cart-items');
+        const subtotalSpan = document.getElementById('subtotal');
+        const totalSpan = document.getElementById('total-price');
+        const dateDiv = document.getElementById('receipt-date');
+        
+        dateDiv.innerText = new Date().toLocaleString();
+        
+        if (cart.length === 0) {
+            itemsDiv.innerHTML = '<div style="text-align:center; color:#999; font-size:0.8rem;">Seu carrinho está vazio</div>';
+            return;
+        }
+
+        itemsDiv.innerHTML = "";
+        let subtotal = 0;
+        
+        cart.forEach((item, index) => {
+            subtotal += item.price;
+            itemsDiv.innerHTML += `
+                <div class="receipt-item">
+                    <span>${item.name}</span>
+                    <b>R$ ${item.price.toFixed(2)}</b>
+                </div>
+            `;
+        });
+
+        subtotalSpan.innerText = `R$ ${subtotal.toFixed(2)}`;
+        totalSpan.innerText = `R$ ${(subtotal + deliveryFee).toFixed(2)}`;
+    }
+
+    function sendWhatsApp() {
+        if (cart.length === 0) {
+            alert("Por favor, adicione produtos antes de pedir.");
+            return;
+        }
+
+        let itemText = "";
+        let total = 0;
+        cart.forEach(item => {
+            itemText += `- ${item.name}: R$ ${item.price.toFixed(2)}%0A`;
+            total += item.price;
+        });
+
+        const finalTotal = total + deliveryFee;
+        const message = `*Olá Mast Iogurte!*%0A%0AGostaria de fazer um pedido:%0A%0A${itemText}%0A---%0A*Subtotal:* R$ ${total.toFixed(2)}%0A*Entrega (Lago Sul):* R$ ${deliveryFee.toFixed(2)}%0A*TOTAL:* R$ ${finalTotal.toFixed(2)}%0A%0A*Endereço:* (Digite seu endereço aqui)`;
+        
+        window.open(`https://wa.me/5561999851365?text=${message}`, '_blank');
+    }
+
+    // Status bar kontrolü
+    function checkStatus() {
+        const h = new Date().getHours();
         const bar = document.getElementById('status-bar');
-        const btn = document.getElementById('order-btn');
-        if (hour >= 11 && hour < 23) {
+        if (h >= 11 && h < 23) {
             bar.style.backgroundColor = "#2ecc71";
-            bar.innerText = "● ABERTO AGORA - ENTREGANDO";
-            btn.classList.remove('btn-closed');
-            btn.innerText = "PEDIR AGORA VIA WHATSAPP";
+            bar.innerText = "● ABERTO AGORA - ENTREGANDO NO LAGO SUL";
         } else {
             bar.style.backgroundColor = "#e74c3c";
-            bar.innerText = "○ FECHADO - VOLTAMOS ÀS 11:00";
-            btn.classList.add('btn-closed');
-            btn.innerText = "FECHADO NO MOMENTO";
+            bar.innerText = "○ FECHADO AGORA - VOLTAMOS ÀS 11:00";
         }
     }
-    updateStatus();
-    setInterval(updateStatus, 60000);
+    checkStatus();
 </script>
 
 </body>
