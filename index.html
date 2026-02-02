@@ -13,6 +13,7 @@
             --ink: #1a1a1a;
             --white: #ffffff;
             --wa: #25d366;
+            --red: #e74c3c;
         }
 
         body {
@@ -21,151 +22,181 @@
             color: var(--ink);
             font-family: 'Poppins', sans-serif;
             margin: 0; padding: 0;
+            text-align: center;
         }
 
-        /* ÜST BAR & SAAT */
-        #top-status {
-            padding: 10px; font-weight: 700; font-size: 0.75rem; color: white;
-            text-transform: uppercase; letter-spacing: 2px; text-align: center;
+        /* AKILLI DURUM ÇUBUĞU */
+        #status-bar {
+            padding: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         header {
-            text-align: center; padding: 50px 20px;
-            background: rgba(255, 255, 255, 0.9);
+            padding: 50px 20px;
+            background: var(--white);
             border-bottom: 5px double var(--gold);
-            backdrop-filter: blur(10px);
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2rem, 10vw, 3rem);
-            margin: 0; letter-spacing: 5px; text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 5px;
+            text-transform: uppercase;
         }
 
-        .container { max-width: 900px; margin: -30px auto 40px; padding: 0 15px; }
+        .container { max-width: 850px; margin: 30px auto; padding: 0 15px; }
 
-        /* ÜRÜN KUTULARI (GLASS) */
-        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .product-box {
-            background: rgba(255, 255, 255, 0.85);
+        /* ÜRÜN KARTLARI */
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .product-card {
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(184, 149, 80, 0.3);
-            border-radius: 25px; padding: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            backdrop-filter: blur(5px);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
-        .product-box:hover { transform: translateY(-10px); border-color: var(--gold); }
+
+        .img-placeholder {
+            width: 100%; aspect-ratio: 1; background: #fff; border-radius: 12px;
+            margin-bottom: 15px; border: 1px solid #f0f0f0;
+            display: flex; align-items: center; justify-content: center; font-size: 3rem;
+        }
 
         .cat-title {
-            font-family: 'Playfair Display', serif; font-size: 1.5rem;
-            text-align: center; margin-bottom: 20px; color: var(--gold);
-            text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
         }
 
-        .price-item { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(184, 149, 80, 0.1); font-size: 0.9rem; }
-        .price-item b { color: var(--gold); }
-        .featured { background: rgba(184, 149, 80, 0.08); border-radius: 10px; padding: 14px 10px !important; }
+        .price-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .price-row b { color: var(--gold); font-weight: 700; }
 
-        /* HAFTALIK KIT & ABONELİK */
-        .special-section { margin-top: 30px; display: grid; gap: 20px; }
-        
-        .kit-card {
-            background: linear-gradient(135deg, #fff 0%, #fffdf0 100%);
-            border: 2px solid var(--gold); border-radius: 25px; padding: 25px; text-align: center;
+        /* 1. KIT DA SEMANA */
+        .kit-box {
+            background: #f9f4e8;
+            border: 3px solid var(--gold);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(184, 149, 80, 0.15);
         }
 
-        .sub-card {
-            background: var(--ink); color: white; border-radius: 25px; padding: 25px; text-align: center;
+        /* 2. ASSINATURA */
+        .sub-box {
+            background: var(--ink);
+            color: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
         }
 
         /* WHATSAPP BUTON */
-        .wa-btn {
-            display: flex; align-items: center; justify-content: center; gap: 12px;
-            background: var(--wa); color: white; padding: 22px; border-radius: 50px;
-            text-decoration: none; font-weight: 700; font-size: 1.1rem;
-            margin-top: 30px; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        #order-btn {
+            display: flex; align-items: center; justify-content: center;
+            background: var(--wa);
+            color: white;
+            padding: 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
             transition: 0.3s;
         }
-        .closed { background: #999 !important; pointer-events: none; box-shadow: none; }
 
-        footer { padding: 60px 20px; text-align: center; font-size: 0.7rem; color: #999; letter-spacing: 3px; }
+        .btn-closed { background: #999 !important; pointer-events: none; opacity: 0.7; }
 
-        @media (max-width: 600px) { .product-grid { gap: 10px; } .product-box { padding: 15px; } }
+        footer { padding: 50px; color: #999; font-size: 0.7rem; letter-spacing: 2px; }
+
+        @media (max-width: 600px) { .product-grid { gap: 10px; } }
     </style>
 </head>
 <body>
 
-<div id="top-status">Verificando...</div>
+<div id="status-bar">CARREGANDO...</div>
 
 <header>
     <h1>MAST IOGURTE</h1>
-    <div style="font-weight:600; color:var(--gold); letter-spacing:5px; font-size:0.8rem; margin-top:10px;">LAGO SUL • 11:00 - 23:00</div>
+    <div style="font-weight:700; color:var(--gold); letter-spacing:4px; margin-top:10px;">LAGO SUL • 11:00 - 23:00</div>
 </header>
 
 <div class="container">
     <div class="product-grid">
-        <div class="product-box">
+        <div class="product-card">
+            <div class="img-placeholder">🏺</div>
             <h2 class="cat-title">Iogurte</h2>
-            <div class="price-item"><span>1000 ML</span><b>R$ 20</b></div>
-            <div class="price-item"><span>500 ML</span><b>R$ 10</b></div>
-            <div class="price-item featured"><span>250 ML ★</span><b>R$ 7</b></div>
-            <div class="price-item"><span>140 ML</span><b>R$ 5</b></div>
+            <div class="price-row"><span>1000 ML</span><b>R$ 20</b></div>
+            <div class="price-row"><span>500 ML</span><b>R$ 10</b></div>
+            <div class="price-row" style="background:#fff9eb;"><span>250 ML</span><b>R$ 7</b></div>
         </div>
 
-        <div class="product-box">
+        <div class="product-card">
+            <div class="img-placeholder">🥣</div>
             <h2 class="cat-title">Arroz Doce</h2>
-            <div class="price-item"><span>Aile Boyu</span><b>R$ 20</b></div>
-            <div class="price-item"><span>Büyük Boy</span><b>R$ 15</b></div>
-            <div class="price-item featured"><span>Orta Kase ★</span><b>R$ 10</b></div>
-            <div class="price-item"><span>Küçük Boy</span><b>R$ 5</b></div>
+            <div class="price-row"><span>Aile Boyu</span><b>R$ 20</b></div>
+            <div class="price-row"><span>Büyük Boy</span><b>R$ 15</b></div>
+            <div class="price-row" style="background:#fff9eb;"><span>Orta Kase</span><b>R$ 10</b></div>
         </div>
     </div>
 
-    <div class="special-section">
-        <div class="kit-card">
-            <span style="background:var(--gold); color:white; padding:4px 12px; border-radius:5px; font-size:0.7rem; font-weight:800;">FAVORITO DO LAGO SUL</span>
-            <h3 style="font-family:'Playfair Display'; margin:15px 0 5px 0;">Kit Gurme da Semana</h3>
-            <p style="font-size:0.85rem; color:#666;">1 Iogurte Família + 2 Arroz Doce (Kase)</p>
-            <div style="font-size:1.8rem; font-weight:900; color:var(--gold);">R$ 35,00</div>
-        </div>
-
-        <div class="sub-card">
-            <h3 style="font-family:'Playfair Display'; margin:0 0 10px 0;">Assinatura Mast</h3>
-            <p style="font-size:0.8rem; opacity:0.8;">Her hafta taze ürünler kapınıza gelsin. Özel abonelik detayları için bize yazın.</p>
-        </div>
+    <div class="kit-box">
+        <span style="background:var(--gold); color:white; padding:4px 12px; border-radius:5px; font-size:0.7rem; font-weight:800;">LAGO SUL'UN FAVORİSİ</span>
+        <h2 style="font-family:'Playfair Display'; margin:15px 0;">Kit Gurme da Semana</h2>
+        <p style="color:#555; font-size:0.9rem;">1 Iogurte Família (1000 ML) + 2 Arroz Doce (Kase)</p>
+        <div style="font-size:2rem; font-weight:900; color:var(--gold);">R$ 35,00</div>
     </div>
 
-    <a href="https://wa.me/5561999851365" id="main-btn" class="wa-btn">
-        PEDIR AGORA VIA WHATSAPP
-    </a>
+    <div class="sub-box">
+        <h2 style="font-family:'Playfair Display'; margin:0 0 10px 0;">Assinatura Mast</h2>
+        <p style="font-size:0.85rem; opacity:0.8;">Her hafta taze yoğurdunuz kapınıza gelsin ister misiniz? Özel abonelik avantajları için WhatsApp'tan yazın.</p>
+    </div>
 
-    <div style="text-align:center; margin-top:30px; font-size:0.8rem; color:#777;">
-        📍 <b>SMDB Conjunto 26, Lago Sul</b> | Mínimo: R$ 30
+    <a href="https://wa.me/5561999851365" id="order-btn">PEDIR AGORA VIA WHATSAPP</a>
+
+    <div style="margin-top:30px; font-size:0.8rem; border-top:1px solid #ddd; padding-top:20px; color:#777;">
+        📍 <b>Lago Sul, Brasília</b> | Pedido Mínimo: R$ 30,00
     </div>
 </div>
 
-<footer>ESTE É O SABOR DA TRADIÇÃO • MAST IOGURTE</footer>
+<footer>
+    MAST IOGURTE & ARROZ DOCE • DESDE 1860
+</footer>
 
 <script>
-    function updateDinamikStatus() {
-        const hora = new Date().getHours();
-        const bar = document.getElementById('top-status');
-        const btn = document.getElementById('main-btn');
+    function checkDinamikStatus() {
+        const agora = new Date();
+        const hora = agora.getHours();
+        const bar = document.getElementById('status-bar');
+        const btn = document.getElementById('order-btn');
 
+        // Brasília Saat Dilimi Kontrolü (11:00 - 23:00)
         if (hora >= 11 && hora < 23) {
             bar.style.backgroundColor = "#2ecc71";
-            bar.innerHTML = "● ABERTO AGORA - ENTREGANDO";
-            btn.classList.remove('closed');
-            btn.innerHTML = "PEDIR AGORA VIA WHATSAPP";
+            bar.innerHTML = "● ABERTO AGORA - ENTREGANDO NO LAGO SUL";
+            btn.classList.remove('btn-closed');
+            btn.innerHTML = "FAZER PEDIDO VIA WHATSAPP";
         } else {
             bar.style.backgroundColor = "#e74c3c";
-            bar.innerHTML = "○ FECHADO AGORA - VOLTAMOS ÀS 11:00";
-            btn.classList.add('closed');
+            bar.innerHTML = "○ FECHADO NO MOMENTO - VOLTAMOS ÀS 11:00";
+            btn.classList.add('btn-closed');
             btn.innerHTML = "VOLTAMOS AMANHÃ ÀS 11:00";
         }
     }
-    updateDinamikStatus();
-    setInterval(updateDinamikStatus, 60000);
+    checkDinamikStatus();
+    setInterval(checkDinamikStatus, 60000); // Her dakika kontrol et
 </script>
 
 </body>
