@@ -11,185 +11,192 @@
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; word-wrap: break-word; }
         body { background: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; line-height: 1.4; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* ÜST BİLGİ BARI */
-        .promo-bar { background: var(--gold); color: #fff; text-align: center; padding: 8px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; }
+        .promo-bar { background: var(--ink); color: var(--beige); text-align: center; padding: 8px; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
 
-        .header { background: var(--beige); padding: 30px 20px; text-align: center; border-bottom: 5px solid #000; position: sticky; top: 0; z-index: 1000; }
-        .header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-transform: uppercase; }
+        .header { background: var(--beige); padding: 40px 20px; text-align: center; border-bottom: 5px solid #000; position: sticky; top: 0; z-index: 1000; }
+        .header h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; letter-spacing: 3px; }
 
-        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 30px; padding: 30px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 30px; padding: 40px 20px; }
 
-        .section-title { margin: 20px 0; border-left: 10px solid #000; padding-left: 15px; font-family: 'Playfair Display', serif; font-size: 1.8rem; }
+        .section-title { margin: 30px 0 15px; border-left: 12px solid #000; padding-left: 15px; font-family: 'Playfair Display', serif; font-size: 2rem; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; }
-        .card { background: #fff; border: 3px solid #000; padding: 15px; text-align: center; transition: 0.3s; position: relative; }
-        .card:hover { transform: translateY(-5px); box-shadow: 8px 8px 0px #000; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 30px; }
+        .card { background: #fff; border: 3.5px solid #000; padding: 20px; text-align: center; transition: 0.3s; position: relative; }
+        .card:hover { transform: translateY(-8px); box-shadow: 10px 10px 0px #000; }
         .img-box { width: 100%; aspect-ratio: 1; background: #f0f0f0; border: 2px solid #000; margin-bottom: 15px; overflow: hidden; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        .price { color: var(--red); font-weight: 900; font-size: 1.6rem; margin: 10px 0; }
-        .add-btn { background: #000; color: #fff; border: none; padding: 15px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
-        .add-btn:active { transform: scale(0.95); }
+        .price { color: var(--red); font-weight: 900; font-size: 1.7rem; margin-bottom: 15px; }
+        .add-btn { background: #000; color: #fff; border: none; padding: 18px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* ADİSYON FİŞİ */
         .receipt { 
-            background: #fff; border: 5px solid #000; padding: 25px; font-family: 'Courier Prime', monospace; 
-            position: sticky; top: 120px; max-height: 80vh; display: flex; flex-direction: column;
-            box-shadow: 10px 10px 0px var(--beige);
+            background: #fff; border: 6px solid #000; padding: 30px; font-family: 'Courier Prime', monospace; 
+            position: sticky; top: 140px; max-height: 82vh; display: flex; flex-direction: column;
+            box-shadow: 15px 15px 0px var(--beige);
         }
-        .receipt h2 { text-align: center; border-bottom: 3px dashed #000; padding-bottom: 10px; margin-bottom: 15px; }
+        .receipt h2 { text-align: center; border-bottom: 4px dashed #000; padding-bottom: 15px; margin-bottom: 20px; }
+        .receipt-scroll { overflow-y: auto; flex-grow: 1; padding-right: 10px; }
+
+        .input-field { width: 100%; padding: 12px; border: 3px solid #000; font-family: 'Courier Prime'; font-weight: 700; margin-bottom: 15px; font-size: 1rem; }
+        .input-field:invalid { border-color: var(--red); }
+
+        .cart-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; align-items: center; border-bottom: 2px dotted #eee; padding-bottom: 8px; }
+        .qty-controls { display: flex; align-items: center; gap: 10px; }
+        .qty-btn { background: #000; color: #fff; border: none; width: 25px; height: 25px; cursor: pointer; font-weight: 900; }
+
+        .gift-alert { background: #fff3cd; border: 2px dashed #856404; color: #856404; padding: 10px; font-size: 0.8rem; font-weight: 700; margin-top: 10px; text-align: center; }
+
+        .total-row { font-size: 2rem; font-weight: 900; border-top: 4px solid #000; padding-top: 20px; margin-top: 15px; display: flex; justify-content: space-between; }
         
-        .receipt-scroll { overflow-y: auto; flex-grow: 1; padding-right: 5px; }
+        .btn-wa { background: var(--wa); color: #fff; border: 4px solid #000; padding: 22px; width: 100%; font-weight: 900; font-size: 1.4rem; cursor: pointer; margin-top: 20px; transition: 0.2s; }
+        .btn-wa:hover { transform: scale(1.02); }
 
-        .input-field { width: 100%; padding: 10px; border: 2px solid #000; font-family: 'Courier Prime'; font-weight: 700; margin-bottom: 10px; font-size: 1rem; }
-
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; align-items: center; border-bottom: 1px dotted #ccc; padding-bottom: 5px; }
-        .qty-box { display: flex; align-items: center; gap: 8px; }
-        .qty-btn { background: #000; color: #fff; width: 20px; height: 20px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; }
-
-        .total-row { font-size: 1.8rem; font-weight: 900; border-top: 3px solid #000; padding-top: 15px; margin-top: 10px; display: flex; justify-content: space-between; }
-        
-        .btn-wa { background: var(--wa); color: #fff; border: 3px solid #000; padding: 20px; width: 100%; font-weight: 900; font-size: 1.2rem; cursor: pointer; margin-top: 20px; box-shadow: 0 4px 0 #128C7E; }
-        .btn-wa:active { transform: translateY(4px); box-shadow: none; }
-
-        /* MOBİL SEPET BUTONU */
-        .mobile-cart-btn { display: none; position: fixed; bottom: 20px; right: 20px; background: #000; color: #fff; padding: 15px 25px; border-radius: 50px; font-weight: 700; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); border: 2px solid var(--beige); }
-
-        @keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(5px); } 50% { transform: translateX(-5px); } 75% { transform: translateX(5px); } 100% { transform: translateX(0); } }
-        .bump { animation: shake 0.3s ease-in-out; }
+        .footer-links { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
+        .f-link { font-size: 0.7rem; color: #000; font-weight: 700; text-decoration: none; border: 1px solid #000; padding: 5px 10px; background: var(--beige); }
 
         @media (max-width: 950px) {
             .container { grid-template-columns: 1fr; }
             .receipt { position: static; max-height: none; }
-            .mobile-cart-btn { display: block; }
         }
     </style>
 </head>
 <body>
 
-<div class="promo-bar">ENTREGA GRÁTIS EM PEDIDOS ACIMA DE R$ 100! 🚚</div>
+<div class="promo-bar">ENTREGA GRÁTIS ACIMA DE R$ 100 🚚 MAST IOGURTE</div>
 
 <header class="header">
     <h1>MAST IOGURTE</h1>
 </header>
 
 <div class="container">
-    <main id="menu-area"></main>
+    <main id="menu-root"></main>
 
-    <aside id="carrinho-secao">
-        <div class="receipt" id="final-receipt">
-            <h2>PEDIDO #<span id="order-num">...</span></h2>
+    <aside>
+        <div class="receipt" id="receipt-box">
+            <h2>RESUMO DO PEDIDO</h2>
             
             <div class="receipt-scroll">
-                <input type="text" id="user_name" class="input-field" placeholder="Seu Nome">
-                <select id="user_location" class="input-field" onchange="renderOrder()">
+                <input type="text" id="cust-name" class="input-field" placeholder="Seu Nome completo">
+                <select id="cust-loc" class="input-field" onchange="renderCart()">
                     <option value="10">Lago Sul (Perto) - R$ 10</option>
                     <option value="15">Lago Sul (Longe) - R$ 15</option>
                     <option value="20">Asa Norte/Sul - R$ 20</option>
                     <option value="0">Retirada no Local - R$ 0</option>
                 </select>
-                <textarea id="user_addr" class="input-field" rows="2" placeholder="Endereço Completo"></textarea>
+                <textarea id="cust-addr" class="input-field" rows="2" placeholder="Endereço (Rua, Casa, Bloco)"></textarea>
                 
-                <div id="order-items" style="margin: 20px 0;"></div>
-                
-                <p id="eta" style="font-size: 0.7rem; color: var(--gold); font-weight: 700;"></p>
+                <div id="cart-data"></div>
+                <div id="gift-section"></div>
             </div>
 
             <div class="total-row">
                 <span>TOTAL</span>
-                <span id="total-val">R$ 0,00</span>
+                <span id="final-price">R$ 0,00</span>
             </div>
 
-            <button class="btn-wa" onclick="finish()">ENVIAR WHATSAPP</button>
-            <button onclick="localStorage.clear(); location.reload();" style="font-size: 0.7rem; margin-top: 10px; border:none; background:none; cursor:pointer; color:red; text-decoration: underline;">LIMPAR TUDO</button>
+            <button class="btn-wa" onclick="checkout()">ENVIAR WHATSAPP</button>
+            
+            <div class="footer-links">
+                <a href="#" class="f-link">INSTAGRAM</a>
+                <a href="#" class="f-link">COMO CHEGAR</a>
+            </div>
+            <button onclick="localStorage.clear(); location.reload();" style="font-size: 0.6rem; color: #999; border: none; background: none; margin-top: 15px; cursor: pointer;">[ RESETAR SISTEMA ]</button>
         </div>
     </aside>
 </div>
 
-<a href="#carrinho-secao" class="mobile-cart-btn" id="m-btn">🛒 VER SEPET (R$ 0)</a>
+<footer style="text-align: center; padding: 40px; opacity: 0.5; font-size: 0.8rem; font-weight: 700;">
+    MAST IOGURTE BRASÍLIA © 2026 - TRADIÇÃO EM CADA COLHERADA
+</footer>
 
 <script>
-    const products = [
-        { cat: "Iogurtes", img: "yogurt.jpg", items: [{id:1, n:"Natural 1000ml", p:20}, {id:2, n:"Natural 500ml", p:10}, {id:3, n:"Natural 250ml", p:7}] },
-        { cat: "Sobremesas", img: "sutlac.jpg", items: [{id:4, n:"Arroz Doce (G)", p:20}, {id:5, n:"Arroz Doce (M)", p:10}] }
+    const data = [
+        { cat: "Nossos Iogurtes", img: "yogurt.jpg", prods: [{id:1, n:"Natural 1000ml", p:20}, {id:2, n:"Natural 500ml", p:10}, {id:3, n:"Natural 250ml", p:7}] },
+        { cat: "Sobremesas", img: "sutlac.jpg", prods: [{id:4, n:"Arroz Doce (G)", p:20}, {id:5, n:"Arroz Doce (M)", p:10}] }
     ];
 
     let cart = {};
-    document.getElementById('order-num').innerText = Math.floor(Math.random() * 9000) + 1000;
 
-    function buildMenu() {
-        let html = "";
-        products.forEach(c => {
-            html += `<div class="section-title"><h2>${c.cat}</h2></div><div class="grid">`;
-            c.items.forEach(i => {
-                html += `<div class="card">
+    function init() {
+        let h = "";
+        data.forEach(c => {
+            h += `<div class="section-title"><h2>${c.cat}</h2></div><div class="grid">`;
+            c.prods.forEach(p => {
+                h += `<div class="card">
                     <div class="img-box"><img src="${c.img}"></div>
-                    <h3>${i.n}</h3>
-                    <div class="price">R$ ${i.p.toFixed(2)}</div>
-                    <button class="add-btn" onclick="add(${i.id}, 1)">ADICIONAR +</button>
+                    <h3>${p.n}</h3>
+                    <div class="price">R$ ${p.p.toFixed(2)}</div>
+                    <button class="add-btn" onclick="updateQty(${p.id}, 1)">ADICIONAR +</button>
                 </div>`;
             });
-            html += `</div>`;
+            h += `</div>`;
         });
-        document.getElementById('menu-area').innerHTML = html;
+        document.getElementById('menu-root').innerHTML = h;
+        renderCart();
     }
 
-    function add(id, qty) {
-        cart[id] = (cart[id] || 0) + qty;
+    function updateQty(id, amt) {
+        cart[id] = (cart[id] || 0) + amt;
         if(cart[id] <= 0) delete cart[id];
-        
-        const rec = document.getElementById('final-receipt');
-        rec.classList.remove('bump');
-        void rec.offsetWidth; 
-        rec.classList.add('bump');
-        
-        renderOrder();
+        renderCart();
     }
 
-    function renderOrder() {
-        const list = document.getElementById('order-items');
-        const fee = parseFloat(document.getElementById('user_location').value);
+    function renderCart() {
+        const list = document.getElementById('cart-data');
+        const fee = parseFloat(document.getElementById('cust-loc').value);
         let sub = 0; let html = "";
 
-        for(const id in cart) {
-            let item; products.forEach(c => { const f = c.items.find(x => x.id == id); if(f) item = f; });
-            const total = item.p * cart[id];
-            sub += total;
+        for(let id in cart) {
+            let item; data.forEach(c => { let f = c.prods.find(x => x.id == id); if(f) item = f; });
+            let t = item.p * cart[id];
+            sub += t;
             html += `<div class="cart-item">
-                <span>${item.n}</span>
-                <div class="qty-box">
-                    <button class="qty-btn" onclick="add(${id},-1)">-</button>
-                    <b>${cart[id]}</b>
-                    <button class="qty-btn" onclick="add(${id},1)">+</button>
-                    <span>R$ ${total.toFixed(2)}</span>
+                <span><b>${cart[id]}x</b> ${item.n}</span>
+                <div class="qty-controls">
+                    <button class="qty-btn" onclick="updateQty(${id},-1)">-</button>
+                    <button class="qty-btn" onclick="updateQty(${id},1)">+</button>
+                    <span>R$ ${t.toFixed(2)}</span>
                 </div>
             </div>`;
         }
 
-        list.innerHTML = Object.keys(cart).length ? html : "Carrinho Vazio";
-        const final = sub + fee;
-        document.getElementById('total-val').innerText = `R$ ${final.toFixed(2)}`;
-        document.getElementById('m-btn').innerText = `🛒 VER SEPET (R$ ${final.toFixed(2)})`;
+        list.innerHTML = Object.keys(cart).length ? html : "<p style='text-align:center; padding: 20px; opacity: 0.5;'>Nenhum item selecionado</p>";
         
-        const etaText = fee == 0 ? "Pronto para retirada!" : "Entrega estimada: 30-50 min";
-        document.getElementById('eta').innerText = Object.keys(cart).length ? ">>> " + etaText : "";
+        // Hediye Sistemi (100 R$ üzerine)
+        const gift = document.getElementById('gift-section');
+        if(sub >= 100) {
+            gift.innerHTML = `<div class="gift-alert">🎁 PARABÉNS! Você ganhou um Iogurte 250ml de cortesia!</div>`;
+        } else {
+            gift.innerHTML = "";
+        }
+
+        document.getElementById('final-price').innerText = `R$ ${(sub + fee).toFixed(2)}`;
     }
 
-    function finish() {
-        const n = document.getElementById('user_name').value;
-        const a = document.getElementById('user_addr').value;
-        if(!n || !a || !Object.keys(cart).length) return alert("Preencha tudo!");
+    function checkout() {
+        const n = document.getElementById('cust-name').value;
+        const a = document.getElementById('cust-addr').value;
+        const f = document.getElementById('cust-loc').options[document.getElementById('cust-loc').selectedIndex].text;
+        
+        if(!n || !a || !Object.keys(cart).length) {
+            alert("Ei patron! Preencha seu nome, endereço e adicione itens ao carrinho.");
+            return;
+        }
 
-        let m = `*PEDIDO #${document.getElementById('order-num').innerText}*%0A👤 *Nome:* ${n}%0A📍 *End:* ${a}%0A%0A*PRODUTOS:*%0A`;
-        for(const id in cart) {
-            let item; products.forEach(c => { const f = c.items.find(x => x.id == id); if(f) item = f; });
+        let m = `*PEDIDO MAST IOGURTE*%0A%0A👤 *Cliente:* ${n}%0A📍 *Endereço:* ${a}%0A🚚 *Entrega:* ${f}%0A%0A*PRODUTOS:*%0A`;
+        for(let id in cart) {
+            let item; data.forEach(c => { let f = c.prods.find(x => x.id == id); if(f) item = f; });
             m += `• ${cart[id]}x ${item.n}%0A`;
         }
-        m += `%0A💰 *TOTAL: ${document.getElementById('total-val').innerText}*`;
+        
+        let totalVal = document.getElementById('final-price').innerText;
+        if(parseFloat(totalVal.replace('R$ ','')) >= 110) m += `%0A🎁 *BRINDE:* 1x Iogurte 250ml Cortesia%0A`;
+        
+        m += `%0A💰 *TOTAL: ${totalVal}*`;
         window.open(`https://wa.me/5561999851365?text=${m}`);
     }
 
-    buildMenu();
+    init();
 </script>
 </body>
 </html>
