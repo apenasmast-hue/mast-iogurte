@@ -8,65 +8,78 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@300;400;600;700&family=Courier+Prime:wght@700&display=swap');
         :root { --bg: #fdfaf5; --ink: #1a1a1a; --wa: #25d366; --red: #d63031; --beige: #EBD8B8; --gold: #c5a059; }
         
-        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-        body { background: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; line-height: 1.6; }
+        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; word-wrap: break-word; }
+        body { background: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; line-height: 1.4; overflow-x: hidden; }
 
-        /* STATUS BAR */
-        .status-bar { background: var(--ink); color: #fff; text-align: center; padding: 5px; font-size: 0.8rem; letter-spacing: 1px; font-weight: 600; }
+        .status-bar { background: var(--ink); color: #fff; text-align: center; padding: 5px; font-size: 0.75rem; letter-spacing: 1px; font-weight: 600; }
 
-        .header { background: var(--beige); padding: 30px 20px; text-align: center; border-bottom: 5px solid #000; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; letter-spacing: 2px; }
-        .header p { font-size: 0.9rem; opacity: 0.8; font-weight: 600; }
+        .header { background: var(--beige); padding: 20px; text-align: center; border-bottom: 5px solid #000; position: sticky; top: 0; z-index: 1000; }
+        .header h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; }
 
-        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 40px; padding: 40px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 20px; padding: 20px; }
 
-        .section-title { margin: 40px 0 20px; border-bottom: 4px solid #000; font-family: 'Playfair Display', serif; font-size: 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .section-title { margin: 20px 0 15px; border-bottom: 4px solid #000; font-family: 'Playfair Display', serif; font-size: 1.6rem; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 30px; }
-        .card { background: #fff; border: 3px solid #000; padding: 20px; text-align: center; transition: 0.3s; position: relative; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-10px); box-shadow: 10px 10px 0px #000; }
-        
-        .img-box { width: 100%; aspect-ratio: 1; background: #f0f0f0; border: 2px solid #000; margin-bottom: 15px; overflow: hidden; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .card { background: #fff; border: 3px solid #000; padding: 15px; text-align: center; display: flex; flex-direction: column; height: 100%; }
+        .img-box { width: 100%; aspect-ratio: 1; background: #f0f0f0; border: 2px solid #000; margin-bottom: 10px; overflow: hidden; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        .card h3 { font-size: 1.2rem; margin-bottom: 5px; }
-        .desc { font-size: 0.8rem; color: #666; margin-bottom: 15px; height: 40px; overflow: hidden; }
-        .price { color: var(--red); font-weight: 900; font-size: 1.7rem; margin-bottom: 15px; display: block; }
+        .desc { font-size: 0.75rem; color: #666; margin-bottom: 10px; min-height: 35px; }
+        .price { color: var(--red); font-weight: 900; font-size: 1.4rem; margin-bottom: 10px; }
         
-        .add-btn { background: #000; color: #fff; border: none; padding: 15px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
-        .add-btn:hover { background: var(--gold); }
+        .add-btn { background: #000; color: #fff; border: none; padding: 12px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; margin-top: auto; }
 
-        .receipt { background: #fff; border: 6px solid #000; padding: 30px; font-family: 'Courier Prime', monospace; position: sticky; top: 150px; box-shadow: 12px 12px 0px var(--beige); }
-        .receipt h2 { text-align: center; border-bottom: 3px dashed #000; padding-bottom: 15px; margin-bottom: 25px; }
+        /* ADİSYON FİŞİ - TAŞMAYA KARŞI GÜÇLENDİRİLMİŞ */
+        .receipt { 
+            background: #fff; 
+            border: 5px solid #000; 
+            padding: 20px; 
+            font-family: 'Courier Prime', monospace; 
+            position: sticky; 
+            top: 110px; 
+            max-height: calc(100vh - 130px); 
+            display: flex; 
+            flex-direction: column;
+            width: 100%;
+        }
+        .receipt h2 { text-align: center; border-bottom: 3px dashed #000; padding-bottom: 10px; margin-bottom: 15px; font-size: 1.3rem; flex-shrink: 0; }
         
-        .input-group { margin-bottom: 15px; }
-        .label-text { font-size: 0.8rem; font-weight: 700; margin-bottom: 5px; display: block; text-transform: uppercase; }
-        .input-field { width: 100%; padding: 12px; border: 2px solid #000; font-family: 'Courier Prime'; font-weight: 700; font-size: 1rem; }
+        /* Kaydırılabilir İç Bölge */
+        .receipt-content { 
+            overflow-y: auto; 
+            overflow-x: hidden; 
+            flex-grow: 1; 
+            padding-right: 5px; 
+        }
 
-        .cart-items { min-height: 100px; border-bottom: 3px dashed #000; margin: 25px 0; padding-bottom: 15px; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-weight: 700; }
-        .qty-controls { display: flex; align-items: center; gap: 10px; }
-        .qty-btn { background: #eee; border: 1px solid #000; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: 900; }
+        .input-group { margin-bottom: 10px; }
+        .label-text { font-size: 0.7rem; font-weight: 700; margin-bottom: 3px; display: block; text-transform: uppercase; }
+        .input-field { width: 100%; padding: 8px; border: 2px solid #000; font-family: 'Courier Prime'; font-weight: 700; font-size: 0.9rem; }
 
-        .total-row { display: flex; justify-content: space-between; font-size: 2rem; font-weight: 900; margin-top: 20px; }
+        .cart-items { border-bottom: 3px dashed #000; margin: 15px 0; padding-bottom: 10px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; font-size: 0.85rem; gap: 10px; }
+        .item-name { flex-grow: 1; }
+        .qty-controls { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+        .qty-btn { background: #eee; border: 1px solid #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px; }
+
+        .total-row { display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 900; margin-top: 10px; flex-shrink: 0; }
         
-        .btn-wa { background: var(--wa); color: #fff; border: 3px solid #000; padding: 22px; width: 100%; font-weight: 900; font-size: 1.3rem; cursor: pointer; margin-top: 25px; transition: 0.3s; }
-        .btn-wa:hover { filter: brightness(1.1); }
-        .btn-reset { background: none; border: none; color: var(--red); cursor: pointer; font-size: 0.8rem; text-decoration: underline; margin-top: 15px; width: 100%; font-weight: 700; }
+        .btn-wa { background: var(--wa); color: #fff; border: 3px solid #000; padding: 15px; width: 100%; font-weight: 900; font-size: 1.1rem; cursor: pointer; margin-top: 15px; flex-shrink: 0; }
+        .btn-reset { background: none; border: none; color: var(--red); cursor: pointer; font-size: 0.75rem; text-decoration: underline; margin-top: 10px; width: 100%; font-weight: 700; flex-shrink: 0; }
 
         @media (max-width: 950px) {
-            .container { grid-template-columns: 1fr; padding: 20px; }
-            .receipt { position: static; margin-top: 50px; }
+            .container { grid-template-columns: 1fr; }
+            .receipt { position: static; max-height: none; }
         }
     </style>
 </head>
 <body>
 
-<div class="status-bar">● SISTEMA DE PEDIDOS ONLINE ATIVO - BRASÍLIA</div>
+<div class="status-bar">● SISTEMA DE PEDIDOS ONLINE ATIVO</div>
 
 <header class="header">
     <h1>MAST IOGURTE</h1>
-    <p>O Sabor Real do Iogurte Artesanal</p>
 </header>
 
 <div class="container">
@@ -76,43 +89,45 @@
         <div class="receipt">
             <h2>RESUMO</h2>
             
-            <div class="input-group">
-                <label class="label-text">Seu Nome:</label>
-                <input type="text" id="c_name" class="input-field" placeholder="Ex: Maria Silva">
-            </div>
+            <div class="receipt-content">
+                <div class="input-group">
+                    <label class="label-text">Seu Nome:</label>
+                    <input type="text" id="c_name" class="input-field" placeholder="Nome...">
+                </div>
 
-            <div class="input-group">
-                <label class="label-text">Bairro (Entrega):</label>
-                <select id="c_fee" class="input-field" onchange="renderCart()">
-                    <option value="10">Lago Sul (Perto) - R$ 10</option>
-                    <option value="15">Lago Sul (Longe) - R$ 15</option>
-                    <option value="20">Asa Norte/Sul - R$ 20</option>
-                    <option value="0">Retirada Local - R$ 0</option>
-                </select>
-            </div>
+                <div class="input-group">
+                    <label class="label-text">Entrega:</label>
+                    <select id="c_fee" class="input-field" onchange="renderCart()">
+                        <option value="10">Lago Sul (Perto) - R$ 10</option>
+                        <option value="15">Lago Sul (Longe) - R$ 15</option>
+                        <option value="20">Asa Norte/Sul - R$ 20</option>
+                        <option value="0">Retirada Local - R$ 0</option>
+                    </select>
+                </div>
 
-            <div class="input-group">
-                <label class="label-text">Endereço & Referência:</label>
-                <textarea id="c_addr" class="input-field" rows="2" placeholder="Quadra, Casa, Cor do portão..."></textarea>
-            </div>
+                <div class="input-group">
+                    <label class="label-text">Endereço:</label>
+                    <textarea id="c_addr" class="input-field" rows="2" placeholder="Quadra, Casa..."></textarea>
+                </div>
 
-            <div class="input-group">
-                <label class="label-text">Pagamento:</label>
-                <select id="c_pay" class="input-field">
-                    <option value="PIX">PIX (Rápido)</option>
-                    <option value="Cartão">Cartão (Maquininha)</option>
-                    <option value="Dinheiro">Dinheiro</option>
-                </select>
-            </div>
+                <div class="input-group">
+                    <label class="label-text">Pagamento:</label>
+                    <select id="c_pay" class="input-field">
+                        <option value="PIX">PIX</option>
+                        <option value="Cartão">Cartão</option>
+                        <option value="Dinheiro">Dinheiro</option>
+                    </select>
+                </div>
 
-            <div id="cart-items" class="cart-items"></div>
+                <div id="cart-items" class="cart-items"></div>
+            </div>
 
             <div class="total-row">
                 <span>TOTAL</span>
                 <span id="total-price">R$ 10,00</span>
             </div>
 
-            <button class="btn-wa" onclick="sendOrder()">PEDIR AGORA NO WHATSAPP</button>
+            <button class="btn-wa" onclick="sendOrder()">FINALIZAR PEDIDO</button>
             <button class="btn-reset" onclick="clearAll()">Limpar todo o pedido</button>
         </div>
     </aside>
@@ -121,25 +136,25 @@
 <script>
     const menu = [
         {
-            title: "Nossos Iogurtes",
+            title: "Iogurtes",
             img: "yogurt.jpg",
             items: [
-                { id: 1, name: "Natural 1000ml", price: 20, desc: "Familiar, 100% integral e sem conservantes." },
-                { id: 2, name: "Natural 500ml", price: 10, desc: "Tamanho ideal para o café da manhã." },
-                { id: 3, name: "Natural 250ml", price: 7, desc: "Praticidade para levar onde quiser." }
+                { id: 1, name: "Natural 1000ml", price: 20, desc: "Familiar, 100% integral." },
+                { id: 2, name: "Natural 500ml", price: 10, desc: "Tamanho ideal para o dia." },
+                { id: 3, name: "Natural 250ml", price: 7, desc: "Prático e nutritivo." }
             ]
         },
         {
-            title: "Doces Caseiros",
+            title: "Doces",
             img: "sutlac.jpg",
             items: [
-                { id: 4, name: "Arroz Doce Família", price: 20, desc: "Receita tradicional com toque de canela." },
-                { id: 5, name: "Arroz Doce Médio", price: 10, desc: "Cremoso e fresquinho todos os dias." }
+                { id: 4, name: "Arroz Doce (G)", price: 20, desc: "Receita tradicional família." },
+                { id: 5, name: "Arroz Doce (M)", price: 10, desc: "Cremoso e fresquinho." }
             ]
         }
     ];
 
-    let basket = {}; // {id: quantity}
+    let basket = {};
 
     function initMenu() {
         const display = document.getElementById('menu-display');
@@ -168,7 +183,7 @@
     }
 
     function clearAll() {
-        if(confirm("Deseja realmente limpar seu carrinho?")) {
+        if(confirm("Deseja limpar o pedido?")) {
             basket = {};
             renderCart();
         }
@@ -189,17 +204,17 @@
                 sub += totalItem;
                 html += `
                 <div class="cart-item">
-                    <div>${item.name}</div>
+                    <div class="item-name">${item.name}</div>
                     <div class="qty-controls">
                         <div class="qty-btn" onclick="modifyQty(${id}, -1)">-</div>
                         <span>${basket[id]}</span>
                         <div class="qty-btn" onclick="modifyQty(${id}, 1)">+</div>
-                        <span style="margin-left:10px;">R$ ${totalItem.toFixed(2)}</span>
                     </div>
+                    <div style="flex-shrink:0; font-weight:900;">R$ ${totalItem.toFixed(2)}</div>
                 </div>`;
             }
         }
-        list.innerHTML = Object.keys(basket).length ? html : "<p style='text-align:center; opacity:0.4'>Seu carrinho está vazio.</p>";
+        list.innerHTML = Object.keys(basket).length ? html : "<p style='text-align:center; opacity:0.4; font-size:0.8rem;'>Seu carrinho está vazio.</p>";
         priceTag.innerText = `R$ ${(sub + fee).toFixed(2)}`;
     }
 
@@ -209,26 +224,20 @@
         const p = document.getElementById('c_pay').value;
         const f = document.getElementById('c_fee').options[document.getElementById('c_fee').selectedIndex].text;
         
-        if(!n || !a || Object.keys(basket).length === 0) return alert("Por favor, preencha Nome, Endereço e escolha seus produtos!");
+        if(!n || !a || Object.keys(basket).length === 0) return alert("Preencha Nome, Endereço e produtos!");
         
-        let m = `*PEDIDO CONFIRMADO - MAST*%0A%0A`;
-        m += `👤 *Cliente:* ${n}%0A`;
-        m += `📍 *Endereço:* ${a}%0A`;
-        m += `🚚 *Entrega:* ${f}%0A`;
-        m += `💳 *Pagamento:* ${p}%0A%0A`;
-        m += `*PRODUTOS:*%0A`;
-        
+        let m = `*PEDIDO - MAST*%0A%0A👤 *Cliente:* ${n}%0A📍 *End:* ${a}%0A🚚 *Entrega:* ${f}%0A💳 *Pag:* ${p}%0A%0A*PRODUTOS:*%0A`;
         for (const id in basket) {
             let item;
             menu.forEach(c => { const f = c.items.find(i => i.id == id); if(f) item = f; });
-            m += `• ${basket[id]}x ${item.name} (R$ ${(item.price * basket[id]).toFixed(2)})%0A`;
+            m += `• ${basket[id]}x ${item.name}%0A`;
         }
         m += `%0A💰 *TOTAL: ${document.getElementById('total-price').innerText}*`;
-        
         window.open(`https://wa.me/5561999851365?text=${m}`, '_blank');
     }
 
     initMenu();
+    renderCart();
 </script>
 </body>
 </html>
