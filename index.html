@@ -3,187 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MAST IOGURTE | DELIVERY</title>
+    <title>MAST IOGURTE | PREMIUM DELIVERY</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@400;600;700&family=Courier+Prime:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@300;400;600;700&family=Courier+Prime:wght@700&display=swap');
         :root { --bg: #fdfaf5; --ink: #1a1a1a; --wa: #25d366; --red: #d63031; --beige: #EBD8B8; --gold: #c5a059; }
         
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-        body { background: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; }
+        body { background: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; line-height: 1.6; }
 
-        .header { background: var(--beige); padding: 25px; text-align: center; border-bottom: 5px solid #000; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; letter-spacing: 3px; text-transform: uppercase; }
+        /* STATUS BAR */
+        .status-bar { background: var(--ink); color: #fff; text-align: center; padding: 5px; font-size: 0.8rem; letter-spacing: 1px; font-weight: 600; }
 
-        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 30px; padding: 30px 20px; }
+        .header { background: var(--beige); padding: 30px 20px; text-align: center; border-bottom: 5px solid #000; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; letter-spacing: 2px; }
+        .header p { font-size: 0.9rem; opacity: 0.8; font-weight: 600; }
 
-        .section-header { margin: 40px 0 20px; border-bottom: 4px solid #000; padding-bottom: 5px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; }
+        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 40px; padding: 40px 20px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; }
-        .card { background: #fff; border: 3px solid #000; padding: 15px; text-align: center; transition: all 0.3s; position: relative; }
-        .card:hover { transform: translateY(-8px); box-shadow: 8px 8px 0px #000; }
-        .img-box { width: 100%; aspect-ratio: 1/1; background: #f0f0f0; border: 2px solid #000; margin-bottom: 15px; overflow: hidden; }
+        .section-title { margin: 40px 0 20px; border-bottom: 4px solid #000; font-family: 'Playfair Display', serif; font-size: 2rem; display: flex; align-items: center; justify-content: space-between; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 30px; }
+        .card { background: #fff; border: 3px solid #000; padding: 20px; text-align: center; transition: 0.3s; position: relative; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); box-shadow: 10px 10px 0px #000; }
+        
+        .img-box { width: 100%; aspect-ratio: 1; background: #f0f0f0; border: 2px solid #000; margin-bottom: 15px; overflow: hidden; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        .price { color: var(--red); font-weight: 900; font-size: 1.6rem; margin: 10px 0; display: block; }
-        .add-btn { background: #000; color: #fff; border: none; padding: 15px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; }
-        .add-btn:active { transform: scale(0.95); background: var(--gold); }
+        .card h3 { font-size: 1.2rem; margin-bottom: 5px; }
+        .desc { font-size: 0.8rem; color: #666; margin-bottom: 15px; height: 40px; overflow: hidden; }
+        .price { color: var(--red); font-weight: 900; font-size: 1.7rem; margin-bottom: 15px; display: block; }
+        
+        .add-btn { background: #000; color: #fff; border: none; padding: 15px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
+        .add-btn:hover { background: var(--gold); }
 
-        .receipt { background: #fff; border: 5px solid #000; padding: 30px; font-family: 'Courier Prime', monospace; position: sticky; top: 130px; box-shadow: 10px 10px 0px var(--beige); }
-        .receipt h2 { text-align: center; border-bottom: 3px dashed #000; padding-bottom: 15px; margin-bottom: 20px; }
+        .receipt { background: #fff; border: 6px solid #000; padding: 30px; font-family: 'Courier Prime', monospace; position: sticky; top: 150px; box-shadow: 12px 12px 0px var(--beige); }
+        .receipt h2 { text-align: center; border-bottom: 3px dashed #000; padding-bottom: 15px; margin-bottom: 25px; }
         
-        .label-text { font-size: 0.85rem; font-weight: 700; margin: 15px 0 5px; display: block; text-transform: uppercase; }
-        .input-field { width: 100%; padding: 12px; border: 2px solid #000; font-family: 'Courier Prime'; font-weight: 700; background: #fff; font-size: 1rem; margin-bottom: 10px; }
+        .input-group { margin-bottom: 15px; }
+        .label-text { font-size: 0.8rem; font-weight: 700; margin-bottom: 5px; display: block; text-transform: uppercase; }
+        .input-field { width: 100%; padding: 12px; border: 2px solid #000; font-family: 'Courier Prime'; font-weight: 700; font-size: 1rem; }
 
-        .cart-items { min-height: 80px; border-bottom: 3px dashed #000; margin: 20px 0; padding-bottom: 15px; }
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 1rem; }
+        .cart-items { min-height: 100px; border-bottom: 3px dashed #000; margin: 25px 0; padding-bottom: 15px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-weight: 700; }
+        .qty-controls { display: flex; align-items: center; gap: 10px; }
+        .qty-btn { background: #eee; border: 1px solid #000; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: 900; }
+
+        .total-row { display: flex; justify-content: space-between; font-size: 2rem; font-weight: 900; margin-top: 20px; }
         
-        .total-row { display: flex; justify-content: space-between; font-size: 1.8rem; font-weight: 900; margin-top: 15px; }
-        
-        .btn-wa { background: var(--wa); color: #fff; border: 3px solid #000; padding: 20px; width: 100%; font-weight: 900; font-size: 1.2rem; cursor: pointer; margin-top: 25px; text-transform: uppercase; }
-        .btn-reset { background: #eee; color: #555; border: 2px solid #000; padding: 10px; width: 100%; font-weight: 700; cursor: pointer; margin-top: 10px; font-family: 'Courier Prime'; }
+        .btn-wa { background: var(--wa); color: #fff; border: 3px solid #000; padding: 22px; width: 100%; font-weight: 900; font-size: 1.3rem; cursor: pointer; margin-top: 25px; transition: 0.3s; }
+        .btn-wa:hover { filter: brightness(1.1); }
+        .btn-reset { background: none; border: none; color: var(--red); cursor: pointer; font-size: 0.8rem; text-decoration: underline; margin-top: 15px; width: 100%; font-weight: 700; }
 
         @media (max-width: 950px) {
-            .container { grid-template-columns: 1fr; }
-            .receipt { position: static; margin-top: 40px; }
+            .container { grid-template-columns: 1fr; padding: 20px; }
+            .receipt { position: static; margin-top: 50px; }
         }
     </style>
 </head>
 <body>
 
+<div class="status-bar">● SISTEMA DE PEDIDOS ONLINE ATIVO - BRASÍLIA</div>
+
 <header class="header">
-    <h1>MAST IOGURTE BRASÍLIA</h1>
+    <h1>MAST IOGURTE</h1>
+    <p>O Sabor Real do Iogurte Artesanal</p>
 </header>
 
 <div class="container">
-    <main id="shop-floor"></main>
+    <main id="menu-display"></main>
 
     <aside>
         <div class="receipt">
-            <h2>RECIBO</h2>
+            <h2>RESUMO</h2>
             
-            <label class="label-text">Seu Nome:</label>
-            <input type="text" id="cust_name" class="input-field" placeholder="Nome...">
-
-            <label class="label-text">Entrega / Frete:</label>
-            <select id="area_fee" class="input-field" onchange="renderCart()">
-                <option value="10">Lago Sul (Perto) - R$ 10</option>
-                <option value="15">Lago Sul (Longe) - R$ 15</option>
-                <option value="20">Asa Norte/Sul - R$ 20</option>
-                <option value="0">Retirada Local - R$ 0</option>
-            </select>
-
-            <label class="label-text">Endereço:</label>
-            <textarea id="cust_addr" class="input-field" rows="2" placeholder="Rua, Casa..."></textarea>
-
-            <label class="label-text">Pagamento:</label>
-            <select id="pay_method" class="input-field">
-                <option value="PIX">PIX</option>
-                <option value="Cartão">Cartão</option>
-                <option value="Dinheiro">Dinheiro</option>
-            </select>
-
-            <div id="cart-list" class="cart-items"></div>
-
-            <div class="total-row">
-                <span>TOTAL:</span>
-                <span id="total-val">R$ 10,00</span>
+            <div class="input-group">
+                <label class="label-text">Seu Nome:</label>
+                <input type="text" id="c_name" class="input-field" placeholder="Ex: Maria Silva">
             </div>
 
-            <button class="btn-wa" onclick="checkout()">FINALIZAR PEDIDO</button>
-            <button class="btn-reset" onclick="resetOrder()">LIMPAR PEDIDO (SIFIRLA)</button>
+            <div class="input-group">
+                <label class="label-text">Bairro (Entrega):</label>
+                <select id="c_fee" class="input-field" onchange="renderCart()">
+                    <option value="10">Lago Sul (Perto) - R$ 10</option>
+                    <option value="15">Lago Sul (Longe) - R$ 15</option>
+                    <option value="20">Asa Norte/Sul - R$ 20</option>
+                    <option value="0">Retirada Local - R$ 0</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Endereço & Referência:</label>
+                <textarea id="c_addr" class="input-field" rows="2" placeholder="Quadra, Casa, Cor do portão..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label class="label-text">Pagamento:</label>
+                <select id="c_pay" class="input-field">
+                    <option value="PIX">PIX (Rápido)</option>
+                    <option value="Cartão">Cartão (Maquininha)</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                </select>
+            </div>
+
+            <div id="cart-items" class="cart-items"></div>
+
+            <div class="total-row">
+                <span>TOTAL</span>
+                <span id="total-price">R$ 10,00</span>
+            </div>
+
+            <button class="btn-wa" onclick="sendOrder()">PEDIR AGORA NO WHATSAPP</button>
+            <button class="btn-reset" onclick="clearAll()">Limpar todo o pedido</button>
         </div>
     </aside>
 </div>
 
 <script>
-    const inventory = [
-        { cat: "Iogurtes Naturais", img: "yogurt.jpg", prods: [
-            { id: 1, name: "Natural 1000ml", price: 20 },
-            { id: 2, name: "Natural 500ml", price: 10 },
-            { id: 3, name: "Natural 250ml", price: 7 }
-        ]},
-        { cat: "Sobremesas", img: "sutlac.jpg", prods: [
-            { id: 4, name: "Arroz Doce (G)", price: 20 },
-            { id: 5, name: "Arroz Doce (M)", price: 10 }
-        ]}
+    const menu = [
+        {
+            title: "Nossos Iogurtes",
+            img: "yogurt.jpg",
+            items: [
+                { id: 1, name: "Natural 1000ml", price: 20, desc: "Familiar, 100% integral e sem conservantes." },
+                { id: 2, name: "Natural 500ml", price: 10, desc: "Tamanho ideal para o café da manhã." },
+                { id: 3, name: "Natural 250ml", price: 7, desc: "Praticidade para levar onde quiser." }
+            ]
+        },
+        {
+            title: "Doces Caseiros",
+            img: "sutlac.jpg",
+            items: [
+                { id: 4, name: "Arroz Doce Família", price: 20, desc: "Receita tradicional com toque de canela." },
+                { id: 5, name: "Arroz Doce Médio", price: 10, desc: "Cremoso e fresquinho todos os dias." }
+            ]
+        }
     ];
 
-    let myCart = {}; 
+    let basket = {}; // {id: quantity}
 
-    function drawMenu() {
-        const floor = document.getElementById('shop-floor');
+    function initMenu() {
+        const display = document.getElementById('menu-display');
         let html = "";
-        inventory.forEach(section => {
-            html += `<div class="section-header"><h2>${section.cat}</h2></div><div class="grid">`;
-            section.prods.forEach(p => {
+        menu.forEach(cat => {
+            html += `<div class="section-title"><h2>${cat.title}</h2></div><div class="grid">`;
+            cat.items.forEach(p => {
                 html += `
                 <div class="card">
-                    <div class="img-box"><img src="${section.img}" onerror="this.src='https://placehold.co/400x400?text=MAST'"></div>
+                    <div class="img-box"><img src="${cat.img}" onerror="this.src='https://placehold.co/400x400?text=MAST'"></div>
                     <h3>${p.name}</h3>
+                    <p class="desc">${p.desc}</p>
                     <span class="price">R$ ${p.price.toFixed(2)}</span>
-                    <button class="add-btn" onclick="addItem(${p.id})">ADICIONAR +</button>
+                    <button class="add-btn" onclick="modifyQty(${p.id}, 1)">ADICIONAR +</button>
                 </div>`;
             });
             html += `</div>`;
         });
-        floor.innerHTML = html;
+        display.innerHTML = html;
     }
 
-    function addItem(id) {
-        myCart[id] = (myCart[id] || 0) + 1;
+    function modifyQty(id, amt) {
+        basket[id] = (basket[id] || 0) + amt;
+        if(basket[id] <= 0) delete basket[id];
         renderCart();
     }
 
-    function resetOrder() {
-        if(confirm("Tem certeza que deseja limpar o pedido?")) {
-            myCart = {};
+    function clearAll() {
+        if(confirm("Deseja realmente limpar seu carrinho?")) {
+            basket = {};
             renderCart();
         }
     }
 
     function renderCart() {
-        const listDiv = document.getElementById('cart-list');
-        const totalDisp = document.getElementById('total-val');
-        const fee = parseFloat(document.getElementById('area_fee').value);
-        let subtotal = 0;
+        const list = document.getElementById('cart-items');
+        const priceTag = document.getElementById('total-price');
+        const fee = parseFloat(document.getElementById('c_fee').value);
+        let sub = 0;
         let html = "";
         
-        for (const id in myCart) {
-            let pData;
-            inventory.forEach(cat => {
-                const found = cat.prods.find(p => p.id == id);
-                if(found) pData = found;
-            });
-            if(pData) {
-                const itemTotal = pData.price * myCart[id];
-                subtotal += itemTotal;
-                html += `<div class="cart-item"><span>${myCart[id]}x ${pData.name}</span><span>R$ ${itemTotal.toFixed(2)}</span></div>`;
+        for (const id in basket) {
+            let item;
+            menu.forEach(c => { const f = c.items.find(i => i.id == id); if(f) item = f; });
+            if(item) {
+                const totalItem = item.price * basket[id];
+                sub += totalItem;
+                html += `
+                <div class="cart-item">
+                    <div>${item.name}</div>
+                    <div class="qty-controls">
+                        <div class="qty-btn" onclick="modifyQty(${id}, -1)">-</div>
+                        <span>${basket[id]}</span>
+                        <div class="qty-btn" onclick="modifyQty(${id}, 1)">+</div>
+                        <span style="margin-left:10px;">R$ ${totalItem.toFixed(2)}</span>
+                    </div>
+                </div>`;
             }
         }
-        listDiv.innerHTML = Object.keys(myCart).length ? html : "Carrinho Vazio";
-        totalDisp.innerText = `R$ ${(subtotal + fee).toFixed(2)}`;
+        list.innerHTML = Object.keys(basket).length ? html : "<p style='text-align:center; opacity:0.4'>Seu carrinho está vazio.</p>";
+        priceTag.innerText = `R$ ${(sub + fee).toFixed(2)}`;
     }
 
-    function checkout() {
-        const n = document.getElementById('cust_name').value;
-        const a = document.getElementById('cust_addr').value;
-        if(!n || !a || Object.keys(myCart).length === 0) return alert("Preencha Nome, Endereço e adicione itens!");
+    function sendOrder() {
+        const n = document.getElementById('c_name').value;
+        const a = document.getElementById('c_addr').value;
+        const p = document.getElementById('c_pay').value;
+        const f = document.getElementById('c_fee').options[document.getElementById('c_fee').selectedIndex].text;
         
-        let msg = `*NOVO PEDIDO - MAST*%0A%0A👤 *Cliente:* ${n}%0A📍 *End:* ${a}%0A💳 *Pagamento:* ${document.getElementById('pay_method').value}%0A%0A*ITENS:*%0A`;
-        for (const id in myCart) {
-            let pData;
-            inventory.forEach(cat => {
-                const found = cat.prods.find(item => item.id == id);
-                if(found) pData = found;
-            });
-            msg += `• ${myCart[id]}x ${pData.name}%0A`;
+        if(!n || !a || Object.keys(basket).length === 0) return alert("Por favor, preencha Nome, Endereço e escolha seus produtos!");
+        
+        let m = `*PEDIDO CONFIRMADO - MAST*%0A%0A`;
+        m += `👤 *Cliente:* ${n}%0A`;
+        m += `📍 *Endereço:* ${a}%0A`;
+        m += `🚚 *Entrega:* ${f}%0A`;
+        m += `💳 *Pagamento:* ${p}%0A%0A`;
+        m += `*PRODUTOS:*%0A`;
+        
+        for (const id in basket) {
+            let item;
+            menu.forEach(c => { const f = c.items.find(i => i.id == id); if(f) item = f; });
+            m += `• ${basket[id]}x ${item.name} (R$ ${(item.price * basket[id]).toFixed(2)})%0A`;
         }
-        msg += `%0A💰 *TOTAL: ${document.getElementById('total-val').innerText}*`;
-        window.open(`https://wa.me/5561999851365?text=${msg}`);
+        m += `%0A💰 *TOTAL: ${document.getElementById('total-price').innerText}*`;
+        
+        window.open(`https://wa.me/5561999851365?text=${m}`, '_blank');
     }
 
-    drawMenu();
+    initMenu();
 </script>
 </body>
 </html>
