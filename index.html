@@ -5,98 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MAST IOGURTE | DELIVERY</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@400;700&family=Courier+Prime:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@400;600;700&family=Courier+Prime:wght@700&display=swap');
         :root { --bg: #fdfaf5; --ink: #1a1a1a; --wa: #25d366; --red: #d63031; --beige: #EBD8B8; }
+        
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; }
-        .header { background: var(--beige); padding: 15px; text-align: center; border-bottom: 3px solid #000; position: sticky; top: 0; z-index: 100; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 350px; gap: 20px; }
-        .card { background: #fff; border: 2px solid #000; padding: 15px; margin-bottom: 20px; text-align: center; }
-        .img-box { width: 100%; aspect-ratio: 1; background: #eee; margin-bottom: 10px; border: 1px solid #000; overflow: hidden; }
+
+        /* HEADER */
+        .header { background: var(--beige); padding: 20px; text-align: center; border-bottom: 4px solid #000; position: sticky; top: 0; z-index: 1000; }
+        .header h1 { font-family: 'Playfair Display', serif; font-size: 2rem; letter-spacing: 2px; }
+
+        /* LAYOUT */
+        .container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 30px; padding: 20px; }
+
+        /* URUN KARTLARI */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .card { background: #fff; border: 3px solid #000; padding: 15px; text-align: center; transition: 0.2s; position: relative; }
+        .card:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0px #000; }
+        .img-box { width: 100%; aspect-ratio: 1; background: #eee; border: 2px solid #000; margin-bottom: 12px; overflow: hidden; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .price { color: var(--red); font-weight: 900; font-size: 1.4rem; margin: 10px 0; }
-        .add-btn { background: #000; color: #fff; border: none; padding: 12px; width: 100%; font-weight: 700; cursor: pointer; }
-        .receipt { background: #fff; border: 4px solid #000; padding: 20px; font-family: 'Courier Prime', monospace; position: sticky; top: 100px; }
-        .receipt h2 { border-bottom: 2px dashed #000; text-align: center; margin-bottom: 15px; }
-        .bairro-sel { width: 100%; padding: 10px; border: 2px solid #000; margin-bottom: 15px; font-weight: 700; }
-        .total { border-top: 3px solid #000; padding-top: 10px; font-size: 1.5rem; font-weight: 900; display: flex; justify-content: space-between; }
-        .btn-wa { background: var(--wa); color: #fff; border: 2px solid #000; padding: 15px; width: 100%; font-weight: 700; margin-top: 15px; cursor: pointer; }
-        @media (max-width: 800px) { .container { grid-template-columns: 1fr; } .receipt { position: static; } }
+        .price { color: var(--red); font-weight: 900; font-size: 1.5rem; margin: 10px 0; }
+        .add-btn { background: #000; color: #fff; border: none; padding: 12px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; }
+
+        /* ADISYON FISI */
+        .receipt { background: #fff; border: 5px solid #000; padding: 25px; font-family: 'Courier Prime', monospace; position: sticky; top: 120px; }
+        .receipt h2 { text-align: center; border-bottom: 3px dashed #000; padding-bottom: 10px; margin-bottom: 20px; }
+        
+        .input-field { width: 100%; padding: 10px; border: 2px solid #000; margin-bottom: 15px; font-family: 'Courier Prime'; font-weight: 700; background: #f9f9f9; }
+        .label-text { font-size: 0.9rem; font-weight: 700; margin-bottom: 5px; display: block; }
+
+        .cart-items { min-height: 60px; border-bottom: 2px dashed #000; margin-bottom: 15px; padding-bottom: 10px; }
+        .total-row { display: flex; justify-content: space-between; font-size: 1.6rem; font-weight: 900; margin-top: 10px; }
+        
+        .btn-wa { background: var(--wa); color: #fff; border: 3px solid #000; padding: 18px; width: 100%; font-weight: 900; font-size: 1.1rem; cursor: pointer; margin-top: 20px; text-transform: uppercase; }
+        .btn-wa:hover { background: #21b858; }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+            .receipt { position: static; }
+        }
     </style>
 </head>
 <body>
 
 <header class="header">
-    <h1 style="font-family:'Playfair Display';">MAST IOGURTE</h1>
+    <h1>MAST IOGURTE BRASÍLIA</h1>
 </header>
 
 <div class="container">
-    <main id="vitrin">
+    <main id="menu-area">
         </main>
 
     <aside>
         <div class="receipt">
-            <h2>RECIBO</h2>
-            <p>LOCAL DE ENTREGA:</p>
-            <select id="frete" class="bairro-sel" onchange="upd()">
+            <h2>RECIBO DE PEDIDO</h2>
+            
+            <label class="label-text">NOME DO CLIENTE:</label>
+            <input type="text" id="cliente_nome" class="input-field" placeholder="Seu nome...">
+
+            <label class="label-text">LOCAL DE ENTREGA:</label>
+            <select id="bairro" class="input-field" onchange="updateCart()">
                 <option value="10">Lago Sul (Perto) - R$ 10</option>
                 <option value="15">Lago Sul (Longe) - R$ 15</option>
                 <option value="20">Asa Norte/Sul - R$ 20</option>
-                <option value="0">Retirada Local - R$ 0</option>
+                <option value="0">Retirada no Local - R$ 0</option>
             </select>
-            <div id="lista" style="margin-bottom: 20px;"></div>
-            <div class="total"><span>TOTAL:</span><span id="valor">R$ 10,00</span></div>
-            <button class="btn-wa" onclick="send()">PEDIR VIA WHATSAPP</button>
-            <button onclick="localStorage.clear(); location.reload();" style="margin-top:10px; font-size:10px; border:none; background:none; cursor:pointer; opacity:0.5;">[Reset Cache]</button>
+
+            <label class="label-text">ENDEREÇO / REFERÊNCIA:</label>
+            <textarea id="endereco" class="input-field" rows="2" placeholder="Ex: Quadra 5, Casa 10..."></textarea>
+
+            <div id="cart-list" class="cart-items"></div>
+
+            <div class="total-row">
+                <span>TOTAL:</span>
+                <span id="total-val">R$ 10,00</span>
+            </div>
+
+            <button class="btn-wa" onclick="enviarWhatsApp()">FINALIZAR NO WHATSAPP</button>
         </div>
     </aside>
 </div>
 
 <script>
-    const data = [
-        { cat: "Iogurtes", img: "yogurt.jpg", items: [
-            {n: "Natural 1000ml", p: 20}, {n: "Natural 500ml", p: 10}, {n: "Natural 250ml", p: 7}
-        ]},
-        { cat: "Sobremesas", img: "sutlac.jpg", items: [
-            {n: "Arroz Doce (G)", p: 20}, {n: "Arroz Doce (M)", p: 10}
-        ]}
+    const menuData = [
+        {
+            category: "Nossos Iogurtes",
+            image: "yogurt.jpg",
+            products: [
+                { name: "Tradicional 1000ml", price: 20 },
+                { name: "Tradicional 500ml", price: 10 },
+                { name: "Tradicional 250ml", price: 7 }
+            ]
+        },
+        {
+            category: "Sobremesas Mast",
+            image: "sutlac.jpg",
+            products: [
+                { name: "Arroz Doce Família", price: 20 },
+                { name: "Arroz Doce Médio", price: 10 }
+            ]
+        }
     ];
 
     let cart = [];
 
-    function render() {
-        let h = "";
-        data.forEach(c => {
-            h += `<h2 style="margin:20px 0;">${c.cat}</h2><div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">`;
-            c.items.forEach(i => {
-                h += `<div class="card"><div class="img-box"><img src="${c.img}"></div><h3>${i.n}</h3><div class="price">R$ ${i.p.toFixed(2)}</div><button class="add-btn" onclick="add('${i.n}',${i.p})">ADD +</button></div>`;
+    function renderMenu() {
+        const area = document.getElementById('menu-area');
+        let html = "";
+        menuData.forEach(cat => {
+            html += `<h2 style="margin: 30px 0 15px; border-left: 10px solid var(--beige); padding-left: 15px;">${cat.category}</h2><div class="grid">`;
+            cat.products.forEach(p => {
+                html += `
+                <div class="card">
+                    <div class="img-box"><img src="${cat.image}" alt="${p.name}"></div>
+                    <h3 style="font-size:1rem;">${p.name}</h3>
+                    <div class="price">R$ ${p.price.toFixed(2)}</div>
+                    <button class="add-btn" onclick="addToCart('${p.name}', ${p.price})">ADICIONAR +</button>
+                </div>`;
             });
-            h += `</div>`;
+            html += `</div>`;
         });
-        document.getElementById('vitrin').innerHTML = h;
+        area.innerHTML = html;
     }
 
-    function add(n, p) { cart.push({n, p}); upd(); }
-
-    function upd() {
-        const l = document.getElementById('lista');
-        const f = parseFloat(document.getElementById('frete').value);
-        let s = 0; let html = "";
-        cart.forEach(i => { s += i.p; html += `<div style="display:flex;justify-content:space-between"><span>${i.n}</span><span>R$ ${i.p.toFixed(2)}</span></div>`; });
-        l.innerHTML = cart.length ? html : "Vazio";
-        document.getElementById('valor').innerText = `R$ ${(s + f).toFixed(2)}`;
+    function addToCart(n, p) {
+        cart.push({name: n, price: p});
+        updateCart();
     }
 
-    function send() {
-        if(!cart.length) return alert("Vazio!");
-        let m = "*PEDIDO MAST*%0A";
-        cart.forEach(i => m += `• ${i.n}%0A`);
-        m += `%0A*TOTAL:* ${document.getElementById('valor').innerText}`;
-        window.open(`https://wa.me/5561999851365?text=${m}`);
+    function updateCart() {
+        const list = document.getElementById('cart-list');
+        const totalDisp = document.getElementById('total-val');
+        const deliveryFee = parseFloat(document.getElementById('bairro').value);
+        
+        let subtotal = 0;
+        let html = "";
+        
+        cart.forEach((item, index) => {
+            subtotal += item.price;
+            html += `<div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                        <span>${item.name}</span>
+                        <span>R$ ${item.price.toFixed(2)}</span>
+                     </div>`;
+        });
+
+        list.innerHTML = cart.length ? html : "<p style='text-align:center; opacity:0.5;'>Carrinho Vazio</p>";
+        totalDisp.innerText = `R$ ${(subtotal + deliveryFee).toFixed(2)}`;
     }
 
-    render();
-    upd();
+    function enviarWhatsApp() {
+        const nome = document.getElementById('cliente_nome').value;
+        const endereco = document.getElementById('endereco').value;
+        const bairroText = document.getElementById('bairro').options[document.getElementById('bairro').selectedIndex].text;
+        const total = document.getElementById('total-val').innerText;
+
+        if(!nome || !endereco) return alert("Por favor, preencha seu nome e endereço!");
+        if(cart.length === 0) return alert("Seu carrinho está vazio!");
+
+        let mensagem = `*PEDIDO MAST IOGURTE*%0A`;
+        mensagem += `--------------------------%0A`;
+        mensagem += `*Cliente:* ${nome}%0A`;
+        mensagem += `*Endereço:* ${endereco}%0A`;
+        mensagem += `*Entrega:* ${bairroText}%0A`;
+        mensagem += `--------------------------%0A`;
+        cart.forEach(i => {
+            mensagem += `• ${i.name} - R$ ${i.price.toFixed(2)}%0A`;
+        });
+        mensagem += `--------------------------%0A`;
+        mensagem += `*TOTAL DO PEDIDO: ${total}*%0A`;
+
+        const fone = "5561999851365";
+        window.open(`https://wa.me/${fone}?text=${mensagem}`, '_blank');
+    }
+
+    renderMenu();
+    updateCart();
 </script>
 </body>
 </html>
