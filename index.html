@@ -3,210 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MAST IOGURTE | ELITE PLUS</title>
+    <title>MAST IOGURTE | SYMMETRY EDITION</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@300;400;600;700&family=Courier+Prime:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@400;600;700&family=Courier+Prime:wght@700&display=swap');
+        
         :root { --bg: #fdfaf5; --ink: #1a1a1a; --wa: #25d366; --red: #d63031; --beige: #EBD8B8; --gold: #c5a059; }
         
-        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; word-wrap: break-word; }
-        body { background: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; line-height: 1.4; overflow-x: hidden; scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+        body { background: var(--bg); color: var(--ink); font-family: 'Poppins', sans-serif; overflow-x: hidden; }
 
-        .top-bar { background: var(--ink); color: var(--beige); text-align: center; padding: 10px; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-bottom: 2px solid var(--gold); }
-
-        .header { background: var(--beige); padding: 30px 20px; text-align: center; border-bottom: 5px solid #000; position: sticky; top: 0; z-index: 1000; }
-        .header h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; letter-spacing: 3px; }
+        /* HEADER & NAV */
+        .header { background: var(--beige); padding: 25px; text-align: center; border-bottom: 4px solid #000; position: sticky; top: 0; z-index: 1000; }
+        .header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; letter-spacing: 2px; }
         
-        .cat-nav { display: flex; justify-content: center; gap: 15px; margin: 20px 0; padding: 10px; position: sticky; top: 110px; z-index: 999; background: var(--bg); }
-        .cat-link { background: #fff; border: 2px solid #000; padding: 8px 15px; font-weight: 700; font-size: 0.8rem; text-decoration: none; color: #000; transition: 0.2s; }
-        .cat-link:hover { background: var(--gold); color: #fff; }
+        .cat-nav { display: flex; justify-content: center; gap: 10px; padding: 15px; background: var(--bg); border-bottom: 2px solid #000; position: sticky; top: 98px; z-index: 999; }
+        .cat-btn { background: #fff; border: 2px solid #000; padding: 8px 20px; font-weight: 700; cursor: pointer; text-decoration: none; color: #000; font-size: 0.8rem; }
 
-        .container { max-width: 1250px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 40px; padding: 20px; }
+        /* LAYOUT */
+        .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 30px; padding: 30px 20px; }
 
-        .section-title { margin: 40px 0 20px; border-left: 15px solid var(--gold); padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 2rem; scroll-margin-top: 180px; }
+        .section-title { grid-column: 1 / -1; margin-bottom: 20px; border-bottom: 4px solid #000; font-family: 'Playfair Display', serif; font-size: 1.8rem; padding-bottom: 5px; scroll-margin-top: 160px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px; }
-        .card { background: #fff; border: 4px solid #000; padding: 20px; text-align: center; transition: 0.3s; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-8px); box-shadow: 10px 10px 0px var(--gold); }
+        /* PRODUCT GRID (Simetrik Kartlar) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .card { background: #fff; border: 3px solid #000; padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: 0.2s; height: 100%; }
+        .card:hover { box-shadow: 8px 8px 0px #000; transform: translate(-4px, -4px); }
         
-        .img-box { width: 100%; aspect-ratio: 1; background: #f9f9f9; border: 1px solid #eee; margin-bottom: 15px; overflow: hidden; }
+        .img-box { width: 100%; aspect-ratio: 1; background: #eee; border: 2px solid #000; margin-bottom: 15px; overflow: hidden; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        .price { color: var(--red); font-weight: 900; font-size: 1.7rem; margin-bottom: 15px; font-family: 'Courier Prime'; }
-        .add-btn { background: #000; color: #fff; border: none; padding: 15px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
-        .add-btn:hover { background: var(--wa); }
+        .card h3 { font-size: 1.1rem; margin-bottom: 10px; height: 3rem; display: flex; align-items: center; justify-content: center; line-height: 1.2; overflow: hidden; }
+        .price { color: var(--red); font-weight: 900; font-size: 1.5rem; margin-bottom: 15px; font-family: 'Courier Prime'; }
+        .add-btn { background: #000; color: #fff; border: none; padding: 14px; width: 100%; font-weight: 700; cursor: pointer; text-transform: uppercase; margin-top: auto; }
 
-        .receipt { 
-            background: #fff; border: 6px solid #000; padding: 30px; font-family: 'Courier Prime', monospace; 
-            position: sticky; top: 160px; max-height: 75vh; display: flex; flex-direction: column;
-            box-shadow: 15px 15px 0px var(--beige);
-        }
-        .receipt h2 { text-align: center; border-bottom: 4px dashed #000; padding-bottom: 12px; margin-bottom: 15px; }
-        .receipt-scroll { overflow-y: auto; flex-grow: 1; padding-right: 10px; }
-
-        .input-field { width: 100%; padding: 12px; border: 3px solid #000; font-family: 'Courier Prime'; font-weight: 700; margin-bottom: 12px; font-size: 0.95rem; }
-
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9rem; align-items: center; border-bottom: 1px dotted #ccc; padding-bottom: 8px; }
-        .qty-controls { display: flex; align-items: center; gap: 10px; }
-        .qty-btn { background: #000; color: #fff; border: none; width: 25px; height: 25px; cursor: pointer; font-weight: 900; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
-
-        .total-row { font-size: 2rem; font-weight: 900; border-top: 5px solid #000; padding-top: 15px; margin-top: 10px; display: flex; justify-content: space-between; color: var(--red); }
+        /* ADİSYON FİŞİ (Nizamlı Sütunlar) */
+        .receipt { background: #fff; border: 5px solid #000; padding: 25px; font-family: 'Courier Prime', monospace; position: sticky; top: 160px; max-height: 75vh; display: flex; flex-direction: column; }
+        .receipt h2 { text-align: center; border-bottom: 3px dashed #000; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.4rem; }
         
-        .btn-wa { background: var(--wa); color: #fff; border: 4px solid #000; padding: 22px; width: 100%; font-weight: 900; font-size: 1.3rem; cursor: pointer; margin-top: 20px; }
+        .receipt-scroll { overflow-y: auto; flex-grow: 1; padding-right: 5px; }
+        .input-group { margin-bottom: 12px; }
+        .input-field { width: 100%; padding: 10px; border: 2px solid #000; font-family: 'Courier Prime'; font-weight: 700; font-size: 0.9rem; }
+
+        /* Sepet Satır Düzeni */
+        .cart-item { display: grid; grid-template-columns: 1fr 80px 80px; align-items: center; margin-bottom: 10px; font-size: 0.85rem; border-bottom: 1px dotted #ccc; padding-bottom: 5px; }
+        .qty-ctrl { display: flex; align-items: center; gap: 5px; justify-content: center; }
+        .qty-btn { background: #000; color: #fff; border: none; width: 20px; height: 20px; cursor: pointer; font-size: 14px; line-height: 1; }
+        .item-total { text-align: right; font-weight: 700; }
+
+        .total-box { border-top: 4px solid #000; padding-top: 15px; margin-top: 15px; }
+        .total-row { display: flex; justify-content: space-between; font-size: 1.8rem; font-weight: 900; color: var(--red); }
+        
+        .btn-wa { background: var(--wa); color: #fff; border: 3px solid #000; padding: 18px; width: 100%; font-weight: 900; font-size: 1.2rem; cursor: pointer; margin-top: 15px; }
 
         @media (max-width: 950px) {
             .container { grid-template-columns: 1fr; }
-            .receipt { position: static; max-height: none; box-shadow: none; margin-top: 40px; }
-            .cat-nav { top: 95px; }
+            .receipt { position: static; max-height: none; margin-top: 30px; }
+            .cat-nav { top: 90px; }
         }
     </style>
 </head>
 <body>
 
-<div class="top-bar">PRODUTOS ARTESANAIS • ENTREGAS EM BRASÍLIA</div>
-
 <header class="header">
     <h1>MAST IOGURTE</h1>
 </header>
 
-<div class="cat-nav" id="navigation"></div>
+<nav class="cat-nav" id="cat-nav"></nav>
 
 <div class="container">
-    <main id="shop-floor"></main>
+    <main id="menu-grid-root"></main>
 
     <aside>
         <div class="receipt">
-            <h2>RECIBO</h2>
+            <h2>RESUMO</h2>
             <div class="receipt-scroll">
-                <input type="text" id="cust-n" class="input-field" placeholder="Seu Nome">
-                <select id="cust-l" class="input-field" onchange="renderCart()">
-                    <option value="10">Lago Sul (Perto) - R$ 10</option>
-                    <option value="15">Lago Sul (Longe) - R$ 15</option>
-                    <option value="20">Asa Norte/Sul - R$ 20</option>
-                    <option value="0">Retirada Local - R$ 0</option>
-                </select>
-                <textarea id="cust-a" class="input-field" rows="2" placeholder="Endereço"></textarea>
+                <div class="input-group"><input type="text" id="name" class="input-field" placeholder="NOME"></div>
+                <div class="input-group">
+                    <select id="loc" class="input-field" onchange="updateView()">
+                        <option value="10">Lago Sul (Perto) - R$ 10</option>
+                        <option value="15">Lago Sul (Longe) - R$ 15</option>
+                        <option value="20">Asa Norte/Sul - R$ 20</option>
+                        <option value="0">Retirada Local - R$ 0</option>
+                    </select>
+                </div>
+                <div class="input-group"><textarea id="addr" class="input-field" rows="2" placeholder="ENDEREÇO"></textarea></div>
                 
-                <div id="cart-list"></div>
-                <div id="gift-area"></div>
+                <div id="cart-list" style="margin-top:20px;"></div>
+                <div id="gift-msg"></div>
             </div>
-            <div class="total-row">
-                <span>TOTAL</span>
-                <span id="total-val">R$ 0,00</span>
+
+            <div class="total-box">
+                <div class="total-row">
+                    <span>TOTAL</span>
+                    <span id="final-val">R$ 0,00</span>
+                </div>
+                <button class="btn-wa" onclick="send()">ENVIAR WHATSAPP</button>
             </div>
-            <button class="btn-wa" onclick="checkout()">FINALIZAR PEDIDO</button>
         </div>
     </aside>
 </div>
 
 <script>
-    // ÜRÜN VERİLERİ (Burası ürünlerin gelmesini sağlar)
-    const database = [
-        { 
-            cat: "Iogurtes", 
-            img: "https://placehold.co/400x400?text=IOGURTE", 
-            items: [
-                {id: 1, n: "Natural 1000ml", p: 20},
-                {id: 2, n: "Natural 500ml", p: 10},
-                {id: 3, n: "Natural 250ml", p: 7}
-            ] 
-        },
-        { 
-            cat: "Sobremesas", 
-            img: "https://placehold.co/400x400?text=DOCE", 
-            items: [
-                {id: 4, n: "Arroz Doce (G)", p: 20},
-                {id: 5, n: "Arroz Doce (M)", p: 10}
-            ] 
-        }
+    const db = [
+        { cat: "Iogurtes", img: "https://placehold.co/400x400?text=IOGURTE", prods: [{id:1, n:"Natural 1000ml", p:20}, {id:2, n:"Natural 500ml", p:10}, {id:3, n:"Natural 250ml", p:7}] },
+        { cat: "Doces", img: "https://placehold.co/400x400?text=DOCE", prods: [{id:4, n:"Arroz Doce (G)", p:20}, {id:5, n:"Arroz Doce (M)", p:10}] }
     ];
 
-    let cart = {};
+    let basket = {};
 
-    // ÜRÜNLERİ EKRANA BASAN FONKSİYON
-    function buildShop() {
-        const floor = document.getElementById('shop-floor');
-        const nav = document.getElementById('navigation');
-        let shopHtml = "";
-        let navHtml = "";
+    function init() {
+        const root = document.getElementById('menu-grid-root');
+        const nav = document.getElementById('cat-nav');
+        let html = ""; let navHtml = "";
 
-        database.forEach((category, index) => {
-            // Navigasyon butonları
-            navHtml += `<a href="#cat-${index}" class="cat-link">${category.cat.toUpperCase()}</a>`;
-            
-            // Ürün kartları
-            shopHtml += `<div class="section-title" id="cat-${index}"><h2>${category.cat}</h2></div><div class="grid">`;
-            category.items.forEach(p => {
-                shopHtml += `
+        db.forEach((c, i) => {
+            navHtml += `<a href="#c-${i}" class="cat-btn">${c.cat.toUpperCase()}</a>`;
+            html += `<div class="section-title" id="c-${i}">${c.cat}</div><div class="grid">`;
+            c.prods.forEach(p => {
+                html += `
                 <div class="card">
-                    <div class="img-box"><img src="${category.img}"></div>
+                    <div class="img-box"><img src="${c.img}"></div>
                     <h3>${p.n}</h3>
                     <div class="price">R$ ${p.p.toFixed(2)}</div>
-                    <button class="add-btn" onclick="updateCart(${p.id}, 1)">ADICIONAR +</button>
+                    <button class="add-btn" onclick="add(${p.id}, 1)">ADICIONAR +</button>
                 </div>`;
             });
-            shopHtml += `</div>`;
+            html += `</div>`;
         });
-
-        floor.innerHTML = shopHtml;
+        root.innerHTML = html;
         nav.innerHTML = navHtml;
-        renderCart();
+        updateView();
     }
 
-    function updateCart(id, amt) {
-        cart[id] = (cart[id] || 0) + amt;
-        if(cart[id] <= 0) delete cart[id];
-        renderCart();
+    function add(id, a) {
+        basket[id] = (basket[id] || 0) + a;
+        if(basket[id] <= 0) delete basket[id];
+        updateView();
     }
 
-    function renderCart() {
+    function updateView() {
         const list = document.getElementById('cart-list');
-        const fee = parseFloat(document.getElementById('cust-l').value);
-        let subtotal = 0;
-        let html = "";
+        const fee = parseFloat(document.getElementById('loc').value);
+        let sub = 0; let h = "";
 
-        for(let id in cart) {
-            let pData;
-            database.forEach(c => { const f = c.items.find(x => x.id == id); if(f) pData = f; });
-            
-            if(pData) {
-                let itemTotal = pData.p * cart[id];
-                subtotal += itemTotal;
-                html += `
-                <div class="cart-item">
-                    <span><b>${cart[id]}x</b> ${pData.n}</span>
-                    <div class="qty-controls">
-                        <button class="qty-btn" onclick="updateCart(${id},-1)">-</button>
-                        <button class="qty-btn" onclick="updateCart(${id},1)">+</button>
-                        <span style="min-width:60px; text-align:right">R$ ${itemTotal.toFixed(2)}</span>
-                    </div>
-                </div>`;
-            }
+        for(let id in basket) {
+            let item; db.forEach(c => { let f = c.prods.find(x => x.id == id); if(f) item = f; });
+            let total = item.p * basket[id];
+            sub += total;
+            h += `
+            <div class="cart-item">
+                <div style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${item.n}</div>
+                <div class="qty-ctrl">
+                    <button class="qty-btn" onclick="add(${id},-1)">-</button>
+                    <span>${basket[id]}</span>
+                    <button class="qty-btn" onclick="add(${id},1)">+</button>
+                </div>
+                <div class="item-total">R$ ${total.toFixed(2)}</div>
+            </div>`;
         }
 
-        list.innerHTML = Object.keys(cart).length ? html : "<p style='text-align:center; padding:20px; opacity:0.3'>Carrinho Vazio</p>";
+        list.innerHTML = Object.keys(basket).length ? h : "<p style='text-align:center; opacity:0.3'>Vazio</p>";
+        document.getElementById('gift-msg').innerHTML = sub >= 100 ? `<div style="font-size:0.7rem; color:var(--gold); text-align:center; font-weight:700; margin-top:10px;">🎁 +1 Iogurte 250ml Brinde!</div>` : "";
+        document.getElementById('final-val').innerText = `R$ ${(sub + fee).toFixed(2)}`;
+    }
+
+    function send() {
+        const n = document.getElementById('name').value;
+        const a = document.getElementById('addr').value;
+        if(!n || !a || !Object.keys(basket).length) return alert("Preencha tudo!");
         
-        const giftArea = document.getElementById('gift-area');
-        giftArea.innerHTML = subtotal >= 100 ? `<div style="background:#fff3cd; color:#856404; padding:10px; font-size:0.8rem; font-weight:700; text-align:center; border:1px dashed #856404; margin-top:10px;">🎁 BRINDE: Iogurte 250ml de cortesia!</div>` : "";
-
-        document.getElementById('total-val').innerText = `R$ ${(subtotal + fee).toFixed(2)}`;
-    }
-
-    function checkout() {
-        const n = document.getElementById('cust-n').value;
-        const a = document.getElementById('cust-a').value;
-        if(!n || !a || !Object.keys(cart).length) return alert("Preencha Nome, Endereço e adicione itens!");
-
-        let msg = `*PEDIDO MAST*%0A%0A👤 *Cliente:* ${n}%0A📍 *Endereço:* ${a}%0A🚚 *Entrega:* ${document.getElementById('cust-l').options[document.getElementById('cust-l').selectedIndex].text}%0A%0A*ITENS:*%0A`;
-        for(let id in cart) {
-            let pData; database.forEach(c => { const f = c.items.find(x => x.id == id); if(f) pData = f; });
-            msg += `• ${cart[id]}x ${pData.n}%0A`;
+        let m = `*PEDIDO MAST*%0A👤 *Cliente:* ${n}%0A📍 *End:* ${a}%0A%0A`;
+        for(let id in basket) {
+            let item; db.forEach(c => { let f = c.prods.find(x => x.id == id); if(f) item = f; });
+            m += `• ${basket[id]}x ${item.n}%0A`;
         }
-        msg += `%0A💰 *TOTAL: ${document.getElementById('total-val').innerText}*`;
-        window.open(`https://wa.me/5561999851365?text=${msg}`);
+        m += `%0A💰 *TOTAL: ${document.getElementById('final-val').innerText}*`;
+        window.open(`https://wa.me/5561999851365?text=${m}`);
     }
 
-    // SAYFA YÜKLENDİĞİNDE DÜKKANI KUR
-    window.onload = buildShop;
+    window.onload = init;
 </script>
 </body>
 </html>
